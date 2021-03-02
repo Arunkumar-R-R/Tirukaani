@@ -1,130 +1,89 @@
-const userGivenItem = 1400;
-const userGivenTouch = 75;
-const expectedTouch = 60;
-const workersTouch = 3;
+const workerTouchForOwnSilver = 4.5; 
+const workerTouchForGivenSilver = 3; 
+let itemWeightInGram ;
+let purity;
+let purityFinalValue;
+let finalTouch;
+let touchNeeded;
 
+class Client
+{
 
-
-
-function purityCalc(userGivenItem,userGivenTouch){
-    // w*t = p
-    const purity = userGivenItem * userGivenTouch;
-    if (userGivenItem < 999)
+    constructor(weight,unit,touch,expTouch)
     {
-        let purityInString = purity.toString();
-        let purityFinalValue = purityInString.substr(0,3);
-        let integer = 999;
-        console.log("the purity is "+purityFinalValue);
-        weightCalc(purityFinalValue,integer);
-    }
-    else if(userGivenItem <9999)
-    {
-        let purityInString = purity.toString();
-        let purityFinalValue = purityInString.substr(0,4);
-        let integer = 9999;
-        console.log("the purity is "+purityFinalValue);
-        weightCalc(purityFinalValue,integer);
-    }
-    else if(userGivenItem < 99999) // 99kg
-    {
-        let purityInString = purity.toString();
-        let purityFinalValue = purityInString.substr(0,5);
-        let integer = 99999;
-        console.log("the purity is "+purityFinalValue);
-        weightCalc(purityFinalValue,integer);
+        this.itemWeight = weight;
+        this.weightUnit = unit;
+        this.userGivenTouch = touch;
+        this.expectedTouch = expTouch;
+        // const userGivenItem = itemWeight * 1000;
     }
 
-}
-function weightCalc(purityFinalValue,integer) {
-    if(expectedTouch > 0)
+    convertWeightToGram()
     {
-        if(expectedTouch > userGivenTouch)
+        if(this.weightUnit === 'kg')
         {
-            var touchNeeded = (expectedTouch - userGivenTouch);
-            console.log("touch need be added is " + touchNeeded);
-            var finalTouch = userGivenTouch + workersTouch + touchNeeded;
-            console.log('final touch is ' + finalTouch);
+            itemWeightInGram = this.itemWeight * 1000;
+            // console.log(`kg to gram is ${itemWeightInGram}`);
+        }
+        else if(this.weightUnit ==='g')
+        {
+            itemWeightInGram = this.itemWeight;
+            // console.log(`gram is ${itemWeightInGram}`);
+        }
+    }
+
+    getPurity() 
+    {
+        purity = itemWeightInGram * this.userGivenTouch;
+        let purityInString = purity.toString();
+        if(itemWeightInGram <= 999)
+        {
+            purityFinalValue = purityInString.substr(0,3);
+            console.log(`purity is ${purityFinalValue} gram`);
+        }
+        else if(itemWeightInGram <= 9999)
+        {
+            purityFinalValue = (purityInString.substr(0,4)) / 1000;
+            // let purityInKg = purityFinalValue / 1000;
+            console.log(`purity is ${purityFinalValue} kg`);
         }
         else
         {
-            var touchNeeded = (userGivenTouch - expectedTouch);
-            console.log("touch need be reduced is " + touchNeeded);
-            var finalTouch = userGivenTouch + workersTouch - touchNeeded;
-            console.log('final touch is ' + finalTouch);
+            purityFinalValue = (purityInString.substr(0,5)) / 1000;
+            // let purityInKg = purityFinalValue / 1000;
+            console.log(`purity is ${purityFinalValue} kg`);
         }
+    }
+
+    getFinalTouch()
+    {
+        if(this.expectedTouch > 0)
+        {
+            if(this.expectedTouch > this.userGivenTouch)
+            {
+                touchNeeded = (this.expectedTouch - this.userGivenTouch);
+                finalTouch = this.userGivenTouch + workerTouchForGivenSilver + touchNeeded;
+            }
+            else
+            {
+                touchNeeded = (this.userGivenTouch - this.expectedTouch);
+                finalTouch = this.userGivenTouch + workerTouchForGivenSilver - touchNeeded;
+            }
+        }
+        else
+        {
+            finalTouch = this.userGivenTouch + workerTouchForGivenSilver;
+        }
+        console.log('touch including worker\'s touch is ' + finalTouch);
+
+    }
+
     
-    }
-    else
-    {
-        var finalTouch = userGivenTouch + workersTouch;
-        console.log('touch is ' + finalTouch);
-    }
-    var productWeight = (purityFinalValue / finalTouch);
-    if(integer == 999)
-    {
-        let finalProductWeight = (productWeight*1000).toString().substr(0,3);
-        console.log("final product weight is " + finalProductWeight);
-        if(expectedTouch > 0)
-        {
-            if(expectedTouch > userGivenTouch)
-            {
-                console.log("profit is " + (userGivenItem - finalProductWeight));
-            }
-            else
-            {
-                console.log(" no profit and extra weight need to be added is " + (finalProductWeight-userGivenItem));
-            }
-        }
-        else
-        {
-            console.log("profit is " + (userGivenItem - finalProductWeight));
-        }
-      
-    }
-    else if(integer == 9999)
-    {
-        
-        let finalProductWeight = (productWeight*1000).toString().substr(0,4);
-        console.log("final product weight is " + finalProductWeight);
-        if(expectedTouch > 0)
-        {
-            if(expectedTouch > userGivenTouch)
-            {
-                console.log("profit is " + (userGivenItem - finalProductWeight));
-            }
-            else
-            {
-                console.log(" no profit and extra weight need to be added is " + (finalProductWeight-userGivenItem));
-            }
-        }
-        else
-        {
-            console.log("profit is " + (userGivenItem - finalProductWeight));
-        }
-      
-     }
-    else if(integer == 99999)
-    {
-
-        let finalProductWeight = (productWeight*10000).toString().substr(0,5);
-        console.log("final product weight is " + finalProductWeight);
-        if(expectedTouch > 0)
-        {
-            if(expectedTouch > userGivenTouch)
-            {
-                console.log("profit is " + (userGivenItem - finalProductWeight));
-            }
-            else
-            {
-                console.log(" no profit and extra weight need to be added is " + (finalProductWeight-userGivenItem));
-            }
-        }
-        else
-        {
-            console.log("profit is " + (userGivenItem - finalProductWeight));
-        }
-
-    }
+   
 }
 
-purityCalc(userGivenItem,userGivenTouch);
+const client1 = new Client(500,'g',75, 80);
+
+client1.convertWeightToGram();
+client1.getPurity();
+client1.getFinalTouch();
