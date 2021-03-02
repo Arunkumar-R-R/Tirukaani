@@ -36,23 +36,31 @@ class Client
     {
         purity = itemWeightInGram * this.userGivenTouch;
         let purityInString = purity.toString();
+        // console.log(purityInString)
         if(itemWeightInGram < 100)
         {
             integer = 10;
-            purityFinalValue = purityInString.substr(0,1);
-            this.getProductFinalWeight(purityFinalValue,integer);
+            purityFinalValue = purityInString.substr(0,2);
+            // this.getProductFinalWeight(purityFinalValue,integer);
             console.log(`purity is ${purityFinalValue} gram`);
         }
-        else  if(itemWeightInGram < 1000)
+        else  if(itemWeightInGram < 999)
         {
             integer = 100;
             purityFinalValue = purityInString.substr(0,3);
             this.getProductFinalWeight(purityFinalValue,integer);
             console.log(`purity is ${purityFinalValue} gram`);
         }
-        else if(itemWeightInGram <10000)
+        else if(itemWeightInGram < 9999)
         {
-            integer = 1000;
+            if(itemWeightInGram < 1000)
+            {
+                integer = 1000;
+            }
+            else
+            {
+                integer = 1001;
+            }
             purityFinalValue = (purityInString.substr(0,3));
             this.getProductFinalWeight(purityFinalValue,integer);
             console.log(`purity is ${purityFinalValue/1000} kg`);
@@ -92,33 +100,21 @@ class Client
     getProductFinalWeight(purityFinalValue,integer)
     {
         var position = {
-            '10':{
-                'endPosition':2,
-                'unit':'g'
-                 },
-            '100':{
-                'endPosition':3,
-                'unit':'g'
-                 },
-            '1000':{
-                'endPosition':4,
-                'unit':'g'
-                   },
-            '10000':{
-                'endPosition':5,
-                'unit':'kg'
-                 }
-        }
-        productWeight = ((purityFinalValue / finalTouch)*integer).toString().substr(0,position[integer].endPosition) ;
-        console.log(`product weight is ${productWeight} ${position[integer].unit}`);
+                        '10':2,
+                        '100':3,
+                        '1000':3,
+                        '1001':4,      
+                        '10000':5,    
+                        }
+        productWeight = ((purityFinalValue / finalTouch)*integer).toString().substr(0,position[integer]) ;
+        console.log(`product weight is ${productWeight} g`);
     }
    
 }
 
-const client1 = new Client(89,'g',65,0);
+const client1 = new Client(1.1,'kg',60,0);
 
 client1.convertWeightToGram();
 client1.getFinalTouch();
 client1.getPurity();
-// client1.getProductFinalWeight();
 
