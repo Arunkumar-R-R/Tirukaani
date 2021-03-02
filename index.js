@@ -77,8 +77,10 @@ class Client
         console.log('touch including worker\'s touch is ' + finalTouch);
 
     }
-
-    
+    getProductFinalWeight()
+    {
+        
+    }
    
 }
 
