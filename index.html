@@ -7,7 +7,17 @@
     <title>Calc</title>
 </head>
 <body>
-    
+    <form  onsubmit="return mySubmitFunction(event)">
+  <label for="itemweight">weight</label><br>
+  <input type="text" id="itemweight" name="itemweight" value=""><br>
+  <label for="touch">Touch</label><br>
+  <input type="text" id="touch" name="touch" value=""><br><br>
+  <input type="submit" value="submit">
+</form> 
+<div id='purity'>
+</div>
+<div id='productweight'>
+</div>
     <script src="./index.js"></script>
 </body>
 </html>

@@ -1,9 +1,19 @@
-
-let weight = 2500;
-let touch = 65;
+function mySubmitFunction(e)
+{
+  e.preventDefault();
+  let weightins = document.getElementById("itemweight").value;
+  // console.log(typeof weight);
+  weight = parseInt(weightins);
+  let touchins  = document.getElementById("touch").value;
+  touch = parseInt(touchins);
+  // console.log(weight,touch);
+  //   let weight = 2500;
+  // let touch = 65;
 let labourtouch = 3;
 let finalpurityvalue;
 let newwslength;
+let p = document.querySelector('#purity');
+let fpw = document.querySelector('#productweight');
 
 let finaltouch = touch + labourtouch;
 // console.log(finaltouch);
@@ -25,11 +35,13 @@ if(result > weight)
   // console.log("new length "+newwslength);
   finalpurityvalue = purityInString.substr(0,newwslength);
   console.log(`purity is ${finalpurityvalue} gm`);
+  p.innerText = `purity is ${finalpurityvalue} gm`;
   productweight(finalpurityvalue,newwslength);
 }
 else
 {
    console.log(`purity is ${result} gm`);
+   p.innerText = `purity is ${result} gm`;
    productweight(result,wslength);
 }
 
@@ -68,5 +80,9 @@ function productweight(p,l)
        finalpw = pwinstring.substr(0,l);
     }
   console.log(`product weight is ${finalpw} gm`);
-  
+  fpw.innerText = `product weight is ${finalpw} gm`;
 }
+  return false;
+}
+
+
