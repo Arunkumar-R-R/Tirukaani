@@ -67,18 +67,15 @@ function productweight(p,l)
   // console.log("final " + noofmultiples);
   
   let no = parseInt(noofmultiples);
-  let pwinwhole = productweight *no;
+  let pwinwhole = productweight*no;
   // console.log("product weight in whole number "+ pwinwhole);
   
   let pwinstring = pwinwhole.toString();
-  if(weight > purityinnumber)
-    {
-       finalpw = pwinstring.substr(0,wslength);
-    }
-  else
-    {
-       finalpw = pwinstring.substr(0,l);
-    }
+  finalpw = pwinstring.substr(0,wslength);
+  if(weight<finalpw)
+  {
+    finalpw = pwinstring.substr(0,wslength-1);
+  }
   console.log(`product weight is ${finalpw} gm`);
   fpw.innerText = `product weight is ${finalpw} gm`;
 }
