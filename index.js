@@ -1,4 +1,8 @@
-function mySubmitFunction(e)
+let pur ;
+let finalpurityvalue;
+let newwslength;
+
+function Form1SubmitFunction(e)
 {
   e.preventDefault();
   let weightins = document.getElementById("itemweight").value;
@@ -7,17 +11,9 @@ function mySubmitFunction(e)
   let touchins  = document.getElementById("touch").value;
   // console.log(touchins);
   touch = parseFloat(touchins);
-  let labourtouchins  = document.getElementById("labourtouch").value;
-  labourtouch = parseFloat(labourtouchins);
   // console.log(touch);
 // let labourtouch = 3;
-let finalpurityvalue;
-let newwslength;
 let p = document.querySelector('#purity');
-let fpw = document.querySelector('#productweight');
-
-let finaltouch = touch + labourtouch;
-console.log("final touch is " + finaltouch);
 
 let weightinstring = weight.toString();
 let wslength = weightinstring.length;
@@ -25,25 +21,44 @@ let wslength = weightinstring.length;
 
 let purity = weight * touch;
 let purityInString = purity.toString()
-let pslength = purityInString.length;
+// let pslength = purityInString.length;
 // console.log("pslength "+ pslength);
 
 let result = purityInString.substr(0,wslength);
 // console.log("purity without any operation performed on it "+result);
-if(result > weight)
-{
-  newwslength = wslength - 1;
-  // console.log("new length "+newwslength);
-  finalpurityvalue = purityInString.substr(0,newwslength);
-  console.log(`purity is ${finalpurityvalue} gm`);
-  p.innerText = `purity is ${finalpurityvalue} gm`;
-  productweight(finalpurityvalue,newwslength);
+  if(result > weight)
+  {
+    newwslength = wslength - 1;
+    // console.log("new length "+newwslength);
+    finalpurityvalue = purityInString.substr(0,newwslength);
+    pur = finalpurityvalue;
+    console.log(`purity is ${finalpurityvalue} gm`);
+    p.innerText = `purity is ${finalpurityvalue} gm`;
+    // productweight(finalpurityvalue,newwslength);
+  }
+  else
+  {
+    pur = result;
+    console.log(`purity is ${result} gm`);
+    p.innerText = `purity is ${result} gm`;
+     productweight(result,wslength);
+  }
+
 }
-else
+
+function Form2SubmitFunction(e)
 {
-   console.log(`purity is ${result} gm`);
-   p.innerText = `purity is ${result} gm`;
-   productweight(result,wslength);
+  e.preventDefault();
+  let averagetouchins  = document.getElementById("averagetouch").value;
+  averagetouch = parseFloat(averagetouchins);
+
+  let labourtouchins  = document.getElementById("labourtouch").value;
+  labourtouch = parseFloat(labourtouchins);
+
+  let finaltouch = averagetouchins + labourtouch;
+  console.log("final touch is " + finaltouch);
+  productweight()
+  return false;
 }
 
 function productweight(p,l)
@@ -53,7 +68,8 @@ function productweight(p,l)
   let noofmultiples = '1';
   let finalpw;
   let i = 0;
-  
+  let fpw = document.querySelector('#productweight');
+
   if(typeof p === "string")
     {
       purityinnumber =  parseInt(p);
@@ -79,8 +95,6 @@ function productweight(p,l)
   }
   console.log(`product weight is ${finalpw} gm`);
   fpw.innerText = `product weight is ${finalpw} gm`;
-}
-  return false;
 }
 
 
