@@ -1,0 +1,28 @@
+:root{
+
+    --primary-color:#3d84b8;
+    --secondary-color:#E4FBFF;
+    --heading-color:#18354A;
+    --text-color:#333333;
+    --border-color:#b8c4cc;
+  
+    --status-in-progress:#0000FF;
+    --status-in-progress-b:#E1E1FD;
+  
+    --status-not-yet:#808080;
+    --status-not-yet-b:#ECECEC;
+  
+    --status-in-Completed:#008000;
+    --status-in-Completed-b:#DBFFDB;
+  
+    --font-size-larger:2.063rem;
+    --font-size-semi-larger:1.438rem;
+    --font-size-medium:1.188rem;
+    --font-size-regular:1rem;
+  
+    --font-weight-bold:700;
+    --font-weight-semi:600;
+    --font-weight-meidum:500;
+    --font-weight-regular:400;
+  
+  }

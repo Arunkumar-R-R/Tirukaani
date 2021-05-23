@@ -1,0 +1,15 @@
+@import url(./../../App.css);
+
+.no-data-available-container
+{
+    background-color: var(--secondary-color);
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+h1{
+    font-size: var(--font-size-semi-larger);
+    font-weight: var(--font-weight-meidum);
+}
