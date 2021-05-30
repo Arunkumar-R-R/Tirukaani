@@ -1,0 +1,17 @@
+@import url(./../../App.css);
+
+.button-sticky-button
+{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 0 30px;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--white-color);
+    filter: drop-shadow(4px 0px 10px rgba(0, 0, 0, 0.25));
+}
+
+.add-client-btn{
+position: absolute;
+}
