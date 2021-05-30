@@ -3,8 +3,8 @@
 .no-data-available-container
 {
     background-color: var(--secondary-color);
-    /* height: calc(100vh - 130px); */
-    height: 150vh;
+    height: calc(100vh - 140px);
+    /* height: 150vh; */
     display: flex;
     justify-content: center;
     align-items: center;
