@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import No_data_available from './components/no_data_available/No_data_available'
+import Home_page from './pages/home_page/Home_page';
 
 function App() {
   return (
     <div className="App">
-      <No_data_available/>
+      <Home_page/>
     </div>
   );
 }
