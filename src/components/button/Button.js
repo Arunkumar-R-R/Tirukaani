@@ -3,8 +3,8 @@ import './button.css'
 export default function Button()
 {
     return(
-        <div className="button">
+        <button className="button">
             button
-        </div>
+        </button>
     );
 }
