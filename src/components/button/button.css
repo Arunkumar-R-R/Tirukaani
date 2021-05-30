@@ -4,7 +4,6 @@
 {
     background-color: var(--primary-color);
     line-height: 1.5;
-    text-align: center;
     color: var(--white-color);
     border-radius: var(--border-radius-small);
     border: none;
@@ -12,4 +11,14 @@
     margin: 12px 0;
     width:100%;
     font-size: var(--font-size-regular);
+    font-family: inherit;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.button img{
+    margin: 0 10px 0 0;
+    width: 25px;
+    height: 25px;
 }

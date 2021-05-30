@@ -1,10 +1,11 @@
 import React from 'react';
 import './button.css'
-export default function Button()
+export default function Button(props)
 {
     return(
         <button className="button">
-            button
+            <img src={props.icon}/>
+            {props.text}
         </button>
     );
 }
