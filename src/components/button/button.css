@@ -9,4 +9,5 @@
     padding: 15px 116px;
     margin: 12px 30px;
     border-radius: var(--border-radius-small);
+    border: none;
 }
