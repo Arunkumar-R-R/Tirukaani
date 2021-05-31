@@ -4,7 +4,6 @@ export default function Button(props)
 {
     return(
         <button className="button">
-            <img src={props.icon}/>
             {props.text}
         </button>
     );
