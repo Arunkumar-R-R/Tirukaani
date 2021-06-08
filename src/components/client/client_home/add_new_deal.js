@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../button/Button';
 import './add_new_deal.css'
 
 export default function Add_new_deal(){
@@ -15,7 +14,7 @@ export default function Add_new_deal(){
     // }
   
     return (
-      <form>
+     <>
        <div className='form_element'>
             <span className='radiolabel'>Silver Form</span>
                 <label className='elements'>
@@ -57,9 +56,7 @@ export default function Add_new_deal(){
             type="number"
           />
         </div>
-        <div className= 'submit_button'>
-        <Button type={'submit'} text={"Add"} />
-        </div>
-        </form>
+         
+      </>
     );
 };
