@@ -9,7 +9,7 @@ export default function Home_page()
         <>
           <No_data_available/>
           <div className='button-sticky-button'>
-            <Button text={"Add client"} />
+            <Button type={'button'} text={"Add client"} />
           </div>
         </>
       );

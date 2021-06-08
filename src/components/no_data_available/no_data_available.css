@@ -11,6 +11,5 @@
     margin: 30px;
 }
 h1{
-    font-size: var(--font-size-semi-larger);
-    font-weight: var(--font-weight-meidum);
+    font-weight: var(--font-weight-medium);
 }

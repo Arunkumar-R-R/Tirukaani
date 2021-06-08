@@ -1,0 +1,9 @@
+@import url(./../../App.css);
+h1{
+    font-weight: var(--font-weight-bold);
+    margin: 40px 0 30px 0;
+}
+.wrapper
+{
+    padding: 0 15px;
+}

@@ -1,0 +1,20 @@
+@import url(./../../../App.css);
+
+.small-text
+{
+    font-size:var(--font-size-regular) ;
+    margin: 0 0 0 15px;
+}
+.elements
+{
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+    font-weight: var(--font-weight-regular);
+}
+.radiolabel
+{
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    margin: 0 0 15px 0;
+}
