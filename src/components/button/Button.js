@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{ lazy } from 'react';
+import ReactDOM from 'react-dom'
+import { Route } from 'react-router';
 import './button.css'
 export default function Button(props)
 {
     return(
-        <button type={props.type} className="button">
+        <button type={props.type} onClick={props.routeto} className="button">
             {props.text}
         </button>
     );

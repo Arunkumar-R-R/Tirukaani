@@ -81,3 +81,8 @@
   flex-flow: column wrap;
   margin-bottom: 20px;
 }
+.routerlink
+{
+  text-decoration: none;
+  width: 100%;
+}
