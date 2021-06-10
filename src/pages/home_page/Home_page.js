@@ -1,18 +1,14 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../../components/button/Button';
 import Add_new_client_form from '../form/Add_new_client_form';
 import No_data_available from './../../components/no_data_available/No_data_available';
 import './Home_page.css';
-import { Link, Router, useHistory } from 'react-router-dom';
-// import history from './../../history';
+import { Link} from 'react-router-dom';
 
 export default function Home_page()
 {
-  const history = useHistory();
-
   const navigateto =()=>{
-    history.push('/addclient');
     ReactDOM.render (
         <Add_new_client_form/>,
         document.getElementById("root")
@@ -22,10 +18,9 @@ export default function Home_page()
         <>
           <No_data_available/>
           <div className='button-sticky-button'>
-             <Button type={'button'} routeto={navigateto} text={"Add client"} />
-
-              {/* <Link to='/addclient' className='routerlink'>
-              </Link> */}
+              <Link to={{pathname:'/addclient',state:{type1: 'i passed',type2:'2'}}}  className='routerlink'>
+                <Button type={'button'} text={"Add client"} /> 
+              </Link>
           </div>
         </>
       );

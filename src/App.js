@@ -6,19 +6,17 @@ import Deal_page from './pages/deal_page/Deal_page';
 import Add_new_client_form from './pages/form/Add_new_client_form';
 import Form from './pages/form/Add_new_client_form';
 import Home_page from './pages/home_page/Home_page';
-import {BrowserRouter as Router, Route,Switch } from "react-router-dom";
+import {Router, Route,Switch } from "react-router-dom";
 import history from './history'
 
 
 function App() {
   return (
     <div className="App">
-      <Router history={history} forceRefresh={true}>
-        <Switch>
+       <Switch>
           <Route exact path="/" component={Home_page} />
           <Route path="/addclient" component={Add_new_client_form} />
         </Switch>
-      </Router>
     </div>
   );
 }

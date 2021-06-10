@@ -1,10 +1,11 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Add_new_client from '../../components/client/add_new_client';
 import Button from '../../components/button/Button';
 import './form.css';
 
-export default function Add_new_client_form()
+export default function Add_new_client_form(props)
 {
+    
     return(
         <div className='wrapper'>
             <h2>Adding new client</h2>
