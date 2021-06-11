@@ -5,7 +5,7 @@ export default function Add_new_client()
 {
     return(
       <>
-        <div className='form_element'>
+        <div className='form_element' style={{margin:'0 0 30px 0'}}>
         <label htmlFor="name">Name</label>
         <input
             id="name"
