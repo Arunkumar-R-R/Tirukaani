@@ -15,13 +15,17 @@ export default function Home_page()
     )
 };
     return (
-        <>
+      <>
+        <div className='wrapper'>
           <No_data_available/>
-          <div className='button-sticky-button'>
-              <Link to={{pathname:'/addclient',state:{type1: 'i passed',type2:'2'}}}  className='routerlink'>
-                <Button type={'button'} text={"Add client"} /> 
-              </Link>
+
+        </div>
+        <div className='button-sticky-button'>
+            <Link to={{pathname:'/addclient',state:{type1: 'i passed',type2:'2'}}}  className='routerlink'>
+              <Button type={'button'} text={"Add client"} /> 
+            </Link>
           </div>
-        </>
+      </>
+       
       );
 }

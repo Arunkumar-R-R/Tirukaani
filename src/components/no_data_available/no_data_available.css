@@ -3,12 +3,11 @@
 .no-data-available-container
 {
     background-color: var(--secondary-color);
-    height: calc(100vh - 140px);
-    /* height: 150vh; */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin: 10px 0 ;
 }
 h1{
     font-weight: var(--font-weight-medium);
