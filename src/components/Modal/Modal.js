@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
-import Add_new_client from "../client/add_new_client";
-import Button from "../button/Button";
 import "./Modal.css";
 
 const Modal = props => {
@@ -16,6 +14,7 @@ const Modal = props => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
     return function cleanup() {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+
     };
   }, []);
 
