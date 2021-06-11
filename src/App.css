@@ -86,3 +86,12 @@
   text-decoration: none;
   width: 100%;
 }
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-row
+{
+  flex-flow: row wrap;
+}

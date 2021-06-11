@@ -12,7 +12,7 @@ export default function Add_new_client()
             type="text"
         />
         </div>
-        <h2>First Deal</h2>
+        <h3 className='heading-2'>First Deal</h3>
         <Add_new_deal/>
       </>
     );

@@ -5,7 +5,7 @@
     font-size:var(--font-size-regular) ;
     margin: 0 0 0 15px;
 }
-.elements
+.elements:not(:last-child)
 {
     display: flex;
     align-items: center;
