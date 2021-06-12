@@ -5,6 +5,10 @@ import './form.css';
 
 export default function Add_new_client_form(props)
 {
+    function validate(e)
+    {
+        e.preventDefault();
+    }
     
     return(
         <div className='wrapper'>
@@ -16,7 +20,7 @@ export default function Add_new_client_form(props)
             <form>
                 <Add_new_client/>
                 <div className= 'submit_button'>
-                    <Button type={'submit'} text={"Create client"} />
+                    <Button type={'submit'} onClick={validate} text={"Create client"} />
                 </div>
             </form>
         </div>

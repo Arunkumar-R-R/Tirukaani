@@ -7,12 +7,15 @@ import Add_new_client_form from '../form/Add_new_client_form'
 
 export default function Home_page()
 {
+    const [clientavailablie,setclientavailability] = useState(false);
     const [show, setShow] = useState(false);
+
     return (
       <>
         <div className='wrapper'>
-          <No_data_available/>
-
+          {
+            clientavailablie?"":<No_data_available/>
+          }
         </div>
         <div className='button-sticky-button'>
             <Button type={'button'} text={"Add client"} onClick={() => setShow(true)} /> 
