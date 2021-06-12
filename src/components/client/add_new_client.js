@@ -9,7 +9,9 @@ export default function Add_new_client()
         <label htmlFor="name">Name</label>
         <input
             id="name"
+            name='name'
             type="text"
+            required
         />
         </div>
         <h2 >First Deal</h2>

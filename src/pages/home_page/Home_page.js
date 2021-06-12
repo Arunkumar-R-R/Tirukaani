@@ -19,7 +19,7 @@ export default function Home_page()
         </div>
         <div className='button-sticky-button'>
             <Button type={'button'} text={"Add client"} onClick={() => setShow(true)} /> 
-            <Modal onClose={() => setShow(false)} show={show} component={<Add_new_client_form/>} />
+            <Modal onClose={() => setShow(false)} show={show} component={<Add_new_client_form onClose={() => setShow(false)} />} />
         </div>
       </>
        

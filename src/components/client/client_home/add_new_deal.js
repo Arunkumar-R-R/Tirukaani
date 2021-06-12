@@ -18,19 +18,19 @@ export default function Add_new_deal(){
        <div className='form_element'>
             <span className='radiolabel'>Silver Form</span>
                 <label className='elements'>
-                    <input type='radio' value='Bar' name='silverform' /> 
+                    <input type='radio' value='Bar' name='silverform' required/> 
                     <span className='small-text'>Bar</span>
                 </label>
                 <label className='elements'>
-                    <input type='radio' value='Spatla' name='silverform' />
+                    <input type='radio' value='Spatla' name='silverform' required />
                     <span className='small-text'>Spatla</span>
                 </label>
                 <label className='elements'>
-                    <input type='radio' value='Katcha' name='silverform' />
+                    <input type='radio' value='Katcha' name='silverform' required />
                     <span className='small-text'>Katcha</span>
                 </label>
                 <label className='elements'>
-                    <input type='radio' value='Katti' name='silverform' />
+                    <input type='radio' value='Katti' name='silverform' required/>
                     <span className='small-text'>Katti</span>
                 </label>
        </div>
@@ -38,22 +38,27 @@ export default function Add_new_deal(){
           <label htmlFor="weight">Weight</label>
           <input
             id="weight"
+            name='weight'
             type="number"
-            
+            required
           />
         </div>
         <div className='form_element'>
           <label htmlFor="touch">Touch</label>
           <input
             id="touch"
+            name='touch'
             type="number"
+            required
           />
         </div> 
         <div className='form_element'>
           <label htmlFor="labourTouch">Labour Touch</label>
           <input
             id="labourTouch"
+            name='labourTouch'
             type="number"
+            required
           />
         </div>
          
