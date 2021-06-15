@@ -11,11 +11,15 @@ h2{
 {
     width:40px;
     height:40px;
-    border: 2px solid var(--border-color);
     padding:10px;
     color: var(--text-color);
     border-radius: 50px;
     cursor: pointer;
+    border: 2px solid var(--white-color);
+}
+.close-btn:hover
+{
+    border: 2px solid var(--border-color);
 }
 .modal-header{
     margin: 40px 0  30px;
