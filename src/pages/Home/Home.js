@@ -6,7 +6,25 @@ import FormModal from '../../components/FormModal/FormModal';
 export default function Home()
 {
     const [show, setShow] = useState(false);
- 
+    const [clients, setClients] = useState([]);
+    let newclient=[];
+
+    const addclient = client => {
+        
+        newclient.push(client);
+        setClients(newclient);
+
+    };
+
+    useEffect(()=>{
+        if(clients.length>0)
+        {
+            newclient = [...clients];
+            console.log('new client', newclient); 
+        }
+    },[newclient]);
+  
+
     return(
         <div className='wrapper'>
             <div className='home-container'>
@@ -15,7 +33,7 @@ export default function Home()
                 </div>
                 <div className='button-sticky-button'>
                     <Button type={'button'} text={"Add client"} onClick={() => setShow(true)}/> 
-                <FormModal onClose={() => setShow(false)} show={show}  />
+                    <FormModal onClose={() => setShow(false)} show={show} onSubmit={addclient} />
                 </div>
             </div>
         </div> 

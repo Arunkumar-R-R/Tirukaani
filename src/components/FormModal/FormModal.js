@@ -3,25 +3,20 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
-let obj={
-  name:'',
-  silvertype:'',
-  weight:'',
-  touch:'',
-  labourtouch:'',
-};
+
+
 export default function FormModal (props) {
 
   let appBody = document.body
-  // let appBody = document.querySelector("#root");
-  
+  let obj={};
   if(props.show)
   {
     appBody.classList.add("hidescroll");
   }
-  function validate(e)
+  function handleSubmit(e)
   {
     e.preventDefault();
+
     let name = document.querySelector('#name').value;
     let silvertype = document.querySelector('input[name="silverform"]:checked').value;
     let weight = document.querySelector('#weight').value;
@@ -32,8 +27,10 @@ export default function FormModal (props) {
     obj.weight = weight;
     obj.touch = touch;
     obj.labourtouch = labourtouch;
+    props.onSubmit(obj)
     closemodal();
   }
+
   function removeclass()
   {
     let iscontain =  appBody.classList.contains("hidescroll");
@@ -75,7 +72,7 @@ export default function FormModal (props) {
                 <svg  onClick={closemodal}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" className="close-btn" data-cy="dropdown-close-button" data-name="exit" fill="currentColor" role="button"><path d="M8.951 9.5c-.144 0-.279-.054-.387-.162L.662 1.436C.446 1.22.446.878.662.662c.216-.216.558-.216.774 0l7.902 7.902c.104.102.162.242.162.387 0 .145-.058.285-.162.387-.102.104-.241.163-.387.162zm-7.902 0c-.144 0-.279-.054-.387-.162C.558 9.236.5 9.096.5 8.951c0-.145.058-.285.162-.387L8.564.662c.216-.216.558-.216.774 0 .216.216.216.558 0 .774L1.436 9.338c-.102.104-.241.163-.387.162z"></path></svg>
             </div>
             <h2>Adding new client</h2>
-            <form>
+            <form id='form' onSubmit={handleSubmit}>
               <div className='form_element'>
                 <label htmlFor="name">Name</label>
                 <input
@@ -133,7 +130,7 @@ export default function FormModal (props) {
                     />
                   </div>    
               <div className= 'submit_button'>
-                    <Button type={'submit'} onClick={validate} text={"Create client"} />
+                    <Button type={'submit'} onClick={handleSubmit} text={"Create client"} />
                 </div>
             </form>       
          </div>
