@@ -1,0 +1,28 @@
+@import url(./../../App.css);
+
+.home-container
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+.clients-container
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .no-data-availble
+{
+    position: absolute;
+} */
+.button-sticky-button
+{
+    padding: 0 15px;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--white-color);
+    border-top:1px solid var(--border-color);
+}

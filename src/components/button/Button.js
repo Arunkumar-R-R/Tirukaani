@@ -1,7 +1,5 @@
-import React,{ lazy } from 'react';
-import ReactDOM from 'react-dom'
-import { Route } from 'react-router';
-import './button.css'
+import React from 'react';
+import './Button.css'
 export default function Button(props)
 {
     return(
