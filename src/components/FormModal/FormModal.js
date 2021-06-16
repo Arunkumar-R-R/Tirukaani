@@ -3,19 +3,36 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
-
+let obj={
+  name:'',
+  silvertype:'',
+  weight:'',
+  touch:'',
+  labourtouch:'',
+};
 export default function FormModal (props) {
 
   let appBody = document.body
   // let appBody = document.querySelector("#root");
-
+  
   if(props.show)
   {
     appBody.classList.add("hidescroll");
   }
-  function validate()
+  function validate(e)
   {
-    console.log('called')
+    e.preventDefault();
+    let name = document.querySelector('#name').value;
+    let silvertype = document.querySelector('input[name="silverform"]:checked').value;
+    let weight = document.querySelector('#weight').value;
+    let touch = document.querySelector('#touch').value;
+    let labourtouch = document.querySelector('#labourTouch').value;
+    obj.name = name;
+    obj.silvertype = silvertype;
+    obj.weight = weight;
+    obj.touch = touch;
+    obj.labourtouch = labourtouch;
+    closemodal();
   }
   function removeclass()
   {
