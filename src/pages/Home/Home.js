@@ -33,7 +33,7 @@ export default function Home()
                         clients.length>0?<Clientcomponent clients={clients}/>:<h1 className='no-data-availble'>No Client Available</h1>
                     }
                 </div>
-        
+                
                 <div className='button-sticky-button'>
                     <Button type={'button'} text={"Add client"} onClick={() => setShow(true)}/> 
                     <FormModal onClose={() => setShow(false)} show={show} onSubmit={addclient} />

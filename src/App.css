@@ -51,3 +51,21 @@
   {
       padding: 0 15px;
   }
+  nav{
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    /* box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.15); */
+    position: sticky;
+    width: 100%;
+    z-index: 1;
+    background-color: var(--white-color);
+    border-bottom:1px solid var(--border-color);
+  }
+
+.no-data-available 
+{
+    margin: auto;
+}

@@ -1,0 +1,28 @@
+@import url(./../../App.css);
+
+.icon-tabler-arrow-narrow-left
+{
+    color: var(--text-color);
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px solid var(--white-color);
+    position: absolute;
+    margin: 0 0 0 10px;
+}
+.clientname
+{
+    margin: auto;
+}
+.Clienthome-container
+{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+.deal-container{
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
