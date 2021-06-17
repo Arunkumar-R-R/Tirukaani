@@ -9,12 +9,16 @@
 }
 .clients-container
 {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-flow: column wrap;
+    justify-content: flex-start;
     align-items: center;
 }
-
+.no-data-availble 
+{
+    margin: auto;
+}
 .button-sticky-button
 {
     /* padding: 0 15px; */

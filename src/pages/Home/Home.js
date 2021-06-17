@@ -2,6 +2,7 @@ import React,{useEffect, useState,useRef} from 'react';
 import Button from '../../components/Button/Button';
 import './Home.css'
 import FormModal from '../../components/FormModal/FormModal';
+import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
 
 export default function Home()
 {
@@ -20,17 +21,19 @@ export default function Home()
         if(clients.length>0)
         {
             newclient = [...clients];
-            console.log('new client', newclient); 
         }
     },[newclient]);
-  
+    
 
     return(
         <div className='wrapper'>
             <div className='home-container'>
                 <div className='clients-container'>
-                    <h1 className='no-data-availble'>No Client Available</h1>
+                    {
+                        clients.length>0?<Clientcomponent clients={clients}/>:<h1 className='no-data-availble'>No Client Available</h1>
+                    }
                 </div>
+        
                 <div className='button-sticky-button'>
                     <Button type={'button'} text={"Add client"} onClick={() => setShow(true)}/> 
                     <FormModal onClose={() => setShow(false)} show={show} onSubmit={addclient} />
