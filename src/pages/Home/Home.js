@@ -30,7 +30,7 @@ export default function Home()
             <div className='home-container'>
                 <div className='clients-container'>
                     {
-                        clients.length>0?<Clientcomponent clients={clients}/>:<h1 className='no-data-availble'>No Client Available</h1>
+                        clients.length>0?<Clientcomponent clients={clients}/>:<h1 className='no-data-available'>No Client Available</h1>
                     }
                 </div>
                 
