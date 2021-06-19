@@ -6,11 +6,10 @@
     border-radius: 50px;
     cursor: pointer;
     border: 2px solid var(--white-color);
-    position: absolute;
 }
 .clientname
 {
-    margin: auto;
+    margin: 0 0 0 30px;
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-semi);
     color: var(--heading-color);
@@ -22,7 +21,7 @@
     flex-flow: column wrap;
 }
 .deal-container{
-    min-height: 100vh;
+    min-height: calc(100vh - 160px);
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
