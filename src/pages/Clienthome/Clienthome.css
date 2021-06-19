@@ -7,11 +7,13 @@
     cursor: pointer;
     border: 2px solid var(--white-color);
     position: absolute;
-    margin: 0 0 0 10px;
 }
 .clientname
 {
     margin: auto;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-semi);
+    color: var(--heading-color);
 }
 .Clienthome-container
 {

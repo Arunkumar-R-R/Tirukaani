@@ -1,6 +1,6 @@
-import React,{useEffect, useState,useRef} from 'react';
+import React,{useEffect, useState} from 'react';
 import Button from '../../components/Button/Button';
-import './Home.css'
+import './Home.css';
 import FormModal from '../../components/FormModal/FormModal';
 import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
 
