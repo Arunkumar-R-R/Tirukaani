@@ -46,51 +46,67 @@ export default function FormModal (props) {
     e.preventDefault();
 
     let silvertypeRadio = document.querySelector('input[name="silverform"]');
-    let silvertype = document.querySelector('input[name="silverform"]:checked').value;
+    let silvertype = document.querySelector('input[name="silverform"]:checked');
     let weight = document.querySelector('#weight');
     let touch = document.querySelector('#touch');
     let labourTouch = document.querySelector('#labourTouch');
 
+    let silverTypeError = document.querySelector('#silverTypeError');
     let weightError = document.querySelector('#weightError');
     let touchError = document.querySelector('#touchError');
     let labourTouchError = document.querySelector('#labourTouchError');
 
-    const weightErrorMessage = 'please enter the weight';
-    const touchErrorMessage = 'please enter the Touch';
-    const LabourTouchErrorMessage = 'please enter the Labour Touch';
+    const silverTypeErrorMessage = 'Select the silver type';
+    const weightErrorMessage = 'Enter the weight';
+    const touchErrorMessage = 'Enter the Touch below 100';
+    const LabourTouchErrorMessage = 'Enter the Labour Touch below 100';
   
-    if(weight.value || touch.value || labourTouch.value ){
-      weight.classList.remove('invalid');
-      weightError.style.display = "none"; 
-      if( touch.value < 100 && touch.value > 0 ){
-          touch.classList.remove("invalid");
-          touchError.style.display = "none";
-          if( labourTouch.value < 100 && labourTouch.value > 0 )
-          {
-              labourTouch.classList.remove("invalid");
-              labourTouchError.style.display = "none";
-              obj.silvertype = silvertype;
-              obj.weight = weight;
-              obj.touch = touch;
-              obj.labourTouch = labourTouch;
-              props.onSubmit(obj)
-              closemodal();
-              console.log(obj);
-          }
-          else 
-          {
-              labourTouch.classList.add('invalid');
-              labourTouchError.style.display = "inline";
-              labourTouchError.innerHTML = LabourTouchErrorMessage;
-          }   
-          }   
+    if( silvertype || weight.value || touch.value || labourTouch.value ){
+        silvertypeRadio.classList.remove('invalid');
+        silverTypeError.style.display = "none"; 
+        if(weight.value>0)
+        {
+          weight.classList.remove('invalid');
+          weightError.style.display = "none"; 
+          if( touch.value < 100 && touch.value > 0 ){
+              touch.classList.remove("invalid");
+              touchError.style.display = "none";
+              if( labourTouch.value < 100 && labourTouch.value > 0 )
+              {
+                  labourTouch.classList.remove("invalid");
+                  labourTouchError.style.display = "none";
+                  obj.silvertype = silvertype.value;
+                  obj.weight = weight.value;
+                  obj.touch = touch.value;
+                  obj.labourTouch = labourTouch.value;
+                  props.onSubmit(obj)
+                  closemodal();
+                  console.log(obj);
+              }
+              else 
+              {
+                  labourTouch.classList.add('invalid');
+                  labourTouchError.style.display = "inline";
+                  labourTouchError.innerHTML = LabourTouchErrorMessage;
+              }   
+              }   
           else {
             touch.classList.add('invalid');
             touchError.style.display = "inline";
             touchError.innerHTML = touchErrorMessage;
           }  
         }
+        else{
+          weight.classList.add("invalid");
+          weightError.style.display = "inline";
+          weightError.innerHTML = weightErrorMessage;
+        }
+      }
     else {
+        silvertypeRadio.classList.add('invalid');
+        silverTypeError.style.display = "inline"; 
+        silverTypeError.innerHTML = silverTypeErrorMessage;
+
         weight.classList.add("invalid");
         weightError.style.display = "inline";
         weightError.innerHTML = weightErrorMessage;
@@ -167,7 +183,7 @@ export default function FormModal (props) {
                     autoFocus
                     required
                 />
-                <span id="nameerror"></span>
+                <span id="nameerror" className='error'></span>
               </div> :
               <>
               <div className='form_element'>
@@ -188,6 +204,7 @@ export default function FormModal (props) {
                     <input type='radio' value='Katti' name='silverform' required/>
                     <span className='small-text'>Katti</span>
                 </label>
+                <span id="silverTypeError"  className='error'></span>
               </div>
               <div className='form_element'>
                 <label htmlFor="weight">Weight</label>
@@ -197,7 +214,7 @@ export default function FormModal (props) {
                   type="number"
                   required
                 />
-                 <span id="weightError"></span>
+                 <span id="weightError"  className='error'></span>
               </div>
               <div className='form_element'>
                   <label htmlFor="touch">Touch</label>
@@ -208,7 +225,7 @@ export default function FormModal (props) {
                     maxLength = "100"
                     required
                   />
-                   <span id="touchError"></span>
+                   <span id="touchError"  className='error'></span>
                 </div> 
                 <div className='form_element'>
                     <label htmlFor="labourTouch">Labour Touch</label>
@@ -219,7 +236,7 @@ export default function FormModal (props) {
                       maxLength = "100"
                       required
                     />
-                     <span id="labourTouchError"></span>
+                     <span id="labourTouchError"  className='error'></span>
                 </div>    
                 </>
               }

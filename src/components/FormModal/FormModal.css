@@ -33,7 +33,7 @@
     height: 100%;
     background-color: var(--white-color);
     transition: all 0.2s ease-in-out;
-    transform: translateY(45vh);
+    transform: translateY(50vh);
     border-radius: 30px;
   }
   
@@ -144,7 +144,7 @@ h2{
 {
   border: 2px solid red;
 }
-#nameerror
+.error
 {
   color: red;
   margin: .2em 0 0 0;
