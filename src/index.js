@@ -9,6 +9,7 @@ import Clienthome from './pages/Clienthome/Clienthome'
 ReactDOM.render(
   <BrowserRouter>
     <App />
+    {/* <Clienthome></Clienthome> */}
   </BrowserRouter>,
   document.getElementById('root')
 );

@@ -20,14 +20,14 @@
   .hidescroll{
     overflow: hidden;
   }
-  /* .modal-content {
+  .modal-content {
     width:100%;
     height: 100%;
     background-color: var(--white-color);
     transition: all 0.2s ease-in-out;
     transform: translateY(100vh);
     overflow-y: auto;
-  } */
+  }
   .modal-bottom {
     width:100%;
     height: 100%;
@@ -42,11 +42,11 @@
     pointer-events: visible;
   }
   
-  .modal.enter-done{
+  .modal.enter-done  .modal-content {
     transform: translateY(0vh);
   }
   
-  .modal.exit .modal-bottom {
+  .modal.exit .modal-content ,.modal.exit .modal-bottom{
     transform: translateY(100vh);
   }
 

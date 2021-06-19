@@ -14,17 +14,12 @@ export default function FormModal (props) {
     appBody.classList.add("hidescroll");
   }
 
-  function handleSubmit(e)
-  {
+  function handleAddClientForm(e){
     e.preventDefault();
 
     let nameInput = document.querySelector('#name');
     let name = document.querySelector('#name').value;
-    // let silvertype = document.querySelector('input[name="silverform"]:checked').value;
-    // let silvertypeRadio = document.querySelector('input[name="silverform"]');
-    // let weight = document.querySelector('#weight').value;
-    // let touch = document.querySelector('#touch').value;
-    // let labourtouch = document.querySelector('#labourTouch').value;
+
 
     let nameError = document.querySelector('#nameerror');
 
@@ -41,15 +36,77 @@ export default function FormModal (props) {
       nameInput.classList.remove('invalid');
       nameError.style.display = "none";
       obj.name = name;
-      // obj.silvertype = silvertype;
-      // obj.weight = weight;
-      // obj.touch = touch;
-      // obj.labourtouch = labourtouch;
       props.onSubmit(obj)
       closemodal();
     }    
     
   }
+  function handleAddDealForm(e){
+    
+    e.preventDefault();
+
+    let silvertypeRadio = document.querySelector('input[name="silverform"]');
+    let silvertype = document.querySelector('input[name="silverform"]:checked').value;
+    let weight = document.querySelector('#weight');
+    let touch = document.querySelector('#touch');
+    let labourTouch = document.querySelector('#labourTouch');
+
+    let weightError = document.querySelector('#weightError');
+    let touchError = document.querySelector('#touchError');
+    let labourTouchError = document.querySelector('#labourTouchError');
+
+    const weightErrorMessage = 'please enter the weight';
+    const touchErrorMessage = 'please enter the Touch';
+    const LabourTouchErrorMessage = 'please enter the Labour Touch';
+  
+    if(weight.value || touch.value || labourTouch.value ){
+      weight.classList.remove('invalid');
+      weightError.style.display = "none"; 
+      if( touch.value < 100 && touch.value > 0 ){
+          touch.classList.remove("invalid");
+          touchError.style.display = "none";
+          if( labourTouch.value < 100 && labourTouch.value > 0 )
+          {
+              labourTouch.classList.remove("invalid");
+              labourTouchError.style.display = "none";
+              obj.silvertype = silvertype;
+              obj.weight = weight;
+              obj.touch = touch;
+              obj.labourTouch = labourTouch;
+              props.onSubmit(obj)
+              closemodal();
+              console.log(obj);
+          }
+          else 
+          {
+              labourTouch.classList.add('invalid');
+              labourTouchError.style.display = "inline";
+              labourTouchError.innerHTML = LabourTouchErrorMessage;
+          }   
+          }   
+          else {
+            touch.classList.add('invalid');
+            touchError.style.display = "inline";
+            touchError.innerHTML = touchErrorMessage;
+          }  
+        }
+    else {
+        weight.classList.add("invalid");
+        weightError.style.display = "inline";
+        weightError.innerHTML = weightErrorMessage;
+        
+        touch.classList.add("invalid");
+        touchError.style.display = "inline";
+        touchError.innerHTML = touchErrorMessage;
+
+        labourTouch.classList.add("invalid");
+        labourTouchError.style.display = "inline";
+        labourTouchError.innerHTML = LabourTouchErrorMessage;
+      }
+  }
+
+    
+
 
   function removeclass()
   {
@@ -87,19 +144,21 @@ export default function FormModal (props) {
       timeout={{ enter: 0, exit: 300 }}
     >
       <div className="modal" onClick={closemodal}>
-        <div className=" modal-bottom wrapper" onClick={e => e.stopPropagation()}>
+        <div className={` wrapper modal-${props.formposition}`}  onClick={e => e.stopPropagation()}>
            
-            <form id='form' onSubmit={handleSubmit}>
+            <form id='form' onSubmit={props.handleSubmit?handleAddClientForm:handleAddDealForm}>
               <div className='flex modal-header'>
-                <h2>Adding new client</h2>
+                 { props.isThisAddNewClient? <h2>Adding new client</h2> : <h2>Add new Deal</h2>}
                 <div className='modal-close-btn'>
                   <svg  onClick={closemodal}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" className="close-btn" role="button">
                     <path d="M8.951 9.5c-.144 0-.279-.054-.387-.162L.662 1.436C.446 1.22.446.878.662.662c.216-.216.558-.216.774 0l7.902 7.902c.104.102.162.242.162.387 0 .145-.058.285-.162.387-.102.104-.241.163-.387.162zm-7.902 0c-.144 0-.279-.054-.387-.162C.558 9.236.5 9.096.5 8.951c0-.145.058-.285.162-.387L8.564.662c.216-.216.558-.216.774 0 .216.216.216.558 0 .774L1.436 9.338c-.102.104-.241.163-.387.162z">
                     </path>
                   </svg>
+                </div>
               </div>
-              </div>
-              <div className='form_element'>
+              {
+                props.isThisAddNewClient ?
+                <div className='form_element'>
                 <label htmlFor="name">Name</label>
                 <input
                     id="name"
@@ -109,8 +168,8 @@ export default function FormModal (props) {
                     required
                 />
                 <span id="nameerror"></span>
-              </div>
-              {/* <h2 >First Deal</h2> 
+              </div> :
+              <>
               <div className='form_element'>
                 <span className='radiolabel'>Silver Form</span>
                 <label className='elements'>
@@ -138,6 +197,7 @@ export default function FormModal (props) {
                   type="number"
                   required
                 />
+                 <span id="weightError"></span>
               </div>
               <div className='form_element'>
                   <label htmlFor="touch">Touch</label>
@@ -148,20 +208,23 @@ export default function FormModal (props) {
                     maxLength = "100"
                     required
                   />
+                   <span id="touchError"></span>
                 </div> 
-              <div className='form_element'>
+                <div className='form_element'>
                     <label htmlFor="labourTouch">Labour Touch</label>
                     <input
                       id="labourTouch"
                       name='labourTouch'
                       type="number"
                       maxLength = "100"
-
                       required
                     />
-                  </div>     */}
+                     <span id="labourTouchError"></span>
+                </div>    
+                </>
+              }
               <div className= 'submit_button'>
-                    <Button type={'submit'} onClick={handleSubmit} text={"Create client"} />
+                    <Button type={'submit'} onClick={props.handleAddClientFormSubmit ? handleAddClientForm : handleAddDealForm} text={"Create client"} />
                 </div>
             </form>       
          </div>
