@@ -17,12 +17,16 @@
     justify-content: space-between;
 }
 
-.inforow:not(:first-child,:last-child){
+.inforow{
     margin: 0 0 20px 0;
 }
 .inforow:first-child
 {
     margin: 30px 0 20px 0;
+}
+.inforow:last-child
+{
+    margin:  0;
 }
 
 .inforow{
