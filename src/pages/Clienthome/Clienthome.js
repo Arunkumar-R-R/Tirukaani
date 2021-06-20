@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import Button from '../../components/Button/Button';
 import FormModal from '../../components/FormModal/FormModal';
+import Dealcomponent from '../../components/Dealcomponent/Dealcomponent';
 import './Clienthome.css';
 import {
     Link
@@ -10,7 +11,7 @@ import {
 export default function Clienthome(props)
 {
     const [show, setShow] = useState(false);
-    const [deal, setDeal] = useState([]);
+    const [deals, setDeal] = useState([]);
     let newDeal=[];
 
     const addDeal = deal => {
@@ -20,11 +21,12 @@ export default function Clienthome(props)
 
     };
     useEffect(()=>{
-        if(deal.length>0)
+        if(deals.length>0)
         {
-            newDeal = [...deal];
+            newDeal = [...deals];
         }
     },[newDeal]);
+    
     return (
         <>
             <div className='wrapper'>
@@ -42,7 +44,9 @@ export default function Clienthome(props)
                     <h2 className='clientname'>{props.location.state.client}</h2>
                 </nav>
                     <div className='deal-container'>
-                        <h1 className='no-data-available'>No deal</h1>
+                    {
+                        deals.length>0?<Dealcomponent deals={deals}/>:<h1 className='no-data-available'>No deal</h1>
+                    }
                     </div>
                     <div className='button-sticky-button'>
                         <Button type={'button'} text={"Add Deal"} onClick={() => setShow(true)}/> 

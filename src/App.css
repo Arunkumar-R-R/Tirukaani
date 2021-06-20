@@ -47,6 +47,12 @@ img{
 h1{
   font-size: var(--font-size-semi-larger);
 }
+h3{
+  font-size: var(--font-size-medium);
+}
+h1,h2,h3,h4,h5{
+  color: var(--heading-color);
+}
 .wrapper
 {
     padding: 0 15px;
@@ -72,4 +78,9 @@ nav{
 a
 {
   text-decoration: none;
+}
+
+p{
+  font-size: var(--font-size-regular);
+  color: var(--text-color);
 }

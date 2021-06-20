@@ -5,11 +5,13 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import Clienthome from './pages/Clienthome/Clienthome'
+import Dealcomponent from './components/Dealcomponent/Dealcomponent'
 
 ReactDOM.render(
   <BrowserRouter>
     <App />
     {/* <Clienthome></Clienthome> */}
+    {/* <Dealcomponent></Dealcomponent> */}
   </BrowserRouter>,
   document.getElementById('root')
 );

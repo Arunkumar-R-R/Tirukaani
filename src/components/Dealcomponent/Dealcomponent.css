@@ -1,0 +1,43 @@
+@import url(./../../App.css);
+
+.deal{
+    margin: 10px 0;
+    width: 100%;
+}
+.dealcomponent{
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    cursor: pointer;
+}
+.information-container{
+    width: 95%;
+}
+.deal-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inforow:not(:first-child,:last-child){
+    margin: 20px 0;
+}
+.inforow:first-child
+{
+    margin: 30px 0 20px 0;
+}
+.inforow:last-child
+{
+    margin: 20px 0 0 0;
+}
+.inforow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.value{
+    color: var(--heading-color);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-medium);
+}
+h3{
+    font-weight: var(--font-weight-bold);
+}
