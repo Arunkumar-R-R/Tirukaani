@@ -6,10 +6,12 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import Clienthome from './pages/Clienthome/Clienthome'
 import Dealcomponent from './components/Dealcomponent/Dealcomponent'
+import Deal from './pages/Deal/Deal';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    {/* <App /> */}
+    <Deal />
     {/* <Clienthome></Clienthome> */}
     {/* <Dealcomponent></Dealcomponent> */}
   </BrowserRouter>,
