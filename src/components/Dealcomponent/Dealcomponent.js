@@ -1,13 +1,15 @@
 import React from 'react';
 import './Dealcomponent.css';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { useRouteMatch } from 'react-router';
 
 export default function Dealcomponent({deals})
 {
-    console.log(deals)
+    const { url } = useRouteMatch();
+
     return deals.map((deal,index)=>{
         return <Link to={{
-            pathname: 'deal/' + deal.index,
+            pathname: `${url}/deal${index+1}`
             // state:{
             //     deal:{
             //         weight:deal.weight,

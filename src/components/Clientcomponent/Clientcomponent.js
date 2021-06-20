@@ -5,8 +5,9 @@ import {Link} from 'react-router-dom'
 export default function Clientcomponent({clients})
 {
     return clients.map((client,index)=>{
+        let subroute = client.name.split(" ").join("");
         return <Link to={{
-            pathname: 'client/' + client.name,
+            pathname: 'client/' + subroute,
             state:{
                 client:client.name
             }
