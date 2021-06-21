@@ -2,10 +2,12 @@ import React,{useState} from 'react';
 import './Deal.css'
 import Button from '../../components/Button/Button';
 import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
+import Modal from '../../components/Modal/Modal';
 
 export default function Deal(){
-    const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
 
+    const [show, setShow] = useState(false);
+    const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
     return (
         <div className='wrapper'>
             <nav>
@@ -53,28 +55,29 @@ export default function Deal(){
                         <p className='dealinfo'>Balance </p>
                         <small className='dealvalue'> - </small>
                     </div>
-                    <div className='form_element'>
-                <span className='radiolabel'>Thiruvani status</span>
-                <label className='elements'>
-                    <input type='radio' value='Bar' name='silverform' required/> 
-                    <span className='small-text'>Not yet</span>
-                </label>
-                <label className='elements'>
-                    <input type='radio' value='Spatla' name='silverform' required />
-                    <span className='small-text'>Active</span>
-                </label>
-                <label className='elements'>
-                    <input type='radio' value='Katcha' name='silverform' required />
-                    <span className='small-text'>completed</span>
-                </label>
-              </div>
-
-                {/* <label for="cars">Thiruvani status  <select name="cars" id="cars">
-                    <option value="volvo">Not yet</option>
-                    <option value="saab">Active</option>
-                    <option value="mercedes">completed</option>
-                </select></label> */}
-                
+                    <div className=' dealinforow'>
+                        <p className='dealinfo'>Thiruvani status</p>
+                        <small className='dealvalue' onClick={() => setShow(true)} >---</small>
+                        <Modal
+                            onClose={() => setShow(false)} 
+                        >
+                            <div className='form_element'>
+                                <span className='radiolabel'>Thiruvani status</span>
+                                <label className='elements'>
+                                    <input type='radio' value='Bar' name='silverform' required/> 
+                                    <span className='small-text'>Not yet</span>
+                                </label>
+                                <label className='elements'>
+                                    <input type='radio' value='Spatla' name='silverform' required />
+                                    <span className='small-text'>Active</span>
+                                </label>
+                                <label className='elements'>
+                                    <input type='radio' value='Katcha' name='silverform' required />
+                                    <span className='small-text'>completed</span>
+                                </label>
+                            </div>
+                        </Modal>
+                    </div>
               <Button type={'submit'} text={"Save"} />
              </div>
         </div>
