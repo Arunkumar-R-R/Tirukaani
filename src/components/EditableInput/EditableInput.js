@@ -33,7 +33,7 @@ export default function EditableInput({
               className='dealvalue'
               onClick={() => setEditing(true)}
             >
-                 {text || placeholder || "Editable content"}
+                 {text || placeholder}
 
             </span>
           )}
