@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import './Editable.css';
+import './InlineEditableInput.css';
 
-export default function EditableInput({
+export default function InlineEditableInput({
     text,
     type,
     placeholder,

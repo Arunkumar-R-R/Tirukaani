@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './Deal.css'
 import Button from '../../components/Button/Button';
-import EditableInput from '../../components/EditableInput/EditableInput';
+import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
 
 export default function Deal(){
     const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
@@ -32,7 +32,7 @@ export default function Deal(){
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Final thiruvani weight </p>
-                        <EditableInput
+                        <InlineEditableInput
                             text={finalThiruvaniWeight}
                             placeholder="---"
                             type="input"
@@ -47,7 +47,7 @@ export default function Deal(){
                                 onChange={e => setfinalThiruvaniWeight(e.target.value)}
                                 autoFocus
                             />
-                        </EditableInput>
+                        </InlineEditableInput>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Balance </p>
