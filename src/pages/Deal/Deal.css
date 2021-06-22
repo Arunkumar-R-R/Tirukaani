@@ -55,11 +55,12 @@
 .button-sticky-button{
     width: 100%;
 }
-.elements
-{
-    outline: 2px solid var(--border-color);
+.radio-element{
+    border: 2px solid var(--border-color);
     padding: 20px;
+    margin: 0 0 15px;
     border-radius: var(--border-radius-small);
+    color: var(--text-color);
 }
 
 .thiruvanistatus {

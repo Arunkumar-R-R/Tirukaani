@@ -10,8 +10,8 @@ import Deal from './pages/Deal/Deal';
 
 ReactDOM.render(
   <BrowserRouter>
-    {/* <App /> */}
-    <Deal />
+    <App />
+    {/* <Deal /> */}
     {/* <Clienthome></Clienthome> */}
     {/* <Dealcomponent></Dealcomponent> */}
   </BrowserRouter>,

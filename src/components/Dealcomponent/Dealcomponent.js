@@ -9,14 +9,16 @@ export default function Dealcomponent({deals})
 
     return deals.map((deal,index)=>{
         return <Link to={{
-            pathname: `${url}/deal${index+1}`
-            // state:{
-            //     deal:{
-            //         weight:deal.weight,
-            //         touch:deal.touch,
-            //         labourTouch:deal.labourTouch,
-            //     }
-            // }
+            pathname: `${url}/deal${index+1}`,
+            state:{
+                deal:{
+                    dealno:`Deal ${index+1}`,
+                    silvertype:deal.silvertype,
+                    weight:deal.weight,
+                    touch:deal.touch,
+                    labourTouch:deal.labourTouch,
+                }
+            }
             }} key={index} className='deal' >
                 <div className='dealcomponent'>
                 <header className='deal-header'>
@@ -26,19 +28,19 @@ export default function Dealcomponent({deals})
                 <div className='information-container'>
                     <div className='inforow'>
                         <p className='info'>Client given purity</p>
-                        <small className='value'>{deal.weight}</small>
+                        <small className='value'>50000</small>
                     </div>
                     <div className='inforow'>
                         <p className='info'>Estimated thiruvani weight</p>
-                        <small className='value'>{deal.touch}</small>
+                        <small className='value'>50000</small>
                     </div>
                     <div className='inforow'>
                         <p className='info'>Final thiruvani weight</p>
-                        <small className='value'>{deal.labourTouch}</small>
+                        <small className='value'>34000</small>
                     </div>
                     <div className='inforow'>
                         <p className='info'>Balance </p>
-                        <small className='value'>{deal.labourTouch}</small>
+                        <small className='value'>40000</small>
                     </div>
                 </div>
             </div>

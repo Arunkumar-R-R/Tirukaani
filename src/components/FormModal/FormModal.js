@@ -61,7 +61,7 @@ export default function FormModal (props) {
     const touchErrorMessage = 'Enter the Touch below 100';
     const LabourTouchErrorMessage = 'Enter the Labour Touch below 100';
   
-    if( silvertype || weight.value || touch.value || labourTouch.value ){
+    if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
         silvertypeRadio.classList.remove('invalid');
         silverTypeError.style.display = "none"; 
         if(weight.value>0)

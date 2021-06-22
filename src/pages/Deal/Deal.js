@@ -3,8 +3,11 @@ import './Deal.css'
 import Button from '../../components/Button/Button';
 import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
 import Modal from '../../components/Modal/Modal';
+import { Link } from 'react-router-dom';
+import { useRouteMatch } from 'react-router';
 
-export default function Deal(){
+
+export default function Deal(props){
 
     const [show, setShow] = useState(false);
     const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
@@ -48,21 +51,26 @@ export default function Deal(){
         setthemeforstatus(status);
     },[Thiruvanistatus]);
 
+    const { url } = useRouteMatch();
+    const lasturl = url.substring(0, url.lastIndexOf('/'));
+
     return (
         <div className='wrapper'>
               <nav>
+                    <Link to={`${lasturl}`} >
                     <svg xmlns="http://www.w3.org/2000/svg" className=" icon-tabler-arrow-narrow-left" width="43" height="43" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#333333" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <line x1="5" y1="12" x2="9" y2="16"></line>
                         <line x1="5" y1="12" x2="9" y2="8"></line>
                     </svg>
-                    <h3 className='dealname'>Deal</h3>
+                    </Link>
+                    <h3 className='dealname'> {props.location.state.deal.dealno} </h3>
              </nav>
              <div className='deal-container'>
              <div className='deal-info-container'>
                     <div className=' dealinforow'>
-                        <p className='dealinfo'>Bar</p>
+                        <p className='dealinfo'>{props.location.state.deal.silvertype}</p>
                         <small className='dealvalue'>9142 x 63.45</small>
                     </div>
                     <div className=' dealinforow'>
@@ -99,28 +107,28 @@ export default function Deal(){
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Thiruvani status</p>
                         <small className='dealvalue thiruvanistatus' onClick={() => setShow(true)} >{Thiruvanistatus || '---'}</small>
-                        <Modal 
+                    </div>
+             </div>
+             <div className='button-sticky-button'>
+             <Modal 
                             show={show}
                             onClose={() => setShow(false)} 
                         >
                             <div className='modal_form_element'>
-                                <label className='elements' onClick={getthiruvanistatus}>
+                                <label className='radio-element' onClick={getthiruvanistatus}>
                                     <input type='radio' value='Not yet' name='silverstatus' required/> 
                                     <span className='small-text'>Not yet</span>
                                 </label>
-                                <label className='elements' onClick={getthiruvanistatus}>
+                                <label className='radio-element' onClick={getthiruvanistatus}>
                                     <input type='radio' value='In progress' name='silverstatus' required />
                                     <span className='small-text'>In progress</span>
                                 </label>
-                                <label className='elements' onClick={getthiruvanistatus}>
+                                <label className='radio-element' onClick={getthiruvanistatus}>
                                     <input type='radio' value='Completed' name='silverstatus' required />
                                     <span className='small-text'>Completed</span>
                                 </label>
                             </div>
                         </Modal>
-                    </div>
-             </div>
-             <div className='button-sticky-button'>
                  <Button type={'submit'} text={"Save"} />
              </div>
              </div>
