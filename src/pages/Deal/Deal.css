@@ -1,5 +1,13 @@
 @import url(./../../App.css);
 
+.deal-container{
+    position: relative;
+}
+.deal-info-container{
+    height:calc(100vh - 145px);
+    width: 100%;
+    overflow-y: auto;
+}
 .dealname
 {
     margin: 0 0 0 20px;
@@ -10,10 +18,11 @@
     margin:0 0 40px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .dealinfo{
     width: 60%;
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-regular);
     color: var(--text-color);
 }
 
@@ -23,18 +32,52 @@
 }
 .dealinforow:last-child
 {
-    margin:  0;
+    margin:  0 0 40px 0;
 }
 .dealvalue
 {
-    margin: 0 auto 0 10px;
+    margin: 0 auto 0 20px;
     width: 40%;
     color: var(--heading-color);
     font-weight: var(--font-weight-semi);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-regular);
 }
 .inlineinput
 {
     width: 60%;
     margin:0 auto 0 0;
+}
+
+.modal_form_element{
+    margin: 30px;
+}
+
+.button-sticky-button{
+    width: 100%;
+}
+.elements
+{
+    outline: 2px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--border-radius-small);
+}
+
+.thiruvanistatus {
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 50px;
+    margin: 0 auto 0 0;
+}
+
+.inprogress{
+    background-color: var(--status-in-progress-b);
+    color: var(--status-in-progress);
+}
+.notyet{
+    background-color: var(--status-not-yet-b);
+    color: var(--status-not-yet);
+}
+.completed{
+    background-color: var(--status-in-Completed-b);
+    color: var(--status-in-Completed);
 }

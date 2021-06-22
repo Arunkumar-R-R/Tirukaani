@@ -3,16 +3,14 @@ import './Modal.css';
 import ReactDOM from 'react-dom';
 
 export default function Modal(props){
-  function closemodal()
-  {
-    props.onClose();
-  }
-
+    function closemodal(){
+      props.onClose();
+    }
+    const showHideClassName = props.show ? "modal display-block" : "modal display-none";
     return ReactDOM.createPortal(
-            <div className="modal" onClick={closemodal}>
+            <div className={showHideClassName} onClick={closemodal}>
                  <div className={` wrapper bottom`}  onClick={e => e.stopPropagation()}>
-           
-           
+                    {props.children}
                  </div>
             </div>
         ,

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{ useEffect, useState} from 'react';
 import './Deal.css'
 import Button from '../../components/Button/Button';
 import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
@@ -8,10 +8,50 @@ export default function Deal(){
 
     const [show, setShow] = useState(false);
     const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
+    const [Thiruvanistatus, setThiruvanistatus] = useState("");
+
+    function getthiruvanistatus(){
+        let silverstatus = document.querySelector('input[name="silverstatus"]:checked');
+        let status;
+        if(silverstatus)
+        {
+            status = silverstatus.value;
+        }
+        setThiruvanistatus(status);
+        setShow(false)
+    }
+
+    function setthemeforstatus(status){
+        let obj = {
+            'Not yet':'notyet',
+            'In progress':'inprogress',
+            Completed:'completed'
+        }
+        let statuscontent = status.textContent;
+        if(obj[statuscontent] == obj['Not yet']){
+            status.classList.remove(obj['In progress'],obj['Completed']);
+            status.classList.add(obj[statuscontent]);
+        }
+        else if(obj[statuscontent] == obj['In progress']){
+            status.classList.remove(obj['Not yet'],obj['Completed']);
+            status.classList.add(obj[statuscontent]);
+        }
+        else
+        {
+            status.classList.remove(obj['In progress']);
+            status.classList.add(obj[statuscontent]);
+        }
+    }
+
+    useEffect(()=>{
+        let status = document.querySelector('.thiruvanistatus');
+        setthemeforstatus(status);
+    },[Thiruvanistatus]);
+
     return (
         <div className='wrapper'>
-            <nav>
-                    <svg xmlns="http://www.w3.org/2000/svg" className=" icon-tabler-arrow-narrow-left" width="43" height="43" viewBox="0 0 24 24" stroke-width="1.5" stroke="#333333" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <nav>
+                    <svg xmlns="http://www.w3.org/2000/svg" className=" icon-tabler-arrow-narrow-left" width="43" height="43" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#333333" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <line x1="5" y1="12" x2="9" y2="16"></line>
@@ -19,7 +59,8 @@ export default function Deal(){
                     </svg>
                     <h3 className='dealname'>Deal</h3>
              </nav>
-            <div className='deal-info-container'>
+             <div className='deal-container'>
+             <div className='deal-info-container'>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Bar</p>
                         <small className='dealvalue'>9142 x 63.45</small>
@@ -44,7 +85,7 @@ export default function Deal(){
                                 type="number"
                                 name="task"
                                 placeholder=""
-                                tabindex="0"
+                                tabIndex="0"
                                 value={finalThiruvaniWeight}
                                 onChange={e => setfinalThiruvaniWeight(e.target.value)}
                                 autoFocus
@@ -57,28 +98,31 @@ export default function Deal(){
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Thiruvani status</p>
-                        <small className='dealvalue' onClick={() => setShow(true)} >---</small>
-                        <Modal
+                        <small className='dealvalue thiruvanistatus' onClick={() => setShow(true)} >{Thiruvanistatus || '---'}</small>
+                        <Modal 
+                            show={show}
                             onClose={() => setShow(false)} 
                         >
-                            <div className='form_element'>
-                                <span className='radiolabel'>Thiruvani status</span>
-                                <label className='elements'>
-                                    <input type='radio' value='Bar' name='silverform' required/> 
+                            <div className='modal_form_element'>
+                                <label className='elements' onClick={getthiruvanistatus}>
+                                    <input type='radio' value='Not yet' name='silverstatus' required/> 
                                     <span className='small-text'>Not yet</span>
                                 </label>
-                                <label className='elements'>
-                                    <input type='radio' value='Spatla' name='silverform' required />
-                                    <span className='small-text'>Active</span>
+                                <label className='elements' onClick={getthiruvanistatus}>
+                                    <input type='radio' value='In progress' name='silverstatus' required />
+                                    <span className='small-text'>In progress</span>
                                 </label>
-                                <label className='elements'>
-                                    <input type='radio' value='Katcha' name='silverform' required />
-                                    <span className='small-text'>completed</span>
+                                <label className='elements' onClick={getthiruvanistatus}>
+                                    <input type='radio' value='Completed' name='silverstatus' required />
+                                    <span className='small-text'>Completed</span>
                                 </label>
                             </div>
                         </Modal>
                     </div>
-              <Button type={'submit'} text={"Save"} />
+             </div>
+             <div className='button-sticky-button'>
+                 <Button type={'submit'} text={"Save"} />
+             </div>
              </div>
         </div>
     );
