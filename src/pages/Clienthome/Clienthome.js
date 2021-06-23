@@ -33,7 +33,7 @@ export default function Clienthome(props)
                 <div className='Clienthome-container'>
                 <nav>
                     <Link to={'/'} >
-                        <svg xmlns="http://www.w3.org/2000/svg" className=" icon-tabler-arrow-narrow-left" width="43" height="43" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#333333" fill="none" strokeLinecap="round" strokelinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" className=" icon-tabler-arrow-narrow-left" width="43" height="43" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#333333" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <line x1="5" y1="12" x2="9" y2="16"></line>
@@ -45,7 +45,7 @@ export default function Clienthome(props)
                 </nav>
                     <div className='deal-container'>
                     {
-                        deals.length>0?<Dealcomponent deals={deals}/>:<h1 className='no-data-available'>No deal</h1>
+                        deals.length>0?<Dealcomponent deals={deals} />:<h1 className='no-data-available'>No deal</h1>
                     }
                     </div>
                     <div className='button-sticky-button'>

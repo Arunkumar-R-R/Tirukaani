@@ -17,6 +17,7 @@ export default function Dealcomponent({deals})
                     weight:deal.weight,
                     touch:deal.touch,
                     labourTouch:deal.labourTouch,
+                    purity:deal.purity
                 }
             }
             }} key={index} className='deal' >
@@ -28,7 +29,7 @@ export default function Dealcomponent({deals})
                 <div className='information-container'>
                     <div className='inforow'>
                         <p className='info'>Client given purity</p>
-                        <small className='value'>50000</small>
+                        <small className='value'>{deal.purity} <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 0 24 24" width="15px" fill="#18354A"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z"/></svg></small>
                     </div>
                     <div className='inforow'>
                         <p className='info'>Estimated thiruvani weight</p>

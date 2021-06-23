@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
+import { purity } from "../../utils/calculation";
 
 
 export default function FormModal (props) {
@@ -75,13 +76,14 @@ export default function FormModal (props) {
               {
                   labourTouch.classList.remove("invalid");
                   labourTouchError.style.display = "none";
+                  let givenpurity = purity(weight.value,touch.value);
                   obj.silvertype = silvertype.value;
                   obj.weight = weight.value;
                   obj.touch = touch.value;
                   obj.labourTouch = labourTouch.value;
+                  obj.purity = givenpurity;
                   props.onSubmit(obj)
                   closemodal();
-                  console.log(obj);
               }
               else 
               {
