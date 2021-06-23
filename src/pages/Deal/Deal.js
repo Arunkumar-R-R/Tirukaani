@@ -79,7 +79,7 @@ export default function Deal(props){
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Est thiruvani weight</p>
-                        <small className='dealvalue'>2.000</small>
+                        <small className='dealvalue'>{props.location.state.deal.estimatedProductWeight}</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Final thiruvani weight </p>

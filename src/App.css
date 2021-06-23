@@ -47,7 +47,7 @@ img{
 h1{
   font-size: var(--font-size-semi-larger);
 }
-h3{
+h2,h3{
   font-size: var(--font-size-medium);
 }
 h1,h2,h3,h4,h5{

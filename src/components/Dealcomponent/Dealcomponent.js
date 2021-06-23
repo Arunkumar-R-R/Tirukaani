@@ -17,7 +17,8 @@ export default function Dealcomponent({deals})
                     weight:deal.weight,
                     touch:deal.touch,
                     labourTouch:deal.labourTouch,
-                    purity:deal.purity
+                    purity:deal.purity,
+                    estimatedProductWeight:deal.estimatedProductWeight,
                 }
             }
             }} key={index} className='deal' >
@@ -33,15 +34,15 @@ export default function Dealcomponent({deals})
                     </div>
                     <div className='inforow'>
                         <p className='info'>Estimated thiruvani weight</p>
-                        <small className='value'>50000</small>
+                        <small className='value'>{deal.estimatedProductWeight}</small>
                     </div>
                     <div className='inforow'>
                         <p className='info'>Final thiruvani weight</p>
-                        <small className='value'>34000</small>
+                        <small className='value'>--</small>
                     </div>
                     <div className='inforow'>
                         <p className='info'>Balance </p>
-                        <small className='value'>40000</small>
+                        <small className='value'>--</small>
                     </div>
                 </div>
             </div>
