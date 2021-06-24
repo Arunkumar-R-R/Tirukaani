@@ -18,7 +18,6 @@ export default function Deal(props){
         let balance;
         if( finalThiruvaniWeight.length === 0)
         {
-            balance = 0;
             return 0;
         }
         if(finalThiruvaniWeight > esitmatedthiruvaniweight)
