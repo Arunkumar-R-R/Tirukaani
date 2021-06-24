@@ -21,7 +21,7 @@
     align-items: center;
 }
 .dealinfo{
-    width: 60%;
+    /* width: 60%; */
     font-size: var(--font-size-regular);
     color: var(--text-color);
 }
@@ -36,16 +36,18 @@
 }
 .dealvalue
 {
-    margin: 0 auto 0 20px;
-    width: 40%;
+ 
     color: var(--heading-color);
     font-weight: var(--font-weight-semi);
     font-size: var(--font-size-regular);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 .inlineinput
 {
-    width: 60%;
-    margin:0 auto 0 0;
+    width: 35%;
+    padding: 10px;
 }
 
 .modal_form_element{
@@ -65,20 +67,27 @@
 
 .thiruvanistatus {
     width: fit-content;
-    padding: 6px 12px;
     border-radius: 50px;
-    margin: 0 auto 0 0;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-regular);
 }
 
 .inprogress{
+    padding: 6px 12px;
     background-color: var(--status-in-progress-b);
     color: var(--status-in-progress);
 }
 .notyet{
+    padding: 6px 12px;
     background-color: var(--status-not-yet-b);
     color: var(--status-not-yet);
 }
 .completed{
+    padding: 6px 12px;
     background-color: var(--status-in-Completed-b);
     color: var(--status-in-Completed);
+}
+
+.inlineinputholder{
+    height: 40px;
 }

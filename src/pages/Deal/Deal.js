@@ -13,6 +13,19 @@ export default function Deal(props){
     const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
     const [Thiruvanistatus, setThiruvanistatus] = useState("");
 
+    function balancecal(finalThiruvaniWeight,esitmatedthiruvaniweight)
+    {
+        let balance;
+        if(finalThiruvaniWeight > esitmatedthiruvaniweight )
+        {
+            balance = finalThiruvaniWeight - esitmatedthiruvaniweight;
+        }else
+        {
+            balance = esitmatedthiruvaniweight-finalThiruvaniWeight; 
+        }
+        return balance;
+    }
+
     function getthiruvanistatus(){
         let silverstatus = document.querySelector('input[name="silverstatus"]:checked');
         let status;
@@ -102,7 +115,7 @@ export default function Deal(props){
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Balance </p>
-                        <small className='dealvalue'> - </small>
+                        <small className='dealvalue'>{balancecal(finalThiruvaniWeight,props.location.state.deal.estimatedProductWeight)}</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Thiruvani status</p>
