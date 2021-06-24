@@ -9,7 +9,7 @@
 }
 .clients-container
 {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 70px);
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;

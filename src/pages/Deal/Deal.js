@@ -16,13 +16,20 @@ export default function Deal(props){
     function balancecal(finalThiruvaniWeight,esitmatedthiruvaniweight)
     {
         let balance;
-        if(finalThiruvaniWeight > esitmatedthiruvaniweight )
+        if( finalThiruvaniWeight.length === 0)
+        {
+            balance = 0;
+            return 0;
+        }
+        if(finalThiruvaniWeight > esitmatedthiruvaniweight)
         {
             balance = finalThiruvaniWeight - esitmatedthiruvaniweight;
-        }else
-        {
+
+        }else{
             balance = esitmatedthiruvaniweight-finalThiruvaniWeight; 
+
         }
+
         return balance;
     }
 
