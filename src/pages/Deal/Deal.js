@@ -28,7 +28,7 @@ export default function Deal(props){
         let balanceInPurity;
         if(finalThiruvaniWeight == 0 )
         {
-            return '0';
+            return 0;
         }else
         {
             let purityForThiruvani = purity(finalThiruvaniWeight,totaltouch);
