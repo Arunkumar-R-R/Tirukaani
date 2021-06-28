@@ -5,6 +5,7 @@ import InlineEditableInput from '../../components/EditableInput/InlineEditableIn
 import Modal from '../../components/Modal/Modal';
 import { Link } from 'react-router-dom';
 import { useRouteMatch } from 'react-router';
+import { finalTouch } from '../../utils/calculation';
 
 
 export default function Deal(props){
@@ -95,6 +96,14 @@ export default function Deal(props){
                     <div className=' dealinforow'>
                         <p className='dealinfo'> purity</p>
                         <small className='dealvalue'>{props.location.state.deal.purity} <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 0 24 24" width="15px" fill="#18354A"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z"/></svg></small>
+                    </div>
+                    <div className=' dealinforow'>
+                        <p className='dealinfo'> Labour Touch</p>
+                        <small className='dealvalue'>{props.location.state.deal.labourTouch}T</small>
+                    </div>
+                    <div className=' dealinforow'>
+                        <p className='dealinfo'> Total Touch</p>
+                        <small className='dealvalue'>{finalTouch(props.location.state.deal.touch,props.location.state.deal.labourTouch)}T</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Est thiruvani weight</p>
