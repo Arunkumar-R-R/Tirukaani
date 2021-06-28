@@ -5,7 +5,7 @@ import InlineEditableInput from '../../components/EditableInput/InlineEditableIn
 import Modal from '../../components/Modal/Modal';
 import { Link } from 'react-router-dom';
 import { useRouteMatch } from 'react-router';
-import { finalTouch } from '../../utils/calculation';
+import { finalTouch,purity } from '../../utils/calculation';
 
 
 export default function Deal(props){
@@ -14,23 +14,38 @@ export default function Deal(props){
     const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
     const [Thiruvanistatus, setThiruvanistatus] = useState("");
 
-    function balancecal(finalThiruvaniWeight,esitmatedthiruvaniweight)
+    let silverType  = props.location.state.deal.silvertype;
+    let weight = props.location.state.deal.weight;
+    let touch = props.location.state.deal.touch;
+    let totalTouch = finalTouch(props.location.state.deal.touch,props.location.state.deal.labourTouch);
+    let estiproductpurity = props.location.state.deal.purity;
+    let labourTouch = props.location.state.deal.labourTouch;
+    let esitmatedThiruvaniWeight =props.location.state.deal.estimatedProductWeight;
+
+
+    function balancecal(finalThiruvaniWeight,totaltouch,estiproductpurity)
     {
-        let balance;
-        if( finalThiruvaniWeight.length === 0)
+        let balanceInPurity;
+
+        if(finalThiruvaniWeight === '0' )
         {
             return 0;
-        }
-        if(finalThiruvaniWeight > esitmatedthiruvaniweight)
+        }else
         {
-            balance = finalThiruvaniWeight - esitmatedthiruvaniweight;
+            let purityForThiruvani = purity(finalThiruvaniWeight,totaltouch);
+            let thiruvanipurity = parseInt(purityForThiruvani);
+            let estithiruvanipurity = parseInt(estiproductpurity);
+         
+            if( thiruvanipurity > estithiruvanipurity)
+            {
+                 balanceInPurity =   thiruvanipurity - estithiruvanipurity 
+            }
+            else{
+                 balanceInPurity =  estithiruvanipurity - thiruvanipurity
+            }
 
-        }else{
-            balance = esitmatedthiruvaniweight-finalThiruvaniWeight; 
-
-        }
-
-        return balance;
+            return balanceInPurity;
+        }  
     }
 
     function getthiruvanistatus(){
@@ -74,6 +89,7 @@ export default function Deal(props){
     const { url } = useRouteMatch();
     const lasturl = url.substring(0, url.lastIndexOf('/'));
 
+
     return (
         <div className='wrapper'>
               <nav>
@@ -90,24 +106,24 @@ export default function Deal(props){
              <div className='deal-container'>
              <div className='deal-info-container'>
                     <div className=' dealinforow'>
-                        <p className='dealinfo'>{props.location.state.deal.silvertype}</p>
-                        <small className='dealvalue'>{props.location.state.deal.weight} x {props.location.state.deal.touch}</small>
+                        <p className='dealinfo'>{silverType}</p>
+                        <small className='dealvalue'>{weight} x {touch}</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'> purity</p>
-                        <small className='dealvalue'>{props.location.state.deal.purity} P</small>
+                        <small className='dealvalue'>{estiproductpurity} P</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'> Labour Touch</p>
-                        <small className='dealvalue'>{props.location.state.deal.labourTouch} T</small>
+                        <small className='dealvalue'>{labourTouch} T</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'> Total Touch</p>
-                        <small className='dealvalue'>{finalTouch(props.location.state.deal.touch,props.location.state.deal.labourTouch)} T</small>
+                        <small className='dealvalue'>{totalTouch} T</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Est thiruvani weight</p>
-                        <small className='dealvalue'>{props.location.state.deal.estimatedProductWeight}</small>
+                        <small className='dealvalue'>{esitmatedThiruvaniWeight}</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Final thiruvani weight </p>
@@ -130,7 +146,7 @@ export default function Deal(props){
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Balance </p>
-                        <small className='dealvalue'>{balancecal(finalThiruvaniWeight,props.location.state.deal.estimatedProductWeight)}</small>
+                        <small className='dealvalue'>{balancecal(finalThiruvaniWeight,totalTouch,estiproductpurity)} P</small>
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Thiruvani status</p>
