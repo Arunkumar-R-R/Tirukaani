@@ -51,16 +51,17 @@ export default function FormModal (props) {
     let weight = document.querySelector('#weight');
     let touch = document.querySelector('#touch');
     let labourTouch = document.querySelector('#labourTouch');
+    let thiruvaniDeliveryTouch = document.querySelector('#thiruvaniDeliveryTouch');
 
     let silverTypeError = document.querySelector('#silverTypeError');
     let weightError = document.querySelector('#weightError');
     let touchError = document.querySelector('#touchError');
     let labourTouchError = document.querySelector('#labourTouchError');
+    let thiruvaniDeliveryTouchError = document.querySelector('#thiruvaniDeliveryTouchError');
 
     const silverTypeErrorMessage = 'Select the silver type';
     const weightErrorMessage = 'Enter the weight';
     const touchErrorMessage = 'Enter the Touch below 100';
-    const LabourTouchErrorMessage = 'Enter the Labour Touch below 100';
   
     if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
         silvertypeRadio.classList.remove('invalid');
@@ -81,6 +82,26 @@ export default function FormModal (props) {
                   let finaltouch = finalTouch(touch.value, labourTouch.value)
                   let estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
 
+                  if(thiruvaniDeliveryTouch.value)
+                  {
+                    if( thiruvaniDeliveryTouch.value < 100 && thiruvaniDeliveryTouch.value > 0)
+                    {
+                      thiruvaniDeliveryTouch.classList.remove("invalid");
+                      thiruvaniDeliveryTouchError.style.display = "none";
+  
+                      obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
+                      console.log(obj.thiruvaniDeliveryTouch);
+                    }
+                    else
+                    {
+                      thiruvaniDeliveryTouch.classList.add('invalid');
+                      thiruvaniDeliveryTouchError.style.display = "inline";
+                      thiruvaniDeliveryTouchError.innerHTML = touchErrorMessage;
+                      return;
+                    }
+                  }
+                  
+                  obj.thiruvaniDeliveryTouch = 0;
                   obj.silvertype = silvertype.value;
                   obj.weight = weight.value;
                   obj.touch = touch.value;
@@ -97,7 +118,7 @@ export default function FormModal (props) {
               {
                   labourTouch.classList.add('invalid');
                   labourTouchError.style.display = "inline";
-                  labourTouchError.innerHTML = LabourTouchErrorMessage;
+                  labourTouchError.innerHTML = touchErrorMessage;
               }   
               }   
           else {
@@ -127,7 +148,7 @@ export default function FormModal (props) {
 
         labourTouch.classList.add("invalid");
         labourTouchError.style.display = "inline";
-        labourTouchError.innerHTML = LabourTouchErrorMessage;
+        labourTouchError.innerHTML = touchErrorMessage;
       }
   }
 
@@ -247,7 +268,18 @@ export default function FormModal (props) {
                       required
                     />
                      <span id="labourTouchError"  className='error'></span>
-                </div>    
+                </div>
+                <div className='form_element'>
+                    <label htmlFor="thiruvaniDeliveryTouch">Thiruvani delivery touch</label>
+                    <input
+                      id="thiruvaniDeliveryTouch"
+                      name='thiruvaniDeliveryTouch'
+                      type="number"
+                      maxLength = "100"
+                      required
+                    />
+                    <span id="thiruvaniDeliveryTouchError"  className='error'></span>
+                </div>       
                 </>
               }
               <div className= 'submit_button'>
