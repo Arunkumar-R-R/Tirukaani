@@ -35,7 +35,7 @@ export default function Home()
                 </div>
                 
                 <div className='button-sticky-button'>
-                    <Button type={'button'} text={"Add client"} onClick={() => setShow(true)}/> 
+                    <Button type={'button'} buttontype={'primarybtn'} text={"Add client"} onClick={() => setShow(true)}/> 
                     <FormModal
                         onClose={() => setShow(false)} 
                         show={show} 

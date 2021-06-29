@@ -15,48 +15,48 @@
 }
 
 .dealinforow{
-    margin:0 0 40px 0;
+    margin:0 auto 16px ;
+    padding: 10px 0 10px 20px ;
+    width: 80%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-flow: column;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
 }
 .dealinfo{
     /* width: 60%; */
     font-size: var(--font-size-regular);
     color: var(--text-color);
+    margin: 0 0 15px 0;
 }
 
 .dealinforow:first-child
 {
-    margin: 40px 0;
+    margin:16px auto 16px ;
 }
 .dealinforow:last-child
 {
-    margin:  0 0 40px 0;
+    margin:0 auto 16px ;
 }
 .dealvalue
 {
- 
     color: var(--heading-color);
     font-weight: var(--font-weight-semi);
-    font-size: var(--font-size-regular);
+    font-size: var(--font-size-medium);
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 .inlineinput
 {
-    width: 35%;
-    padding: 10px;
+    width: 70%;
+    height: 23px;
 }
 
 .modal_form_element{
     margin: 30px;
 }
 
-.button-sticky-button{
-    width: 100%;
-}
 .radio-element{
     border: 2px solid var(--border-color);
     padding: 20px;
@@ -69,7 +69,7 @@
     width: fit-content;
     border-radius: 50px;
     font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-regular);
+    font-size: 13.33px;
 }
 
 .inprogress{
@@ -88,6 +88,12 @@
     color: var(--status-in-Completed);
 }
 
-.inlineinputholder{
+/* .inlineinputholder{
     height: 40px;
+} */
+.buttongroup{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
 }
+

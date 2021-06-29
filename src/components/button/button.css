@@ -2,9 +2,7 @@
 
 .button
 {
-    background-color: var(--primary-color);
     line-height: 1.5;
-    color: var(--white-color);
     border-radius: var(--border-radius-small);
     border: none;
     padding: 10px 0;
@@ -16,4 +14,17 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+}
+
+.primarybtn
+{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.secondarybtn
+{
+    background-color: var(--white-color);
+    color: var(--text-color);
+    /* border: 1px solid var(--border-color); */
 }

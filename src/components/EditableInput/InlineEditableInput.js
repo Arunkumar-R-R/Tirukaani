@@ -30,7 +30,7 @@ export default function InlineEditableInput({
             </div>
           ) : (
             <span
-              className='dealvalue inlineinputholder'
+              className='dealvalue'
               onClick={() => setEditing(true)}
             >
                  {text || placeholder}

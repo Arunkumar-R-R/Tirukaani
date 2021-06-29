@@ -49,7 +49,7 @@ export default function Clienthome(props)
                     }
                     </div>
                     <div className='button-sticky-button'>
-                        <Button type={'button'} text={"Add Deal"} onClick={() => setShow(true)}/> 
+                        <Button type={'button'} buttontype={'primarybtn'} text={"Add Deal"} onClick={() => setShow(true)}/> 
                         <FormModal 
                             onClose={() => setShow(false)}
                             show={show} 

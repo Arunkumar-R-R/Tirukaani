@@ -283,7 +283,7 @@ export default function FormModal (props) {
                 </>
               }
               <div className= 'submit_button'>
-                    <Button type={'submit'} onClick={props.handleAddClientFormSubmit ? handleAddClientForm : handleAddDealForm} text={"Create client"} />
+                    <Button type={'submit'} buttontype={'primarybtn'} onClick={props.handleAddClientFormSubmit ? handleAddClientForm : handleAddDealForm} text={"Create client"} />
                 </div>
             </form>       
          </div>

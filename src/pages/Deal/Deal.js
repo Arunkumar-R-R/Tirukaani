@@ -152,7 +152,6 @@ export default function Deal(props){
                         <small className='dealvalue thiruvanistatus' onClick={() => setShow(true)} >{Thiruvanistatus || '---'}</small>
                     </div>
              </div>
-             <div className='button-sticky-button'>
              <Modal 
                             show={show}
                             onClose={() => setShow(false)} 
@@ -172,8 +171,12 @@ export default function Deal(props){
                                 </label>
                             </div>
                         </Modal>
-                 <Button type={'submit'} text={"Save"} />
-             </div>
+                        <div className='buttongroup'>
+                           {/* <button className='secondarybtn'>Close</button>
+                           <button className='primarybtn'>Save changes</button> */}
+                            <Button  type={'submit'} text={"Close"} buttontype={'secondarybtn'} />
+                            <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn'} />
+                        </div>
              </div>
         </div>
     );
