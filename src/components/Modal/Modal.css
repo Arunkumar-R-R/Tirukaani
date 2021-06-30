@@ -9,7 +9,9 @@
     transform: translateY(calc(100vh - 300px));
     position: absolute;
     overflow-y: auto;
+    z-index: 5;
 }
+
 .display-block {
     display: block;
     pointer-events: visible;

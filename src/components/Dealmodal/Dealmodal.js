@@ -1,26 +1,24 @@
-import React,{ useEffect, useState} from 'react';
-import './Deal.css'
+import React,{useState,useEffect} from 'react';
+import ReactDOM from 'react-dom';
+import './Dealmodal.css';
+
 import Button from '../../components/Button/Button';
 import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
 import Modal from '../../components/Modal/Modal';
-import { Link } from 'react-router-dom';
-import { useRouteMatch } from 'react-router';
 import { finalTouch,purity } from '../../utils/calculation';
 
-
-export default function Deal(props){
-
-    const [show, setShow] = useState(false);
+export default function Dealmodal(props){
+    const [showthiruvanistatusmodal, setshowthiruvanistatusmodal] = useState(false);
     const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
     const [Thiruvanistatus, setThiruvanistatus] = useState("");
 
-    let silverType  = props.location.state.deal.silvertype;
-    let weight = props.location.state.deal.weight;
-    let touch = props.location.state.deal.touch;
-    let totalTouch = finalTouch(props.location.state.deal.touch,props.location.state.deal.labourTouch);
-    let estiproductpurity = props.location.state.deal.purity;
-    let labourTouch = props.location.state.deal.labourTouch;
-    let esitmatedThiruvaniWeight =props.location.state.deal.estimatedProductWeight;
+    let silverType  = props.silvertype;
+    let weight = props.weight;
+    let touch = props.touch;
+    let totalTouch = finalTouch(props.touch,props.labourTouch);
+    let estiproductpurity = props.purity;
+    let labourTouch = props.labourTouch;
+    let esitmatedThiruvaniWeight =props.estimatedProductWeight;
 
 
     function balancecal(finalThiruvaniWeight,totaltouch,estiproductpurity)
@@ -55,7 +53,7 @@ export default function Deal(props){
             status = silverstatus.value;
         }
         setThiruvanistatus(status);
-        setShow(false)
+        setshowthiruvanistatusmodal(false)
     }
 
     function setthemeforstatus(status){
@@ -79,28 +77,28 @@ export default function Deal(props){
             status.classList.add(obj[statuscontent]);
         }
     }
+    function closemodal(){
+        props.onClose();
+      }
+
+    const showHideClassName = props.show ? "modal display-block" : "modal display-none";
 
     useEffect(()=>{
         let status = document.querySelector('.thiruvanistatus');
         setthemeforstatus(status);
     },[Thiruvanistatus]);
 
-    const { url } = useRouteMatch();
-    const lasturl = url.substring(0, url.lastIndexOf('/'));
-
-
-    return (
-        <div className='wrapper'>
-              <nav>
-                    <Link to={`${lasturl}`} >
-                    <svg xmlns="http://www.w3.org/2000/svg" className=" icon-tabler-arrow-narrow-left" width="43" height="43" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#333333" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <line x1="5" y1="12" x2="9" y2="16"></line>
-                        <line x1="5" y1="12" x2="9" y2="8"></line>
-                    </svg>
-                    </Link>
-                    <h3 className='dealname'> {props.location.state.deal.dealno} </h3>
+    return ReactDOM.createPortal(
+        <div className={showHideClassName} onClick={closemodal}>
+             <div className='wrapper bottommodal' onClick={e => e.stopPropagation()} >
+              <nav className='dealmodalnav'>
+                    <h3 className='dealname'> {props.dealno} </h3>
+                    <div className='modal-close-btn'>
+                        <svg  onClick={closemodal}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" className="close-btn" role="button">
+                            <path d="M8.951 9.5c-.144 0-.279-.054-.387-.162L.662 1.436C.446 1.22.446.878.662.662c.216-.216.558-.216.774 0l7.902 7.902c.104.102.162.242.162.387 0 .145-.058.285-.162.387-.102.104-.241.163-.387.162zm-7.902 0c-.144 0-.279-.054-.387-.162C.558 9.236.5 9.096.5 8.951c0-.145.058-.285.162-.387L8.564.662c.216-.216.558-.216.774 0 .216.216.216.558 0 .774L1.436 9.338c-.102.104-.241.163-.387.162z">
+                            </path>
+                        </svg>
+                    </div>
              </nav>
              <div className='deal-container'>
              <div className='deal-info-container'>
@@ -149,12 +147,18 @@ export default function Deal(props){
                     </div>
                     <div className=' dealinforow'>
                         <p className='dealinfo'>Thiruvani status</p>
-                        <small className='dealvalue thiruvanistatus' onClick={() => setShow(true)} >{Thiruvanistatus || '---'}</small>
+                        <small className='dealvalue thiruvanistatus' onClick={() => setshowthiruvanistatusmodal(true)} >{Thiruvanistatus || '---'}</small>
                     </div>
              </div>
-             <Modal 
-                            show={show}
-                            onClose={() => setShow(false)} 
+             </div>
+             <div className='buttongroup'>
+                            <Button  type={'submit'} text={"Close"} onClick={closemodal} buttontype={'secondarybtn'} />
+                            <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn'} />
+             </div>
+        </div>
+        <Modal 
+                            show={showthiruvanistatusmodal}
+                            onClose={() => setshowthiruvanistatusmodal(false)} 
                         >
                             <div className='modal_form_element'>
                                 <label className='radio-element' onClick={getthiruvanistatus}>
@@ -172,11 +176,8 @@ export default function Deal(props){
                             </div>
                         </Modal>
                         
-             </div>
-             <div className='buttongroup'>
-                            <Button  type={'submit'} text={"Close"} buttontype={'secondarybtn'} />
-                            <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn'} />
-             </div>
         </div>
-    );
+    ,
+    document.getElementById("root"));
+
 }
