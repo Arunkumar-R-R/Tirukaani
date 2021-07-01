@@ -78,8 +78,11 @@ export default function Dealmodal(props){
         }
     }
     function closemodal(){
-        props.onClose();
-      }
+        // props.onClose();
+        setTimeout(() => {
+            props.onClose();
+        }, 1);
+    }
 
     const showHideClassName = props.show ? "modal display-block" : "modal display-none";
 
@@ -91,7 +94,7 @@ export default function Dealmodal(props){
     return ReactDOM.createPortal(
         <div className={showHideClassName} onClick={closemodal}>
              <div className='wrapper bottommodal' onClick={e => e.stopPropagation()} >
-              <nav className='dealmodalnav'>
+              <div className='dealmodalnav'>
                     <h3 className='dealname'> {props.dealno} </h3>
                     <div className='modal-close-btn'>
                         <svg  onClick={closemodal}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" className="close-btn" role="button">
@@ -99,7 +102,8 @@ export default function Dealmodal(props){
                             </path>
                         </svg>
                     </div>
-             </nav>
+                   
+             </div>
              <div className='deal-container'>
              <div className='deal-info-container'>
                     <div className=' dealinforow'>
@@ -149,14 +153,16 @@ export default function Dealmodal(props){
                         <p className='dealinfo'>Thiruvani status</p>
                         <small className='dealvalue thiruvanistatus' onClick={() => setshowthiruvanistatusmodal(true)} >{Thiruvanistatus || '---'}</small>
                     </div>
-             </div>
-             </div>
-             <div className='buttongroup'>
+                    <div className='buttongroup'>
                             <Button  type={'submit'} text={"Close"} onClick={closemodal} buttontype={'secondarybtn'} />
                             <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn'} />
+             </div> 
              </div>
+            
+             </div>
+             
         </div>
-        <Modal 
+                        <Modal 
                             show={showthiruvanistatusmodal}
                             onClose={() => setshowthiruvanistatusmodal(false)} 
                         >

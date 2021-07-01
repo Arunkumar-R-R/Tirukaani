@@ -1,5 +1,7 @@
 @import url(./../../App.css);
-
+.b-modal {
+  z-index: 3;
+}
 .bottom
 {
     width:100%;

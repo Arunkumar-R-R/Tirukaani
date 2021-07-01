@@ -14,7 +14,7 @@
     pointer-events: none;
     height: 100%;
     width: 100%;
-    z-index: 5;
+    z-index: 1;
   }
   
   .hidescroll{
