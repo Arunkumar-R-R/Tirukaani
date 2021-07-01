@@ -53,8 +53,7 @@ export default function Dealmodal(props){
             status = silverstatus.value;
         }
         setThiruvanistatus(status);
-        setshowthiruvanistatusmodal(false)
-
+        setshowthiruvanistatusmodal(false);
     }
 
     function setthemeforstatus(status){
@@ -78,11 +77,12 @@ export default function Dealmodal(props){
             status.classList.add(obj[statuscontent]);
         }
     }
-    function closemodal(){
+
+    function closedealmodal(){
         props.onClose();
     }
 
-    const showHideClassName = props.show ? "modal display-block" : "modal display-none";
+    const showHideClassName = props.show ? " modal display-block" : " modal display-none";
 
     useEffect(()=>{
         let status = document.querySelector('.thiruvanistatus');
@@ -90,12 +90,12 @@ export default function Dealmodal(props){
     },[Thiruvanistatus]);
 
     return ReactDOM.createPortal(
-        <div className={showHideClassName} onClick={closemodal}>
+        <div className={showHideClassName} onClick={closedealmodal}>
              <div className='wrapper bottommodal' onClick={e => e.stopPropagation()} >
               <div className='dealmodalnav'>
                     <h3 className='dealname'> {props.dealno} </h3>
                     <div className='modal-close-btn'>
-                        <svg  onClick={closemodal}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" className="close-btn" role="button">
+                        <svg  onClick={closedealmodal}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" className="close-btn" role="button">
                             <path d="M8.951 9.5c-.144 0-.279-.054-.387-.162L.662 1.436C.446 1.22.446.878.662.662c.216-.216.558-.216.774 0l7.902 7.902c.104.102.162.242.162.387 0 .145-.058.285-.162.387-.102.104-.241.163-.387.162zm-7.902 0c-.144 0-.279-.054-.387-.162C.558 9.236.5 9.096.5 8.951c0-.145.058-.285.162-.387L8.564.662c.216-.216.558-.216.774 0 .216.216.216.558 0 .774L1.436 9.338c-.102.104-.241.163-.387.162z">
                             </path>
                         </svg>
@@ -152,18 +152,16 @@ export default function Dealmodal(props){
                         <small className='dealvalue thiruvanistatus' onClick={() => setshowthiruvanistatusmodal(true)} >{Thiruvanistatus || '---'}</small>
                     </div>
                     <div className='buttongroup'>
-                            <Button  type={'submit'} text={"Close"} onClick={closemodal} buttontype={'secondarybtn'} />
+                            <Button  type={'submit'} text={"Close"} onClick={closedealmodal} buttontype={'secondarybtn'} />
                             <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn'} />
              </div> 
              </div>
             
              </div>
-             
-        </div>
-                        <Modal 
-                            show={showthiruvanistatusmodal}
+             <Modal 
+                            showthiruvanistatusmodal={showthiruvanistatusmodal}
                             onClose={() => setshowthiruvanistatusmodal(false)} 
-                        >
+             >
                             <div className='modal_form_element'>
                                 <label className='radio-element' onClick={getthiruvanistatus}>
                                     <input type='radio' value='Not yet' name='silverstatus' required/> 
@@ -179,7 +177,7 @@ export default function Dealmodal(props){
                                 </label>
                             </div>
                         </Modal>
-                        
+        </div>             
         </div>
     ,
     document.getElementById("root"));

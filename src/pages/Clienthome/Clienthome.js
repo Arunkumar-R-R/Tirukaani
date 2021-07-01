@@ -3,7 +3,7 @@ import Button from '../../components/Button/Button';
 import FormModal from '../../components/FormModal/FormModal';
 import Dealcomponent from '../../components/Dealcomponent/Dealcomponent';
 import Dealmodal from '../../components/Dealmodal/Dealmodal';
-import ReactDOM from 'react-dom';
+
 import './Clienthome.css';
 import {
     Link
@@ -99,15 +99,3 @@ export default function Clienthome(props)
        
     );
 }
-
-/* <Dealmodal 
-                    show={dealmodalshow}
-                    onClose={() => setdealmodalshow(false)} 
-                    dealno= {`Deal ${individualdeal.dealno}`}
-                    silvertype={individualdeal.silvertype}
-                    weight={individualdeal.weight}
-                    touch={individualdeal.touch}
-                    labourTouch={individualdeal.labourTouch}
-                    purity={individualdeal.purity}
-                    estimatedProductWeight={individualdeal.estimatedProductWeight}
-                /> */

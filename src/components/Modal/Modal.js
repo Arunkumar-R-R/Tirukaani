@@ -6,7 +6,7 @@ export default function Modal(props){
     function closemodal(){
       props.onClose();
     }
-    const showHideClassName = props.show ? "b-modal modal display-block" : "modal display-none";
+    const showHideClassName = props.showthiruvanistatusmodal ? "b-modal modal display-block" : " b-modal modal display-none";
     return ReactDOM.createPortal(
             <div className={showHideClassName} onClick={closemodal}>
                  <div className='wrapper bottom'  onClick={e => e.stopPropagation()}>
