@@ -5,7 +5,7 @@ import './Dealmodal.css';
 import Button from '../../components/Button/Button';
 import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
 import Modal from '../../components/Modal/Modal';
-import { finalTouch,purity } from '../../utils/calculation';
+import { finalTouch, purity } from '../../utils/calculation';
 
 export default function Dealmodal(props){
     const [showthiruvanistatusmodal, setshowthiruvanistatusmodal] = useState(false);
@@ -15,11 +15,12 @@ export default function Dealmodal(props){
     let silverType  = props.silvertype;
     let weight = props.weight;
     let touch = props.touch;
-    let totalTouch = finalTouch(props.touch,props.labourTouch);
-    let estiproductpurity = props.purity;
     let labourTouch = props.labourTouch;
+    let tdeliverytouch = props.thiruvaniDeliveryTouch;
+    let totalTouch = props.finalTouch;
+    let estiproductpurity = props.purity;
     let esitmatedThiruvaniWeight =props.estimatedProductWeight;
-
+    
 
     function balancecal(finalThiruvaniWeight,totaltouch,estiproductpurity)
     {

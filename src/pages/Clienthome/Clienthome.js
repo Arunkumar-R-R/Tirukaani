@@ -57,12 +57,10 @@ export default function Clienthome(props)
                 </nav>
                     <div className='deal-container'>
                     {
-                      
                        deals.length>0?deals.map((deal,index)=>{
                         deal.dealno = `${index+1}`;
                         return <Dealcomponent deal={deal} index={deal.dealno} showdeal={showdeal}/>
                     }):<h1 className='no-data-available'>No deal</h1>
-
 
                     }
                     </div>
@@ -88,6 +86,8 @@ export default function Clienthome(props)
                     weight={individualdeal.weight}
                     touch={individualdeal.touch}
                     labourTouch={individualdeal.labourTouch}
+                    thiruvaniDeliveryTouch={individualdeal.thiruvaniDeliveryTouch}
+                    finalTouch={individualdeal.finalTouch}
                     purity={individualdeal.purity}
                     estimatedProductWeight={individualdeal.estimatedProductWeight}
                     />

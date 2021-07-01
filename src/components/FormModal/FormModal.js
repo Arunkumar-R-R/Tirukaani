@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
-import { estimatedProductWeight, finalTouch, purity } from "../../utils/calculation";
+import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, purity } from "../../utils/calculation";
 
 
 export default function FormModal (props) {
@@ -65,7 +65,10 @@ export default function FormModal (props) {
     const silverTypeErrorMessage = 'Select the silver type';
     const weightErrorMessage = 'Enter the weight';
     const touchErrorMessage = 'Enter the Touch below 100';
-  
+
+    let finaltouch;
+    let estimatedproductweight;
+    
     if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
         silvertypeRadio.classList.remove('invalid');
         silverTypeError.style.display = "none"; 
@@ -82,18 +85,17 @@ export default function FormModal (props) {
                   labourTouchError.style.display = "none";
 
                   let givenpurity = purity(weight.value,touch.value);
-                  let finaltouch = finalTouch(touch.value, labourTouch.value)
-                  let estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
 
-                  if(thiruvaniDeliveryTouch.value)
+                  if(thiruvaniDeliveryTouch !== null && thiruvaniDeliveryTouch.value)
                   {
                     if( thiruvaniDeliveryTouch.value < 100 && thiruvaniDeliveryTouch.value > 0)
                     {
                       thiruvaniDeliveryTouch.classList.remove("invalid");
                       thiruvaniDeliveryTouchError.style.display = "none";
-  
+
                       obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
-                      console.log(obj.thiruvaniDeliveryTouch);
+                      finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
+                      estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
                     }
                     else
                     {
@@ -103,8 +105,12 @@ export default function FormModal (props) {
                       return;
                     }
                   }
-                  
-                  obj.thiruvaniDeliveryTouch = 0;
+                  else{
+                      obj.thiruvaniDeliveryTouch = 0;
+                      finaltouch = finalTouch(touch.value, labourTouch.value);
+                      estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+                  }
+
                   obj.silvertype = silvertype.value;
                   obj.weight = weight.value;
                   obj.touch = touch.value;
@@ -112,9 +118,7 @@ export default function FormModal (props) {
                   obj.purity = givenpurity;
                   obj.finalTouch = finaltouch;
                   obj.estimatedProductWeight = estimatedproductweight;
-        
                   props.onSubmit(obj);
-
                   closemodal();
               }
               else 
@@ -192,8 +196,6 @@ export default function FormModal (props) {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
-
-  console.log(deliverytouchtoggle)
 
   return ReactDOM.createPortal(
     <CSSTransition

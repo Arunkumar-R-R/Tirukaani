@@ -32,6 +32,13 @@ export const purity = (weight,touch) =>{
     return finalpurity;
 }
 
+export const addDeliveryTouch = (labourtouch,thiruvanideliverytouch) =>{
+    let labourTouch = parseFloat(labourtouch);
+    let thiruvaniDeliveryTouch = parseFloat(thiruvanideliverytouch);
+    let updatedtouch = labourTouch + thiruvaniDeliveryTouch;
+    return updatedtouch;
+}
+
 export const finalTouch = (touch,labourTouch) =>{
     let clienttouch = parseFloat(touch);
     let labourtouch = parseFloat(labourTouch);
