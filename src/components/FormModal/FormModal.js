@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
@@ -7,6 +7,8 @@ import { estimatedProductWeight, finalTouch, purity } from "../../utils/calculat
 
 
 export default function FormModal (props) {
+
+  const [deliverytouchtoggle, setDeliverytouchtoggle] = useState(false);
 
   let appBody = document.body
   let obj={};
@@ -42,6 +44,7 @@ export default function FormModal (props) {
     }    
     
   }
+
   function handleAddDealForm(e){
     
     e.preventDefault();
@@ -152,7 +155,12 @@ export default function FormModal (props) {
       }
   }
 
-    
+  function toggledeliverytouch()
+  {
+    setDeliverytouchtoggle(deliverytouchtoggle=>!deliverytouchtoggle);
+    let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
+    deliverytouchcheck.checked = !deliverytouchtoggle;
+  }
 
 
   function removeclass()
@@ -167,6 +175,7 @@ export default function FormModal (props) {
   {
     props.onClose();
     removeclass();
+    setDeliverytouchtoggle(false);
   }
 
   const closeOnEscapeKeyDown = e => {
@@ -183,6 +192,8 @@ export default function FormModal (props) {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
+
+  console.log(deliverytouchtoggle)
 
   return ReactDOM.createPortal(
     <CSSTransition
@@ -269,17 +280,29 @@ export default function FormModal (props) {
                     />
                      <span id="labourTouchError"  className='error'></span>
                 </div>
-                <div className='form_element'>
-                    <label htmlFor="thiruvaniDeliveryTouch">Thiruvani delivery touch</label>
-                    <input
-                      id="thiruvaniDeliveryTouch"
-                      name='thiruvaniDeliveryTouch'
-                      type="number"
-                      maxLength = "100"
-                      required
-                    />
-                    <span id="thiruvaniDeliveryTouchError"  className='error'></span>
-                </div>       
+                <div className='deliverytouch-toggle-container'>
+                    <div className='deliverytouch-toggle' onClick={toggledeliverytouch}>
+                      <small>Do you want to add Thiruvani delivery touch</small> 
+                      <input className='deliverytouchcheck' type="checkbox" aria-label="Toggle Button" />
+                    </div>
+                   
+                    {
+                      deliverytouchtoggle ?
+                        <div className='form_element deliverytouchinput'>
+                          <label htmlFor="thiruvaniDeliveryTouch">Thiruvani delivery touch</label>
+                          <input
+                            id="thiruvaniDeliveryTouch"
+                            name='thiruvaniDeliveryTouch'
+                            type="number"
+                            maxLength = "100"
+                            required
+                          />
+                           <span id="thiruvaniDeliveryTouchError"  className='error'></span>
+                        </div> 
+                        :''
+                    }
+                </div>
+                     
                 </>
               }
               <div className= 'submit_button'>
