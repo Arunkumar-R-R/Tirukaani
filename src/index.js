@@ -4,16 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import Clienthome from './pages/Clienthome/Clienthome'
-import Dealcomponent from './components/Dealcomponent/Dealcomponent'
-import Deal from './pages/Deal/Deal';
 
 ReactDOM.render(
   <BrowserRouter>
     <App />
-    {/* <Deal /> */}
-    {/* <Clienthome></Clienthome> */}
-    {/* <Dealcomponent></Dealcomponent> */}
   </BrowserRouter>,
   document.getElementById('root')
 );

@@ -6,7 +6,7 @@
     height: 100%;
     background-color: var(--white-color);
     transition: all 0.2s ease-in-out;
-    transform: translateY(calc(100vh - 450px));
+    transform: translateY(calc(100vh - 500px));
     position: absolute;
     overflow-y: auto;
     z-index: 1;
@@ -27,7 +27,7 @@
 .deal-info-container{
     width: 100%;
     height: 100%;
-    margin-bottom: calc(100vh - 450px);
+    margin-bottom: calc(100vh - 500px);
 }
 .dealname
 {

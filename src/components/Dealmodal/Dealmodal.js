@@ -54,6 +54,7 @@ export default function Dealmodal(props){
         }
         setThiruvanistatus(status);
         setshowthiruvanistatusmodal(false)
+
     }
 
     function setthemeforstatus(status){
@@ -78,10 +79,7 @@ export default function Dealmodal(props){
         }
     }
     function closemodal(){
-        // props.onClose();
-        setTimeout(() => {
-            props.onClose();
-        }, 1);
+        props.onClose();
     }
 
     const showHideClassName = props.show ? "modal display-block" : "modal display-none";

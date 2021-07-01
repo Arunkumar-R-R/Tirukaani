@@ -109,7 +109,7 @@ export default function FormModal (props) {
                   obj.purity = givenpurity;
                   obj.finalTouch = finaltouch;
                   obj.estimatedProductWeight = estimatedproductweight;
-
+        
                   props.onSubmit(obj);
 
                   closemodal();
