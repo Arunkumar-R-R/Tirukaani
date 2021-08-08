@@ -1,0 +1,15 @@
+.form_title{
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+.login_component{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.form
+{
+    width: 100%;
+}

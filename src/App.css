@@ -52,9 +52,18 @@ img{
   height: 100%;
 }
 h1{
+  font-size:var(--font-size-larger);
+}
+
+h2{
   font-size: var(--font-size-semi-larger);
 }
-h2,h3{
+
+h3{
+  font-size: var(--font-size-semi);
+}
+
+h4{
   font-size: var(--font-size-medium);
 }
 h1,h2,h3,h4,h5{
@@ -90,4 +99,34 @@ a
 p{
   font-size: var(--font-size-regular);
   color: var(--text-color);
+}
+
+
+form
+{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 0 24px;
+}
+
+label
+{
+  font-size: var(--font-size-smallest);
+  color: var(--text-color);
+  font-weight: var(--font-weight-medium);
+  margin:  0 0 8px 0;
+}
+
+input
+{
+  height: 40px;
+  padding: 0 0 0 16px;
+  border: 1px solid var(--border-color);
+  font-size: var(--font-size-small);
+  color: var(--text-color);
+}
+button
+{
+  margin: 32px 0 0 0;
 }

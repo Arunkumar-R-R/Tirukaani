@@ -1,4 +1,4 @@
-@import url(./../../App.css);
+/* @import url(./../../App.css);
 
 .modal {
     position: fixed;
@@ -79,7 +79,7 @@
 
 /* Form styles    */
 
-  label
+  /* label
   {
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-medium);
@@ -143,7 +143,7 @@ h2{
 }
 
 /*--- Error styles ---*/
-.invalid
+/* .invalid
 {
   border: 2px solid red;
 }
@@ -164,4 +164,4 @@ h2{
 }
 .deliverytouchinput{
   margin: 20px 0;
-}
+} */ 
