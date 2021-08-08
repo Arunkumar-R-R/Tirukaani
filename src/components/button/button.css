@@ -2,13 +2,12 @@
 
 .button
 {
-    line-height: 1.5;
+    /* line-height: 1.5; */
     border-radius: var(--border-radius-small);
     border: none;
-    padding: 10px 0;
-    margin: 12px 0;
+    height: 48px;
     width:100%;
-    font-size: 14px;
+    font-size:var(--font-size-small);
     font-family: inherit;
     display: flex;
     flex-flow: row wrap;
