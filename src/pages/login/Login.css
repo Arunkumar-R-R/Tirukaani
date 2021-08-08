@@ -4,12 +4,15 @@
 }
 
 .login_component{
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
+    position: absolute;
 }
 
 .form
 {
     width: 100%;
+    position: relative;
 }
