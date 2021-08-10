@@ -115,24 +115,6 @@ export default function Home()
                         <h2 className='no-data-available'>No Client Available</h2>
                         <h2 className='no-data-available'>No Client Available</h2>
                         <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
                     </div>
                     <div className='gap'></div>
           </div>
