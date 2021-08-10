@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import Clienthome from './pages/Clienthome/Clienthome'
 import { Route,Switch } from "react-router-dom";
 import Login from './pages/login/Login';
+import Bottom_navigation from './components/Bottom_navigation/Bottom_navigation';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
           <Route  path="/client/:clientname" component={Clienthome} />
           <Route exact path="/" component={Home} />
        </Switch> */}
-       <Login/>
+       <Home></Home>
     </div>
   );
 }

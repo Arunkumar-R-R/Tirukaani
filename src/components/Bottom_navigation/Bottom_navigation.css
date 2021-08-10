@@ -1,0 +1,35 @@
+@import url('./../../App.css');
+
+.bottom_navigation{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-evenly;
+    align-items: center;
+   
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 0.01%);
+    filter: drop-shadow(4px 0px 10px rgba(0, 0, 0, 0.25));
+}
+
+.bottom_item
+{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    width: 72px;
+
+}
+.bottom_item:hover{
+    background-color: var(--hover-color);
+}
+
+.bottom_item_title{
+    font-size: var(--font-size-smallest);
+    font-weight: var(--font-weight-medium);
+    color:var(--text-color);
+}

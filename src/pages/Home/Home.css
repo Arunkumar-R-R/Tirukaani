@@ -15,11 +15,3 @@
     justify-content: flex-start;
     align-items: center;
 }
-
-.button-sticky-button
-{
-    position: sticky;
-    bottom: 0;
-    background-color: var(--white-color);
-    border-top:1px solid var(--border-color);
-}

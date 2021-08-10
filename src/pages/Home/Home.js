@@ -3,38 +3,42 @@ import Button from '../../components/Button/Button';
 import './Home.css';
 import FormModal from '../../components/FormModal/FormModal';
 import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
+import Bottom_navigation from '../../components/Bottom_navigation/Bottom_navigation';
 
 export default function Home()
 {
-    const [show, setShow] = useState(false);
-    const [clients, setClients] = useState([]);
-    let newclient=[];
+    // const [show, setShow] = useState(false);
+    // const [clients, setClients] = useState([]);
+    // let newclient=[];
 
-    const addclient = client => {
+    // const addclient = client => {
         
-        newclient.push(client);
-        setClients(newclient);
+    //     newclient.push(client);
+    //     setClients(newclient);
 
-    };
+    // };
 
-    useEffect(()=>{
-        if(clients.length>0)
-        {
-            newclient = [...clients];
-        }
-    },[newclient]);
+    // useEffect(()=>{
+    //     if(clients.length>0)
+    //     {
+    //         newclient = [...clients];
+    //     }
+    // },[newclient]);
     
 
     return(
-        <div className='wrapper'>
+        <>
+         <div className='wrapper'>
             <div className='home-container'>
                 <div className='clients-container'>
-                    {
+                    {/* {
                         clients.length>0?<Clientcomponent clients={clients}/>:<h1 className='no-data-available'>No Client Available</h1>
-                    }
+                        
+                    } */}
+                    <h2 className='no-data-available'>No Client Available</h2>
                 </div>
                 
-                <div className='button-sticky-button'>
+                {/* <div className='button-sticky-button'>
                     <Button type={'button'} buttontype={'primarybtn'} text={"Add client"} onClick={() => setShow(true)}/> 
                     <FormModal
                         onClose={() => setShow(false)} 
@@ -44,8 +48,12 @@ export default function Home()
                         formposition={'bottom'} 
                         handleAddClientFormSubmit={true}
                     />
-                </div>
+                </div> */}
             </div>
         </div> 
+        <Bottom_navigation></Bottom_navigation>
+
+        </>
+       
     );
 }
