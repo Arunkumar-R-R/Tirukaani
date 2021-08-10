@@ -1,17 +1,34 @@
 @import url(./../../App.css);
 
-.home-container
+.container
 {
     position: relative;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    flex-flow: column wrap;
-}
-.clients-container
-{
-    min-height: calc(100vh - 70px);
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
     align-items: center;
+} 
+.clients-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+
+.client_home_title{
+    padding: 10px 15px 0;
+}
+
+.gap{
+    height: 75px;
+    z-index: 11;
+}
+
+.bottom_nav{
+    height: 45px;
+    z-index: 11;
 }
