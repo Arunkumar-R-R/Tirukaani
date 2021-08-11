@@ -5,6 +5,7 @@ import FormModal from '../../components/FormModal/FormModal';
 import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
 import Bottom_navigation from '../../components/Bottom_navigation/Bottom_navigation';
 import Add_button from '../../components/Add_button/Add_button';
+import No_client from '../../components/No_client/No_client';
 
 export default function Home()
 {
@@ -31,51 +32,7 @@ export default function Home()
         <>
           <div className='container'>
                     <div className='clients-container'>
-                        <h1 className= 'client_home_title'>Clients</h1>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
+                        <No_client></No_client>
                     </div>
                     <div className='gap'></div>
           </div>
