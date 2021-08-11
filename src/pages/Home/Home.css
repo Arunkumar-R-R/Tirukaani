@@ -29,6 +29,9 @@
 }
 
 .bottom_nav{
-    height: 45px;
-    z-index: 11;
+    /* height: 45px; */
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0; 
 }

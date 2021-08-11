@@ -2,10 +2,7 @@
 
 .bottom_navigation{
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content:space-evenly;
@@ -24,8 +21,7 @@
     height: inherit;
     width: 72px;
     user-select: none;
-
-
+    cursor: pointer;
 }
 .bottom_item:hover{
     background-color: var(--hover-color);

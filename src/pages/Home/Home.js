@@ -4,6 +4,7 @@ import './Home.css';
 import FormModal from '../../components/FormModal/FormModal';
 import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
 import Bottom_navigation from '../../components/Bottom_navigation/Bottom_navigation';
+import Add_button from '../../components/Add_button/Add_button';
 
 export default function Home()
 {
@@ -75,51 +76,12 @@ export default function Home()
                         <h2 className='no-data-available'>No Client Available</h2>
                         <h2 className='no-data-available'>No Client Available</h2>
                         <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
-                        <h2 className='no-data-available'>No Client Available</h2>
                     </div>
                     <div className='gap'></div>
           </div>
           <nav className='bottom_nav'>
-            <Bottom_navigation></Bottom_navigation>
+              <Add_button></Add_button>
+              <Bottom_navigation></Bottom_navigation>
           </nav> 
         </>
        

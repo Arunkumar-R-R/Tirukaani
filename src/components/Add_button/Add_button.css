@@ -1,0 +1,22 @@
+@import url(./../../App.css);
+
+.add_btn{
+    background-color: var(--primary-color);
+    height: 48px;
+    width: 48px;
+    right: 15px ;
+    bottom: 15px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.add_btn_container{
+    width: 100%;
+    bottom: 0;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
