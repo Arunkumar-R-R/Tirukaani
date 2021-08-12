@@ -20,6 +20,7 @@
 .b-modal {
     z-index: 5;
   }
+
   .bottom
   {
       width:100%;
@@ -74,3 +75,15 @@
   .bottom form{
       margin: 0;
   }
+
+  .delete-btn-container .button{
+      margin: 20px 0 0 0;
+  }
+
+  .delete-btn-container .button:last-child{
+    margin: 15px 0 0 ;
+    }
+
+.client-name-in-modal{
+    font-weight: var(--font-weight-bold);
+}

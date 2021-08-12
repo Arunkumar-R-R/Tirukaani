@@ -9,6 +9,7 @@ import No_client from '../../components/No_client/No_client';
 import Account from '../Account/Account';
 import Menu_modal from '../../components/Modal/Menu_modal';
 import Edit_modal from '../../components/Modal/Edit_modal';
+import Delete_modal from '../../components/Modal/Delete_modal';
 
 export default function Home()
 {
@@ -47,7 +48,7 @@ export default function Home()
               <Bottom_navigation></Bottom_navigation>
           </nav>  */}
           {/* <Menu_modal></Menu_modal> */}
-          <Edit_modal></Edit_modal>
+          <Delete_modal></Delete_modal>
         </>
        
     );
