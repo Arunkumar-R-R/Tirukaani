@@ -7,8 +7,9 @@ import Bottom_navigation from '../../components/Bottom_navigation/Bottom_navigat
 import Add_button from '../../components/Add_button/Add_button';
 import No_client from '../../components/No_client/No_client';
 import Account from '../Account/Account';
-import Modal from '../../components/Modal/Modal';
-import Menu_modal from '../../components/Menu_modal/Menu_modal';
+import Modal from '../../components/XModal/Modal';
+import Menu_modal from '../../components/Modal/Menu_modal';
+import Edit_modal from '../../components/Modal/Edit_modal';
 
 export default function Home()
 {
@@ -46,7 +47,8 @@ export default function Home()
               <Add_button></Add_button>
               <Bottom_navigation></Bottom_navigation>
           </nav>  */}
-          <Menu_modal></Menu_modal>
+          {/* <Menu_modal></Menu_modal> */}
+          <Edit_modal></Edit_modal>
         </>
        
     );

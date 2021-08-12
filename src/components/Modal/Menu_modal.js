@@ -1,5 +1,6 @@
 import React from 'react';
-import './Menu_modal.css';
+import Button from '../Button/Button';
+import './modal.css';
 
 export default function Menu_modal(){
     return (
@@ -33,8 +34,8 @@ export default function Menu_modal(){
                         </svg>
                         <span>Delete</span>
                     </div>
-                 </div> 
-            </div>
+                </div> 
+        </div>
         </>
     );
 }
