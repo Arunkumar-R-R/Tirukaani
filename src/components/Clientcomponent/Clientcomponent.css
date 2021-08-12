@@ -4,10 +4,21 @@
 {
     border: 1px solid var(--border-color);
     width: 100%;
-    padding: 15px 17px;
+    padding: 18px 16px;
     margin: 25px 0 0 0 ;
-    font-size: var(--font-size-semi);
-    font-weight: var(--font-weight-semi);
-    color: var(--heading-color);
-    border-radius: var(--border-radius-small);
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.numberofdeal{
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+
+.clientname{
+    font-weight: var(--font-weight-medium);
+    margin: 0 0 10px 0;
 }

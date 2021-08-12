@@ -32,10 +32,12 @@ export default function Home()
     return(
         <>
           <div className='container'>
-                    {/* <div className='clients-container'>
-                        <No_client></No_client>
-                    </div> */}
-                    <Account></Account>
+                    <div className='clients-container'>
+                        <h2 className='title'>Clients</h2>
+                        {/* <No_client></No_client> */}
+                        <Clientcomponent></Clientcomponent>
+                    </div>
+                    {/* <Account></Account> */}
                     <div className='gap'></div>
           </div>
           <nav className='bottom_nav'>
