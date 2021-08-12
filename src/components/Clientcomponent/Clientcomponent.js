@@ -10,7 +10,7 @@ export default function Clientcomponent()
         <div className='client'>
             <div>
                 <h4 className='clientname'>client name</h4>
-                <span className='numberofdeal'>Number of deal - 0</span>
+                <span className='numberofdeal'>Number of deal - <span className='dealcount'>0</span></span>
             </div>
             <Menu_component></Menu_component>
         </div>

@@ -6,7 +6,7 @@
     width: 100%;
     padding: 18px 16px;
     margin: 25px 0 0 0 ;
-
+    border-radius: var(--border-radius-small);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -21,4 +21,8 @@
 .clientname{
     font-weight: var(--font-weight-medium);
     margin: 0 0 10px 0;
+}
+
+.numberofdeal .dealcount{
+    font-weight: var(--font-weight-bold);
 }
