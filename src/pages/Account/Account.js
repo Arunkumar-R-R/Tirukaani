@@ -8,7 +8,7 @@ export default function Account(){
             <h2 className='title'>Account</h2>
             <div className='mini-container'>
                 <h3>Export</h3>
-                <span>Export whole data into csv file</span>
+                <span className='export-description'>Export whole data into csv file</span>
                 <Button className='' type={'submit'} text={'Export data'} buttontype={'primarybtn'} ></Button>
             </div>
             <div  className='mini-container'>
