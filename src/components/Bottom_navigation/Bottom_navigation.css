@@ -20,7 +20,6 @@
     align-items: center;
     height: inherit;
     width: 72px;
-    user-select: none;
     cursor: pointer;
 }
 .bottom_item:hover{
@@ -31,4 +30,5 @@
     font-size: var(--font-size-smallest);
     font-weight: var(--font-weight-medium);
     color:var(--text-color);
+    user-select: none;
 }
