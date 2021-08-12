@@ -1,0 +1,26 @@
+@import url(./../../App.css);
+
+h3{
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 16px;
+}
+.container
+{
+    align-items: flex-start;
+}
+.mini-container
+{
+    margin: 35px 0 0 0;
+}
+.title
+{
+    margin: 25px 0 0 0;
+}
+.button{
+    margin: 0;
+    width: fit-content;
+    padding: 11px 16px 12px;
+}
+span{
+    margin: 0 0 14px 0;
+}

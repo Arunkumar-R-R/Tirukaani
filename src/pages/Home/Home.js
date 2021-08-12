@@ -6,6 +6,7 @@ import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
 import Bottom_navigation from '../../components/Bottom_navigation/Bottom_navigation';
 import Add_button from '../../components/Add_button/Add_button';
 import No_client from '../../components/No_client/No_client';
+import Account from '../Account/Account';
 
 export default function Home()
 {
@@ -31,9 +32,10 @@ export default function Home()
     return(
         <>
           <div className='container'>
-                    <div className='clients-container'>
+                    {/* <div className='clients-container'>
                         <No_client></No_client>
-                    </div>
+                    </div> */}
+                    <Account></Account>
                     <div className='gap'></div>
           </div>
           <nav className='bottom_nav'>
