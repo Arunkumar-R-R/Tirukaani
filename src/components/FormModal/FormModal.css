@@ -1,167 +1,109 @@
-/* @import url(./../../App.css);
+@import url(./../../App.css);
 
-.modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease-in-out;
-    pointer-events: none;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-  .hidescroll{
-    overflow: hidden;
-  }
-  .modal-content {
-    width:100%;
-    height: 100%;
-    background-color: var(--white-color);
-    transition: all 0.2s ease-in-out;
-    transform: translateY(100vh);
-    overflow-y: auto;
-  }
-  .modal-bottom {
-    width:100%;
-    position: absolute;
-    background-color: var(--white-color);
-    transition: all 0.2s ease-in-out;
-    transform: translateY(-250px);
-    max-height: 640px;
-    border-radius: 20px 20px 0 0;
-    overflow-y: auto;
-    top:100%;
-    left: 0;
-    right: 0;
-  }
-  
-  .modal.enter-done {
-    pointer-events: visible;
-  }
-  
-  .modal.enter-done  .modal-content {
-    transform: translateY(0vh);
-  }
-  
-  .modal.exit .modal-content ,.modal.exit .modal-bottom{
-    transform: translateY(100vh);
-  }
-
-  .modal-close-btn{
-      margin: 20px 0;
-      display: flex;
-      justify-content: flex-end;
-  }
-
-    .close-btn
-  {
-      width:40px;
-      height:40px;
-      padding:10px;
-      color: var(--text-color);
-      border-radius: 50px;
-      cursor: pointer;
-      border: 2px solid var(--white-color);
-  }
-  .close-btn:hover
-  {
-      border: 2px solid var(--border-color);
-  }
-  .modal-header{
-      margin: 10px 0 ;
-  }
-
-/* Form styles    */
-
-  /* label
-  {
-    font-size: var(--font-size-medium);
-    font-weight: var(--font-weight-medium);
-    margin: 0 0 10px 0;
-    display: flex;
-    align-items: center;
-  }
-  input
-  {
-    padding: 12px;
-    border: 1px solid  var(--border-color);
-    border-radius: var(--border-radius-small);
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-medium);
-  }
-
-.form_element
-{
-  display: flex;
-  flex-flow: column wrap;
-  margin-bottom: 20px;
+.modal-header{
+  margin: 20px 0 32px 0;
 }
-.routerlink
-{
-  text-decoration: none;
-  width: 100%;
-}
-.flex{
+
+.modal-header, .deliverytouch-toggle , .deal-toggle{
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
 }
-.flex-row
-{
-  flex-flow: row wrap;
-}
-h2{
-  font-weight: var(--font-weight-bold);
-  margin: 20px  0 25px 0;
-}
-.small-text
-{
-    font-size:14px; ;
-    margin: 0 0 0 8px;
-}
-
-.elements
-{
-  font-weight: var(--font-weight-regular);
-}
-
-.elements:not(:last-child)
-{
-    margin: 0 0 8px 0;
-}
-.radiolabel
-{
-    font-size: var(--font-size-medium);
-    font-weight: var(--font-weight-medium);
-    margin: 0 0 15px 0;
-}
-
-/*--- Error styles ---*/
-/* .invalid
-{
-  border: 2px solid red;
-}
-.error
-{
-  color: red;
-  margin: .2em 0 0 0;
-}
-
-.deliverytouch-toggle{
-  padding: 10px 0;
+label.elements{
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
-.deliverytouchcheck{
-  margin: 0 0 0 10px;
+span.small-text
+{
+  margin: 0 0 0 8px;
 }
-.deliverytouchinput{
-  margin: 20px 0;
-} */ 
+
+.form_element
+{
+  margin: 24px 0 0 0;
+}
+
+#formfirstchild{
+  margin: 0 0 24px 0;
+}
+
+.addthiruvanitoggle{
+  margin: 24px 0 0 0 ;
+}
+
+.switch {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  margin: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--white-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  top: 2px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--border-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--white-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(22px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+  background-color: var(--primary-color);
+}
+
+.slider.round {
+  border-radius: 50px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.submit_button{
+  margin: 0 0 20px 0;
+}
+
+small{
+  font-size: var(--font-size-regular);
+}
+.radiolabel{
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  margin:  0 0 15px 0;
+}
+.elements input{
+  height: 20px;
+  width: 20px;
+}

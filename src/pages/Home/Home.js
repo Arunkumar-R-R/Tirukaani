@@ -48,7 +48,8 @@ export default function Home()
               <Bottom_navigation></Bottom_navigation>
           </nav>  */}
           {/* <Menu_modal></Menu_modal> */}
-          <Delete_modal></Delete_modal>
+          {/* <Delete_modal></Delete_modal> */}
+          <FormModal></FormModal>
         </>
        
     );
