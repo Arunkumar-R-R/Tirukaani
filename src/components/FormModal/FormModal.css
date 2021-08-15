@@ -13,6 +13,7 @@
 label.elements{
   display: flex;
   align-items: center;
+  margin: 0 0 13px 0;
 }
 span.small-text
 {
