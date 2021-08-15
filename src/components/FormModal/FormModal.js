@@ -8,7 +8,8 @@ import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch,
 
 export default function FormModal (props) {
 
-  // const [deliverytouchtoggle, setDeliverytouchtoggle] = useState(false);
+  const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
+  const [dealtoggle, setDealToggle] = useState(false);
 
   // let appBody = document.body
   // let obj={};
@@ -159,12 +160,23 @@ export default function FormModal (props) {
   //     }
   // }
 
-  // function toggledeliverytouch()
-  // {
-  //   setDeliverytouchtoggle(deliverytouchtoggle=>!deliverytouchtoggle);
-  //   let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
-  //   deliverytouchcheck.checked = !deliverytouchtoggle;
-  // }
+  function toggledeliverytouch()
+  {
+    setDeliverytouchToggle(deliverytouchtoggle=>!deliverytouchtoggle);
+    let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
+    deliverytouchcheck.checked = !deliverytouchtoggle;
+  }
+
+  function toggledeal()
+  {
+    setDealToggle(dealtoggle=>!dealtoggle);
+    let dealcheck = document.querySelector('.dealcheck');
+    let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
+    dealcheck.checked = !dealtoggle;
+    if(deliverytouchcheck){
+      setDeliverytouchToggle(deliverytouchtoggle=>!deliverytouchtoggle);
+    }
+  }
 
 
   // function removeclass()
@@ -201,7 +213,7 @@ export default function FormModal (props) {
     <>
      <form id='form' >
               <nav className='modal-header'>
-                 <h2>Add new client</h2>
+                 <h2>Add client</h2>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M20.55 4.5501L13.05 12.0501L20.5 19.5001C20.8 19.8001 20.8 20.2501 20.5 20.5501C20.2 20.8501 19.75 20.8501 19.45 20.5501L12 13.0501L4.54999 20.5501C4.24999 20.8501 3.79999 20.8501 3.49999 20.5501C3.19999 20.2501 3.19999 19.8001 3.49999 19.5001L10.95 12.0001L3.44999 4.5001C3.14999 4.2001 3.19994 3.80009 3.49994 3.50009C3.79994 3.20009 4.19999 3.1501 4.49999 3.4501L12 10.9501L19.5 3.4501C19.8 3.1501 20.25 3.1501 20.55 3.4501C20.85 3.7501 20.85 4.2501 20.55 4.5501Z" fill="#18354A"/>
                   </svg>
@@ -218,44 +230,44 @@ export default function FormModal (props) {
                 <span id="nameerror" className='error'></span>
               </div> 
               <div className='deal-toggle-container'>
-              <div className='deal-toggle'>
-                         <small>Add deal </small> 
-                         <label class="switch">
-                             <input type="checkbox"/>
-                             <span class="slider round"></span>
-                           </label>
-                     </div>
-              <div className='form_element'>
-                <span className='radiolabel'>Silver Form</span>
-                <label className='elements'>
-                    <input type='radio' value='Bar' name='silverform' required/> 
-                    <span className='small-text'>Bar</span>
-                </label>
-                <label className='elements'>
-                    <input type='radio' value='Spatla' name='silverform' required />
-                    <span className='small-text'>Spatla</span>
-                </label>
-                <label className='elements'>
-                    <input type='radio' value='Katcha' name='silverform' required />
-                    <span className='small-text'>Katcha</span>
-                </label>
-                <label className='elements'>
-                    <input type='radio' value='Katti' name='silverform' required/>
-                    <span className='small-text'>Katti</span>
-                </label>
-                <span id="silverTypeError"  className='error'></span>
-              </div>
-              <div className='form_element'>
-                <label htmlFor="weight">Weight</label>
-                <input
-                  id="weight"
-                  name='weight'
-                  type="number"
-                  required
-                />
-                 <span id="weightError"  className='error'></span>
-              </div>
-              <div className='form_element'>
+                <div className='deal-toggle'  onClick={toggledeal}>
+                    <input className='dealcheck' type="checkbox"/>
+                    <small>Add deal </small>      
+                </div>
+                {
+                      dealtoggle ?
+                      <>
+                    <div className='form_element'>
+                      <span className='radiolabel'>Silver Form</span>
+                      <label className='elements'>
+                          <input type='radio' value='Bar' name='silverform' required/> 
+                          <span className='small-text'>Bar</span>
+                      </label>
+                      <label className='elements'>
+                          <input type='radio' value='Spatla' name='silverform' required />
+                          <span className='small-text'>Spatla</span>
+                      </label>
+                      <label className='elements'>
+                          <input type='radio' value='Katcha' name='silverform' required />
+                          <span className='small-text'>Katcha</span>
+                      </label>
+                      <label className='elements'>
+                          <input type='radio' value='Katti' name='silverform' required/>
+                          <span className='small-text'>Katti</span>
+                      </label>
+                      <span id="silverTypeError"  className='error'></span>
+                    </div>
+                    <div className='form_element'>
+                      <label htmlFor="weight">Weight</label>
+                      <input
+                        id="weight"
+                        name='weight'
+                        type="number"
+                        required
+                      />
+                      <span id="weightError"  className='error'></span>
+                    </div>
+                    <div className='form_element'>
                   <label htmlFor="touch">Touch</label>
                   <input
                     id="touch"
@@ -266,7 +278,7 @@ export default function FormModal (props) {
                   />
                    <span id="touchError"  className='error'></span>
                 </div> 
-                <div className='form_element'>
+                    <div className='form_element'>
                     <label htmlFor="labourTouch">Labour Touch</label>
                     <input
                       id="labourTouch"
@@ -277,15 +289,13 @@ export default function FormModal (props) {
                     />
                      <span id="labourTouchError"  className='error'></span>
                 </div>
-                <div className='deliverytouch-toggle-container'>
-                    <div className='deliverytouch-toggle addthiruvanitoggle'>
+                    <div className='deliverytouch-toggle-container'>
+                    <div className='deliverytouch-toggle addthiruvanitoggle'  onClick={toggledeliverytouch} >
+                      <input className='deliverytouchcheck' type="checkbox" />
                       <small>Add T delivery touch</small> 
-                        <label class="switch">
-                          <input type="checkbox"/>
-                          <span class="slider round"></span>
-                        </label>
                     </div>
-                   
+                    {
+                      deliverytouchtoggle ?
                     <div className='form_element deliverytouchinput'>
                           <label htmlFor="thiruvaniDeliveryTouch">Thiruvani delivery touch</label>
                           <input
@@ -297,9 +307,14 @@ export default function FormModal (props) {
                           />
                            <span id="thiruvaniDeliveryTouchError"  className='error'></span>
                     </div> 
+                    :''
+                  }
                 </div>
+                    </> 
+                    :''
+                }
               </div>
-             
+
               <div className= 'submit_button'>
                     <Button type={'submit'} buttontype={'primarybtn'} text={"Create client"} />
                 </div>
