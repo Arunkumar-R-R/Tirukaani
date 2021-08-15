@@ -174,7 +174,7 @@ export default function FormModal (props) {
     let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
     dealcheck.checked = !dealtoggle;
     if(deliverytouchcheck){
-      setDeliverytouchToggle(deliverytouchtoggle=>!deliverytouchtoggle);
+      setDeliverytouchToggle(false);
     }
   }
 
