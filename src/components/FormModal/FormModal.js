@@ -11,6 +11,8 @@ export default function FormModal (props) {
 
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
+  const [katchatoggle, setRadioToggle] = useState(false);
+
 
   // let appBody = document.body
   // let obj={};
@@ -179,9 +181,21 @@ export default function FormModal (props) {
     }
   }
 
-  function getkatch()
+  function getkatch(e)
   {
-
+    let silvertype = document.querySelector('input[name="silverform"]:checked').value;
+    if(silvertype == 'Katcha')
+    {
+      setRadioToggle(true)
+    }
+    else
+    {
+      setRadioToggle(false)
+    }
+  }
+  function stopPropagation(e)
+  {
+    e.stopPropagation();
   }
 
 
@@ -248,23 +262,23 @@ export default function FormModal (props) {
                 {
                       dealtoggle ?
                       <>
-                    <div className='form_element'>
+                    <div className='form_element'  onClick={getkatch}>
                       <span className='radiolabel'>Silver Form</span>
-                      <label className='elements'>
-                          <input type='radio' value='Bar' name='silverform' required/> 
-                          <span className='small-text'>Bar</span>
+                      <label className='elements' >
+                          <input type='radio' value='Bar' name='silverform' /> 
+                          <span className='small-text' onClick={stopPropagation}>Bar</span>
+                      </label>
+                      <label className='elements' >
+                          <input type='radio' value='Spatla' name='silverform'  />
+                          <span className='small-text' onClick={stopPropagation}>Spatla</span>
                       </label>
                       <label className='elements'>
-                          <input type='radio' value='Spatla' name='silverform' required />
-                          <span className='small-text'>Spatla</span>
+                          <input type='radio' value='Katcha' name='silverform'  />
+                          <span className='small-text'  onClick={stopPropagation}>Katcha</span>
                       </label>
-                      <label className='elements' onClick={getkatch}>
-                          <input type='radio' value='Katcha' name='silverform' required />
-                          <span className='small-text'>Katcha</span>
-                      </label>
-                      <label className='elements'>
-                          <input type='radio' value='Katti' name='silverform' required/>
-                          <span className='small-text'>Katti</span>
+                      <label className='elements' >
+                          <input type='radio' value='Katti' name='silverform' />
+                          <span className='small-text'  onClick={stopPropagation}>Katti</span>
                       </label>
                       <span id="silverTypeError"  className='error'></span>
                     </div>
@@ -277,7 +291,9 @@ export default function FormModal (props) {
                         required
                       />
                       <span id="weightError"  className='error'></span>
-                      <Add_more_weight></Add_more_weight>
+                      {
+                        katchatoggle? <Add_more_weight></Add_more_weight>:''
+                      }
                     </div>
                     <div className='form_element'>
                   <label htmlFor="touch">Touch</label>
