@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
 import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, purity } from "../../utils/calculation";
+import Add_more_weight from "../Add_more_weight/Add_more_weight";
 
 
 export default function FormModal (props) {
@@ -178,6 +179,11 @@ export default function FormModal (props) {
     }
   }
 
+  function getkatch()
+  {
+
+  }
+
 
   // function removeclass()
   // {
@@ -252,7 +258,7 @@ export default function FormModal (props) {
                           <input type='radio' value='Spatla' name='silverform' required />
                           <span className='small-text'>Spatla</span>
                       </label>
-                      <label className='elements'>
+                      <label className='elements' onClick={getkatch}>
                           <input type='radio' value='Katcha' name='silverform' required />
                           <span className='small-text'>Katcha</span>
                       </label>
@@ -271,6 +277,7 @@ export default function FormModal (props) {
                         required
                       />
                       <span id="weightError"  className='error'></span>
+                      <Add_more_weight></Add_more_weight>
                     </div>
                     <div className='form_element'>
                   <label htmlFor="touch">Touch</label>
