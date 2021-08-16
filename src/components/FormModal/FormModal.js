@@ -12,7 +12,7 @@ export default function FormModal (props) {
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setRadioToggle] = useState(false);
-
+  const [inputList, setInputList] = useState([]);
 
   // let appBody = document.body
   // let obj={};
@@ -174,30 +174,47 @@ export default function FormModal (props) {
   {
     setDealToggle(dealtoggle=>!dealtoggle);
     let dealcheck = document.querySelector('.dealcheck');
-    let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
     dealcheck.checked = !dealtoggle;
-    if(deliverytouchcheck){
+    if(deliverytouchtoggle){
       setDeliverytouchToggle(false);
+    }
+    if(dealtoggle)
+    {
+      setRadioToggle(false);
     }
   }
 
   function getkatch(e)
   {
     let silvertype = document.querySelector('input[name="silverform"]:checked').value;
+    console.log('clicked');
     if(silvertype == 'Katcha')
     {
-      setRadioToggle(true)
+      setRadioToggle(true);
     }
     else
     {
-      setRadioToggle(false)
+      setRadioToggle(false);
+      setInputList([]);
     }
   }
+
   function stopPropagation(e)
   {
     e.stopPropagation();
   }
 
+  function addWeightInput()
+  {
+    if(inputList.length == 0)
+    {
+      setInputList([{ weight:''}]);
+    }
+    else
+    {
+      setInputList([...inputList, { weight:''}]);
+    }
+  }
 
   // function removeclass()
   // {
@@ -290,9 +307,24 @@ export default function FormModal (props) {
                         type="number"
                         required
                       />
+                       {
+                         inputList.length !== 0 ?
+                            inputList.map((x, i) => {
+                              return (
+                                <input className='weightinput'
+                                id={`weight${i}`}
+                                name='weight'
+                                type="number"
+                                required
+                              /> 
+                              );
+                                
+                             })
+                          : ''
+                       }
                       <span id="weightError"  className='error'></span>
                       {
-                        katchatoggle? <Add_more_weight></Add_more_weight>:''
+                        katchatoggle ? <Add_more_weight onClick={addWeightInput}></Add_more_weight>:''
                       }
                     </div>
                     <div className='form_element'>
