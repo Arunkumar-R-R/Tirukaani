@@ -10,6 +10,7 @@ import Account from '../Account/Account';
 import Menu_modal from '../../components/Modal/Menu_modal';
 import Edit_modal from '../../components/Modal/Edit_modal';
 import Delete_modal from '../../components/Modal/Delete_modal';
+import Clienthome from '../Clienthome/Clienthome';
 
 export default function Home()
 {
@@ -34,22 +35,23 @@ export default function Home()
 
     return(
         <>
-          {/* <div className='container'>
+          <div className='container'>
                     <div className='clients-container'>
-                        <h2 className='title'>Clients</h2>
+                        {/* <h2 className='title'>Clients</h2>
                         <No_client></No_client>
-                        <Clientcomponent></Clientcomponent>
+                        <Clientcomponent></Clientcomponent> */}
+                                  <Clienthome></Clienthome>
+
                     </div>
-                    <Account></Account>
+                    {/* <Account></Account> */}
                     <div className='gap'></div>
           </div>
           <nav className='bottom_nav'>
               <Add_button></Add_button>
               <Bottom_navigation></Bottom_navigation>
-          </nav>  */}
+          </nav> 
           {/* <Menu_modal></Menu_modal> */}
           {/* <Delete_modal></Delete_modal> */}
-          <FormModal></FormModal>
         </>
        
     );

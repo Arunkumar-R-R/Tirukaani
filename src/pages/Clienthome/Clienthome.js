@@ -12,36 +12,62 @@ import {
 
 export default function Clienthome(props)
 {
-    let cdeal;
+    // let cdeal;
 
-    const [show, setShow] = useState(false);
-    const [dealmodalshow, setdealmodalshow ] = useState(false);
-    const [deals, setDeal] = useState([]);
-    const [individualdeal, setindividualdeal] = useState(cdeal);
+    // const [show, setShow] = useState(false);
+    // const [dealmodalshow, setdealmodalshow ] = useState(false);
+    // const [deals, setDeal] = useState([]);
+    // const [individualdeal, setindividualdeal] = useState(cdeal);
 
-    let newDeal=[];
+    // let newDeal=[];
 
-    const addDeal = deal => {
-        newDeal.push(deal);
-        setDeal(newDeal);
-    };
+    // const addDeal = deal => {
+    //     newDeal.push(deal);
+    //     setDeal(newDeal);
+    // };
 
-    function showdeal(deal)
-    {
-    //    console.log(deal);
-       setdealmodalshow(true);
-       setindividualdeal(deal) ;
-    }   
-    useEffect(()=>{
-        if(deals.length>0)
-        {
-            newDeal = [...deals];
-        }
-    },[newDeal]);
+    // function showdeal(deal)
+    // {
+    // //    console.log(deal);
+    //    setdealmodalshow(true);
+    //    setindividualdeal(deal) ;
+    // }   
+    // useEffect(()=>{
+    //     if(deals.length>0)
+    //     {
+    //         newDeal = [...deals];
+    //     }
+    // },[newDeal]);
+    let deals = [ { 
+                    dealno:1,
+                    purity:100,
+                    estimatedProductWeight:1200
+                   },
+                   { 
+                    dealno:2,
+                    purity:200,
+                    estimatedProductWeight:4344
+                   },
+                   { 
+                    dealno:3,
+                    purity:300,
+                    estimatedProductWeight:23423
+                   },
+                   { 
+                    dealno:4,
+                    purity:300,
+                    estimatedProductWeight:23423
+                   },
+                   { 
+                    dealno:5,
+                    purity:300,
+                    estimatedProductWeight:23423
+                   }
+                ];
 
         return (
         <>
-            <div className='wrapper'>
+            {/* <div className='wrapper'>
                 <div className='Clienthome-container'>
                 <nav>
                     <Link to={'/'} >
@@ -93,8 +119,29 @@ export default function Clienthome(props)
                     />
                      :''
                 }
-            </div> 
-           
+            </div>  */}
+            
+                <div className='Clienthome-container'>
+                <nav className='clienthome-nav'>
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" fill="white"/>
+                    <path d="M13 20H27" stroke="#18354A" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13 20L17 24" stroke="#18354A" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13 20L17 16" stroke="#18354A" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h2 className='clientname-nav'>Client</h2>
+                </nav>
+                    <div className='deal-container'>
+                    {
+                       deals.length>0?deals.map((deal,index)=>{
+                        deal.dealno = `${index+1}`;
+                        return <Dealcomponent deal={deal} index={deal.dealno} />
+                    }):<h1 className='no-data-available'>No deal</h1>
+
+                    }
+                    </div>
+                </div>
+
         </>
        
     );

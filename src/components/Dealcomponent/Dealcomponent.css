@@ -9,20 +9,24 @@
     cursor: pointer;
     width: 100%;
 }
-.information-container{
-    width: 95%;
+.dealcomponent:last-child{
+    margin:  0 0 60px 0;
 }
-.deal-header{
-    display: flex;
-    justify-content: space-between;
+
+/* .information-container{
+    width: 95%;
+} */
+
+.deal-header h3{
+    margin: 0;
 }
 
 .inforow{
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
 }
 .inforow:first-child
 {
-    margin: 30px 0 20px 0;
+    margin: 18px 0 15px 0;
 }
 .inforow:last-child
 {
@@ -31,6 +35,7 @@
 
 .inforow{
     display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
 }
 
