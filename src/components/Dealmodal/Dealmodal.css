@@ -21,8 +21,11 @@
   }
 .dealmodalnav{
     display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
     align-items: center;
-    height: 60px;
+    padding: 20px ;
+    background-color: var(--hover-color);
 }
 .deal-info-container{
     width: 100%;
@@ -32,13 +35,14 @@
 .dealname
 {
     color: var(--heading-color);
-    margin: 0 auto 0;
+    font-weight: var(--font-weight-bold);
+    margin: 0 auto  0 0;
 }
 
 .dealinforow{
-    margin:0 auto 16px ;
-    padding: 10px 0 10px 20px ;
-    width: 80%;
+    margin:0 auto 15px ;
+    padding: 15px 20px 15px 20px ;
+    width: 271px;
     display: flex;
     flex-flow: column;
     align-items: flex-start;
@@ -49,29 +53,34 @@
     /* width: 60%; */
     font-size: var(--font-size-regular);
     color: var(--text-color);
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
 }
 
 .dealinforow:first-child
 {
-    margin:16px auto 16px ;
+    margin:18px auto 15px ;
 }
-.dealinforow:last-child
+.last-child
 {
-    margin:0 auto 16px ;
+    margin:0 auto 0 ;
 }
 .dealvalue
 {
     color: var(--heading-color);
     font-weight: var(--font-weight-semi);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-semi);
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    width: 100%;
 }
+
 .inlineinput
 {
-    width: 70%;
-    height: 23px;
+    width: 160px;
+    height: 24px;
+    align-self: flex-start;
+    padding: 0 0 0 5px ;
 }
 
 .modal_form_element{
@@ -115,6 +124,9 @@
 .buttongroup{
     display: flex;
     flex-flow: row nowrap;
-    width: 100%;
+    justify-content: center;
 }
 
+.buttongroup > *:last-child{
+    margin-left:21px;
+}
