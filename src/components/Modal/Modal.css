@@ -87,3 +87,7 @@
 .client-name-in-modal{
     font-weight: var(--font-weight-bold);
 }
+
+.top-modal-gap{
+    height:calc(100vh - 138px);
+}

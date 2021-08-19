@@ -8,8 +8,9 @@
     transition: all 0.2s ease-in-out;
     transform: translateY(60px);
     position: absolute;
-    overflow-y: auto;
     border-radius: 20px 20px 0 0;
+    overflow-y: auto;
+
 }
 .display-block {
     display: block;
@@ -19,6 +20,7 @@
   .display-none {
     display: none;
   }
+
 .dealmodalnav{
     display: flex;
     flex-flow: row nowrap;
@@ -30,7 +32,6 @@
 .deal-info-container{
     width: 100%;
     height: 100%;
-    margin-bottom: 60px;
 }
 .dealname
 {
@@ -118,13 +119,15 @@
     color: var(--status-in-Completed);
 }
 
-/* .inlineinputholder{
-    height: 40px;
-} */
 .buttongroup{
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
+    margin-bottom: 70px;
+}
+
+.buttongroup > *{
+margin-top: 10px ;
 }
 
 .buttongroup > *:last-child{
