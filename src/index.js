@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(
   <BrowserRouter>

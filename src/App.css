@@ -146,3 +146,10 @@ button
   padding: 0;
   position: relative;
 }
+
+.height-full{
+  height: 100vh;
+}
+.margin-center{
+  margin: auto 0;
+}
