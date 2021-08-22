@@ -13,7 +13,8 @@ function App() {
           <Route  path="/client/:clientname" component={Clienthome} />
           <Route exact path="/" component={Home} />
        </Switch> */}
-       <Home></Home>
+       {/* <Home></Home> */}
+       <Login></Login>
     </div>
   );
 }
