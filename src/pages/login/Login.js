@@ -2,13 +2,14 @@ import React from 'react';
 import Button from '../../components/Button/Button'
 import './Login.css'
 
-export default function Login()
+
+export default function Login({getuserdata})
 {
     return(
         <div class="container ">
             <div class="row mx-auto height-full">
                 <div class="col-12 cl-xl-12  col-lg-12 col-md-12 col-sm-12 col-xs-12 m-auto">
-                    <form className='form'>
+                    <form className='form' onSubmit={getuserdata}>
                             <h3 className='form_title'>Login</h3>
                             <div className='form_element'>
                                 <label >Email</label>

@@ -36,25 +36,16 @@ export default function Home()
 
     return(
         <>
-          {/* <div className='container'> */}
-                    {/* <div className='clients-container'> */}
-                        {/* <h2 className='title'>Clients</h2>
+          <div className='container'>
+                    <div className='clients-container'>
                         <No_client></No_client>
-                        <Clientcomponent></Clientcomponent> */}
-                        {/* <Clienthome></Clienthome> */}
-
-                    {/* </div> */}
-                    {/* <Account></Account> */}
-                    {/* <div className='gap'></div> */}
-          {/* </div> */}
-          {/* <nav className='bottom_nav'>
+                    </div>
+                    <div className='gap'></div>
+          </div>
+          <nav className='bottom_nav'>
               <Add_button></Add_button>
               <Bottom_navigation></Bottom_navigation>
-          </nav>  */}
-          {/* <Menu_modal></Menu_modal> */}
-          {/* <Delete_modal></Delete_modal> */}
-          <Dealmodal></Dealmodal>
-        </>
-       
+          </nav>
+        </> 
     );
 }
