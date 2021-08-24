@@ -1,17 +1,6 @@
 import React,{useEffect, useState} from 'react';
-import Button from '../../components/Button/Button';
 import './Home.css';
-import FormModal from '../../components/FormModal/FormModal';
-import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
-import Bottom_navigation from '../../components/Bottom_navigation/Bottom_navigation';
-import Add_button from '../../components/Add_button/Add_button';
-import No_client from '../../components/No_client/No_client';
-import Account from '../Account/Account';
-import Menu_modal from '../../components/Modal/Menu_modal';
-import Edit_modal from '../../components/Modal/Edit_modal';
-import Delete_modal from '../../components/Modal/Delete_modal';
-import Clienthome from '../Clienthome/Clienthome';
-import Dealmodal from '../../components/Dealmodal/Dealmodal';
+
 
 export default function Home()
 {
@@ -36,11 +25,13 @@ export default function Home()
 
     return(
         <>
-          <div className='container'>
-                    <div className='clients-container'>
-                        <No_client></No_client>
+          <div className='container'>  
+                    {/* <div className='gap'></div>  */}
+                    <div className='row mx-auto'>
+                        <div className='col-xl-12 col-md-12 col-sm-12 col-xs-12 vh-100 '>
+                            <h2 className='no-data-available'>🗑️ No Client Available </h2>
+                        </div>
                     </div>
-                    <div className='gap'></div>
           </div>
         </> 
     );

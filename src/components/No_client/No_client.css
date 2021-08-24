@@ -1,8 +1,0 @@
-@import url(./../../App.css);
-
-.nodata{
-    height: calc(100vh - 30vh);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
