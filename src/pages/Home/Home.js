@@ -42,10 +42,6 @@ export default function Home()
                     </div>
                     <div className='gap'></div>
           </div>
-          <nav className='bottom_nav'>
-              <Add_button></Add_button>
-              <Bottom_navigation></Bottom_navigation>
-          </nav>
         </> 
     );
 }

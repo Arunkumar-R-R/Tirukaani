@@ -4,7 +4,7 @@ import './Account.css'
 
 export default function Account(){
     return (
-        <>
+        <div className='container'>
             <h2 className='title'>Account</h2>
             <div className='mini-container'>
                 <h3>Export</h3>
@@ -15,6 +15,7 @@ export default function Account(){
                 <h3>Logout of the app</h3>
                 <Button className='' type={'submit'} text={'Log out'} buttontype={'secondarybtn'} ></Button>
             </div>
-        </>
+        </div>
+
     );
 }
