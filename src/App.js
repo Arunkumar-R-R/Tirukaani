@@ -3,10 +3,11 @@ import './App.css';
 import Home from './pages/Home/Home';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Login from './pages/login/Login';
-import Bottom_navigation from './components/Bottom_navigation/Bottom_navigation';
-import Add_button from './components/Add_button/Add_button';
+import BottomNavigation from './components/BottomNavigation/BottomNavigation';
+import AddButton from './components/AddButton/AddButton';
 import Account from './pages/Account/Account';
 import { AuthProvider } from './Context/AuthProvider';
+import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
   
@@ -15,19 +16,19 @@ function App() {
         <Router>
           <AuthProvider>
               <Switch>
-                <Route  path="/account" >
+                <PrivateRoute  path="/account" >
                   <Account></Account>
                   <nav className='bottom_nav'>
-                      <Bottom_navigation></Bottom_navigation>
+                      <BottomNavigation></BottomNavigation>
                   </nav>
-                </Route>
-                <Route  path="/home" >
+                </PrivateRoute>
+                <PrivateRoute  path="/home" >
                   <Home></Home>
                   <nav className='bottom_nav'>
-                    <Add_button></Add_button>
-                    <Bottom_navigation></Bottom_navigation>
+                    <AddButton></AddButton>
+                    <BottomNavigation></BottomNavigation>
                   </nav>
-                </Route>
+                </PrivateRoute>
                 <Route exact path="/" >
                   <Login></Login>
                 </Route>

@@ -11,25 +11,24 @@ export default function Login()
 
     const history = useHistory();
     const { login } = useAuth();
-    const [error, setError] = useState("")
+    const [error, setError] = useState("");
 
      async function handlesubmit(e){
         e.preventDefault();
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
         try {
-            setError("")
             await login(email, password);
             history.push("/home");
         } catch {
             setError("Failed to log in");
-          }
+        }
     } 
 
     return(
-        <div class="container ">
-            <div class="row mx-auto height-full">
-                <div class="col-12 cl-xl-12  col-lg-12 col-md-12 col-sm-12 col-xs-12 m-auto">
+        <div className="container ">
+            <div className="row mx-auto height-full">
+                <div className="col-12 cl-xl-12  col-lg-12 col-md-12 col-sm-12 col-xs-12 m-auto">
                     <form className='form' onSubmit={handlesubmit}>
                             <h3 className='form_title'>Login</h3>
                             <div className='form_element'>

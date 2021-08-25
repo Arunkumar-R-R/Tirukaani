@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Bottom_navigation.css'
+import './BottomNavigation.css'
 
-export default function Bottom_navigation()
+export default function BottomNavigation()
 {
     return(
         <>

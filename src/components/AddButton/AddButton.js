@@ -1,6 +1,6 @@
 import React from 'react';
-import './Add_button.css'
-export default function Add_button(){
+import './AddButton.css'
+export default function AddButton(){
     return (
         <div className='add_btn_container'>
             <div className='add_btn'>
