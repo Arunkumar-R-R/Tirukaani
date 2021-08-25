@@ -1,3 +1,5 @@
+@import url(../../App.css);
+
 .form_title{
     margin: 0 0 24px 0;
     text-align: center;
@@ -16,4 +18,8 @@
     width: 100%;
     position: relative;
     margin: 0;
+}
+.form_element
+{
+  margin: 24px 0 0 0;
 }
