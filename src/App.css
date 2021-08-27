@@ -153,3 +153,16 @@ button
 .margin-center{
   margin: auto 0;
 }
+
+.flex{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.alignitems-center{
+  align-items: center;
+}
+
+.justifycontent-spacebetween{
+  justify-content: space-between;
+}
