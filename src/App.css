@@ -185,3 +185,7 @@ button
 fieldset:not(:first-child){
   margin: 15px 0 0 0;
 }
+legend{
+  font-size: var(--font-size-small);
+  margin: 0;
+}
