@@ -182,7 +182,7 @@ button
   flex-wrap: nowrap;
 }
 
-fieldset:not(:first-child){
+fieldset{
   margin: 15px 0 0 0;
 }
 legend{
