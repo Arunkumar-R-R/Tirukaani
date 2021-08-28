@@ -2,7 +2,7 @@
 
 .add_more_weights_btn
 {
-    margin: 10px 0 0 0;
+    margin: 20px 0 0 0;
     height: 40px;
     background-color: var(--hover-color);
     color: var(--text-color);

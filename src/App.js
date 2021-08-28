@@ -8,12 +8,13 @@ import AddButton from './components/AddButton/AddButton';
 import Account from './pages/Account/Account';
 import { AuthProvider } from './Context/AuthProvider';
 import PrivateRoute from './utils/PrivateRoute';
+import FormModal from './components/FormModal/FormModal';
 
 function App() {
   
   return (
     <div className="App">
-        <Router>
+        {/* <Router>
           <AuthProvider>
               <Switch>
                 <PrivateRoute  path="/account" >
@@ -34,38 +35,10 @@ function App() {
                 </Route>
               </Switch>
           </AuthProvider>
-        </Router>
+        </Router> */}
+        <FormModal></FormModal>
     </div>
   );
 }
 
 export default App;
-    //  {currentUser === false ? (
-    //     <BrowserRouter>
-    //       <div>
-    //           <Route exact path="/" >
-    //             <Login getuserdata={getuserdata} ></Login>
-    //           </Route>
-    //       </div>
-    //     </BrowserRouter>
-    //   ) : (
-    //     <BrowserRouter> 
-    //       <div>
-            // <Route  path="/account" >
-            //   <Account></Account>
-            // </Route>
-            // <Route  path="/home" >
-            //   <Home></Home>
-            // </Route>
-    //         <Route exact path="/" >
-    //           <Login getuserdata={getuserdata} ></Login>
-    //         </Route>
-    //       </div>
-    //       <div>
-    //         <nav className='bottom_nav'>
-    //           <Add_button></Add_button>
-    //           <Bottom_navigation></Bottom_navigation>
-    //         </nav>
-    //       </div>
-    //     </BrowserRouter>
-    //   )}

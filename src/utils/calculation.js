@@ -1,6 +1,5 @@
 
-function weightInStringLengthCalc(parsedWeight)
-{
+function weightInStringLengthCalc(parsedWeight){
     let weightinstring = parsedWeight.toString();
     let weightInStringLength = weightinstring.length;
     return weightInStringLength;

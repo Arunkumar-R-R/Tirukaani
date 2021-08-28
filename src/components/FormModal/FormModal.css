@@ -61,14 +61,8 @@ small{
   width: 15px;
 }
 
-.weightinput{
-  width: 80%;
-}
-
-.dynamic-input{
-  margin: 8px 0 0 0;
-}
 .remove-input{
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
+  width: fit-content;
 }

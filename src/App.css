@@ -156,7 +156,6 @@ button
 
 .flex{
   display: flex;
-  flex-flow: row wrap;
 }
 
 .alignitems-center{
@@ -165,4 +164,20 @@ button
 
 .justifycontent-spacebetween{
   justify-content: space-between;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
+.flex-row{
+  flex-direction: row;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.flex-nowrap{
+  flex-wrap: nowrap;
 }

@@ -4,7 +4,8 @@ import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
 import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, purity } from "../../utils/calculation";
-import Add_more_weight from "../Add_more_weight/Add_more_weight";
+import Add_more_weight from "../Add_katcha/Add_katcha";
+import Katcha from "../katcha/Katcha";
 
 
 export default function FormModal (props) {
@@ -12,7 +13,7 @@ export default function FormModal (props) {
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setRadioToggle] = useState(false);
-  const [inputList, setInputList] = useState([]);
+  const [inputList, setInputList] = useState([1]);
   const [weightinputCount, setWeightinputCount] = useState(0);
 
   // let appBody = document.body
@@ -321,54 +322,41 @@ export default function FormModal (props) {
                       </label>
                       <span id="silverTypeError"  className='error'></span>
                     </div>
-                    <div className='form_element'>
-                      <label htmlFor="weight">Weight</label>
-                      <input
-                        id="weight"
-                        name='weight'
-                        type="number"
-                        required
-                      />
-                       {
-                         inputList.length !== 0 ?
-                            inputList.map((x, i) => {
-                              return (
-                               
-                                    <div key={x} className='flex alignitems-center dynamic-input justifycontent-spacebetween'>
-                                      <input className='weightinput'
-                                      id={`weight${i}`}
-                                      name='weight'
-                                      type="number"
-                                      required
-                                      /> 
-                                      <div onClick={handleRemove} id={`${i}`} className='remove-input'>
-                                        <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.55 4.5501L13.05 12.0501L20.5 19.5001C20.8 19.8001 20.8 20.2501 20.5 20.5501C20.2 20.8501 19.75 20.8501 19.45 20.5501L12 13.0501L4.54999 20.5501C4.24999 20.8501 3.79999 20.8501 3.49999 20.5501C3.19999 20.2501 3.19999 19.8001 3.49999 19.5001L10.95 12.0001L3.44999 4.5001C3.14999 4.2001 3.19994 3.80009 3.49994 3.50009C3.79994 3.20009 4.19999 3.1501 4.49999 3.4501L12 10.9501L19.5 3.4501C19.8 3.1501 20.25 3.1501 20.55 3.4501C20.85 3.7501 20.85 4.2501 20.55 4.5501Z" fill="#18354A"/>
-                                        </svg>
-                                      </div>
-                                  </div>
-                             
-                              );
-                                
-                             })
-                          : ''
-                       }
-                      <span id="weightError"  className='error'></span>
+
+                    <div >
                       {
-                        katchatoggle ? <Add_more_weight onClick={addWeightInput}></Add_more_weight>:''
+                        katchatoggle ? 
+                        <>
+                          <Katcha inputList={inputList} handleRemove={handleRemove} ></Katcha>
+                          <Add_more_weight onClick={addWeightInput}></Add_more_weight>
+                        </>
+                        :
+                        <>
+                        <div className='form_element'>
+                          <label htmlFor="weight">Weight</label>
+                          <input
+                            id="weight"
+                            name='weight'
+                            type="number"
+                            required
+                          />
+                          <span id="weightError"  className='error'></span>
+                        </div>
+                        <div className='form_element'>
+                          <label htmlFor="touch">Touch</label>
+                          <input
+                            id="touch"
+                            name='touch'
+                            type="number"
+                            maxLength = "100"
+                            required
+                          />
+                          <span id="touchError"  className='error'></span>
+                      </div> 
+                        </>
                       }
                     </div>
-                    <div className='form_element'>
-                  <label htmlFor="touch">Touch</label>
-                  <input
-                    id="touch"
-                    name='touch'
-                    type="number"
-                    maxLength = "100"
-                    required
-                  />
-                   <span id="touchError"  className='error'></span>
-                </div> 
+                    
                     <div className='form_element'>
                     <label htmlFor="labourTouch">Labour Touch</label>
                     <input
