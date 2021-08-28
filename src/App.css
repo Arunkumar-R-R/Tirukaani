@@ -101,7 +101,7 @@ form
   margin: 0 24px;
 }
 
-label
+label,legend
 {
   font-size: var(--font-size-smallest);
   color: var(--text-color);
@@ -180,4 +180,8 @@ button
 
 .flex-nowrap{
   flex-wrap: nowrap;
+}
+
+fieldset:not(:first-child){
+  margin: 15px 0 0 0;
 }

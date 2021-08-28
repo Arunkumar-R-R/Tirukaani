@@ -13,8 +13,7 @@ export default function FormModal (props) {
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setRadioToggle] = useState(false);
-  const [inputList, setInputList] = useState([1]);
-  const [weightinputCount, setWeightinputCount] = useState(0);
+  const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
 
   // let appBody = document.body
   // let obj={};
@@ -224,20 +223,20 @@ export default function FormModal (props) {
   }
 
   function addWeightInput()
-  {
-    
-    setInputList([...inputList, weightinputCount]);
-    setWeightinputCount(weightinputCount+1);
+  { 
+    setInputList([...inputList,{ weight: "", touch: "" } ]);
   }
 
-  function handleRemove(e){
+  function handleRemove(index){
     let list = [...inputList];
-    inputList.map((x,i) => {
-      if(i == e.currentTarget.id){
-         list.splice(i, 1);
-        setInputList(list);
-      }
-    })
+    // inputList.map((x,i) => {
+    //   if(i == e.currentTarget.id){
+    //      list.splice(i, 1);
+    //     setInputList(list);
+    //   }
+    // })
+    list.splice(index, 1);
+    setInputList(list);
   }
   // function removeclass()
   // {
@@ -327,7 +326,7 @@ export default function FormModal (props) {
                       {
                         katchatoggle ? 
                         <>
-                          <Katcha inputList={inputList} handleRemove={handleRemove} ></Katcha>
+                          <Katcha inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Katcha>
                           <Add_more_weight onClick={addWeightInput}></Add_more_weight>
                         </>
                         :
