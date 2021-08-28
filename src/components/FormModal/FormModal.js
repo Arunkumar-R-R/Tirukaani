@@ -14,7 +14,6 @@ export default function FormModal (props) {
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setRadioToggle] = useState(false);
   const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
-
   // let appBody = document.body
   // let obj={};
   // if(props.show)
@@ -213,7 +212,7 @@ export default function FormModal (props) {
     else
     {
       setRadioToggle(false);
-      setInputList([]);
+      setInputList([{ weight: "", touch: "" }]);
     }
   }
 
@@ -229,15 +228,10 @@ export default function FormModal (props) {
 
   function handleRemove(index){
     let list = [...inputList];
-    // inputList.map((x,i) => {
-    //   if(i == e.currentTarget.id){
-    //      list.splice(i, 1);
-    //     setInputList(list);
-    //   }
-    // })
     list.splice(index, 1);
     setInputList(list);
   }
+
   // function removeclass()
   // {
   //   let iscontain =  appBody.classList.contains("hidescroll");
@@ -326,6 +320,9 @@ export default function FormModal (props) {
                       {
                         katchatoggle ? 
                         <>
+                        {
+                          console.log(inputList)
+                        }
                           <Katcha inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Katcha>
                           <Add_more_weight onClick={addWeightInput}></Add_more_weight>
                         </>
