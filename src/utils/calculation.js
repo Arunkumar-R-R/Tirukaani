@@ -80,4 +80,30 @@ export const estimatedProductWeight = (purity, finalTouch, weight) =>{
     return finalProdcutWeight;
 }
 
+export const katchaPurity = (inputList)=>{
+    let purityarray =  inputList.map(({weight,touch})=>{
+        let katchapurity = purity(weight,touch);
+        return katchapurity;
+      });
+    let totalpurity = purityarray.reduce((accumulator,currentValue)=>{
+        let currentPurity = parseInt(currentValue);
+        let store = parseInt(accumulator);
+       return( store +  currentPurity);
+    });
+    return totalpurity;
+}
 
+export const katchaweight = (inputList) =>{
+    let weightArray = inputList.map(({weight})=>weight);
+    let totalWeight = weightArray.reduce((accumulator,currentValue)=>{
+        let currentWeight = parseInt(currentValue);
+        let store = parseInt(accumulator);
+       return( store +  currentWeight);
+    })
+    return totalWeight;
+}
+
+export const katchaTouch = (purity,weight)=>{
+    let touch = purity /weight;
+    return touch;
+}

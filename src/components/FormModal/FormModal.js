@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
-import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, purity } from "../../utils/calculation";
+import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, katchaPurity, katchaTouch, katchaweight, purity } from "../../utils/calculation";
 import Add_more_weight from "../Add_katcha/Add_katcha";
 import Katcha from "../katcha/Katcha";
 
@@ -74,6 +74,11 @@ export default function FormModal (props) {
     let finaltouch;
     let estimatedproductweight;
     let givenpurity;
+
+    let totalKatchaPurity = katchaPurity(inputList);
+    let totalKatchaWeight = katchaweight(inputList);
+    let katchatouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
+    console.log(katchatouch)
     // if(dealtoggle){
     //   console.log(weight.value);
     // givenpurity = purity(weight.value,touch.value);   
@@ -89,6 +94,8 @@ export default function FormModal (props) {
     //   estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
     //   console.log(finaltouch,'addDeliveryTouch')
     //   console.log(estimatedproductweight,'DeliveryTouch with estimatedProductWeight')
+    //   console.log(inputList);
+
     // }
    
     // if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
