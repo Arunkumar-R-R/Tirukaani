@@ -104,6 +104,33 @@ export const katchaweight = (inputList) =>{
 }
 
 export const katchaTouch = (purity,weight)=>{
-    let touch = purity /weight;
-    return touch;
+    let finalTouch;
+    let newWeightInStringLength;
+    let finaltouchvalue;
+    let parsedWeight = parseInt(weight);
+    let parsedPurity = parseInt(purity);
+    
+  
+    let weightInStringLength = weightInStringLengthCalc(parsedWeight);
+
+    console.log(weightInStringLength,'weightInStringLength')
+
+    let touch = parsedPurity / parsedWeight;
+    const afterDecimalTouchValue = touch.toString().split(".")[1];
+
+    let result = afterDecimalTouchValue.substr(0,weightInStringLength);
+    let parsedresult = parseInt(result);
+
+    if(weightInStringLength === 5){
+         newWeightInStringLength = weightInStringLength - 1;
+         finaltouchvalue = afterDecimalTouchValue.substr(0,newWeightInStringLength);
+         finalTouch = parseInt(finaltouchvalue);
+    }
+    else{
+        finalTouch = result;
+    }
+    
+    let katchatouch = (finalTouch / 100).toFixed(2);
+    
+    return katchatouch;
 }

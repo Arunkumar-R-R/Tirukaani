@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import "./FormModal.css";
 import Button from "../Button/Button";
 import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, katchaPurity, katchaTouch, katchaweight, purity } from "../../utils/calculation";
-import Add_more_weight from "../Add_katcha/Add_katcha";
+import  Add_katcha from "../Add_katcha/Add_katcha";
 import Katcha from "../katcha/Katcha";
 
 
@@ -331,7 +331,7 @@ export default function FormModal (props) {
                           console.log(inputList)
                         }
                           <Katcha inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Katcha>
-                          <Add_more_weight onClick={addWeightInput}></Add_more_weight>
+                          <Add_katcha Add_katcha onClick={addWeightInput}></Add_katcha>
                         </>
                         :
                         <>
