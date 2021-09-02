@@ -10,11 +10,12 @@ import { AuthProvider } from './Context/AuthProvider';
 import PrivateRoute from './utils/PrivateRoute';
 import FormModal from './components/FormModal/FormModal';
 
+
 function App() {
   
   return (
     <div className="App">
-        {/* <Router>
+        <Router>
           <AuthProvider>
               <Switch>
                 <PrivateRoute  path="/account" >
@@ -35,8 +36,7 @@ function App() {
                 </Route>
               </Switch>
           </AuthProvider>
-        </Router> */}
-        <FormModal></FormModal>
+        </Router>
     </div>
   );
 }

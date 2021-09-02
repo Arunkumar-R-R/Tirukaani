@@ -1,11 +1,11 @@
 @import url(./../../App.css);
 
-.modal-header{
+.modal-head{
   margin: 20px 0 32px 0;
   padding: 0;
 }
 
-.modal-header{
+.modal-head{
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

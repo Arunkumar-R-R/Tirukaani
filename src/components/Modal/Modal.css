@@ -11,14 +11,9 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease-in-out;
-    pointer-events: none;
     height: 100%;
     width: 100%;
     z-index: 1;
-  }
-
-.b-modal {
-    z-index: 5;
   }
 
   .bottom
@@ -31,9 +26,9 @@
       bottom: 0;
       position: absolute;
       overflow-y: auto;
-      z-index: 5;
       padding: 20px 24px;
       border-radius:20px 20px 0 0  ;
+      z-index: 5;
   }
   
   .display-block {
@@ -90,4 +85,9 @@
 
 .top-modal-gap{
     height:calc(100vh - 138px);
+}
+
+.close-btn{
+    cursor: pointer;
+    width: fit-content;
 }
