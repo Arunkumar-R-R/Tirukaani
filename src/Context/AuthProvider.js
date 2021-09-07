@@ -5,7 +5,9 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
 
-  const [currentUser, setCurrentUser] = useState(false);
+  const userLocal = JSON.parse(localStorage.getItem('user'));
+
+  const [currentUser, setCurrentUser] = useState(userLocal);
 
   function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password);
@@ -20,8 +22,11 @@ export function AuthProvider({ children }) {
 
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
+        localStorage.setItem('user', true);
         setCurrentUser(user);
+
       } else {
+        localStorage.removeItem('user');
         setCurrentUser(false);
       }
     });
@@ -29,6 +34,7 @@ export function AuthProvider({ children }) {
     return unsubscribe;
 
   }, []);
+
 
   const value = {
     currentUser,
