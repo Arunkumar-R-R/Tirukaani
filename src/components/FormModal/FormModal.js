@@ -16,7 +16,7 @@ export default function FormModal ({closeModal}) {
   const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
 
   // let appBody = document.body
-  // let obj={};
+  let obj={};
   // if(props.show)
   // {
   //   appBody.classList.add("hidescroll");
@@ -79,114 +79,114 @@ export default function FormModal ({closeModal}) {
     let totalKatchaPurity = katchaPurity(inputList);
     let totalKatchaWeight = katchaweight(inputList);
     let katchatouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
-    console.log(katchatouch)
-    // if(dealtoggle){
-    //   console.log(weight.value);
-    // givenpurity = purity(weight.value,touch.value);   
-    // finaltouch = finalTouch(touch.value, labourTouch.value);
-    // estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-    // console.log(givenpurity,'purity');
-    // console.log(finaltouch,'finaltouch');
-    // console.log(estimatedproductweight,'estimatedproductweight');
-    // }
-    // if(deliverytouchtoggle){
-    //   console.log(thiruvaniDeliveryTouch.value,'DeliveryTouch')
-    //   finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
-    //   estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-    //   console.log(finaltouch,'addDeliveryTouch')
-    //   console.log(estimatedproductweight,'DeliveryTouch with estimatedProductWeight')
-    //   console.log(inputList);
 
-    // }
+    if(dealtoggle){
+      console.log(weight.value);
+    givenpurity = purity(weight.value,touch.value);   
+    finaltouch = finalTouch(touch.value, labourTouch.value);
+    estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+    console.log(givenpurity,'purity');
+    console.log(finaltouch,'finaltouch');
+    console.log(estimatedproductweight,'estimatedproductweight');
+    }
+    if(deliverytouchtoggle){
+      console.log(thiruvaniDeliveryTouch.value,'DeliveryTouch')
+      finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
+      estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+      console.log(finaltouch,'addDeliveryTouch')
+      console.log(estimatedproductweight,'DeliveryTouch with estimatedProductWeight')
+      console.log(inputList);
+    }
    
-    // if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
-    //     silvertypeRadio.classList.remove('invalid');
-    //     silverTypeError.style.display = "none"; 
-    //     if(weight.value>0)
-    //     {
-    //       weight.classList.remove('invalid');
-    //       weightError.style.display = "none"; 
-    //       if( touch.value < 100 && touch.value > 0 ){
-    //           touch.classList.remove("invalid");
-    //           touchError.style.display = "none";
-    //           if( labourTouch.value < 100 && labourTouch.value > 0 )
-    //           {
-    //               labourTouch.classList.remove("invalid");
-    //               labourTouchError.style.display = "none";
+    if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
+        silvertypeRadio.classList.remove('invalid');
+        silverTypeError.style.display = "none"; 
+        if(weight.value>0)
+        {
+          weight.classList.remove('invalid');
+          weightError.style.display = "none"; 
+          if( touch.value < 100 && touch.value > 0 ){
+              touch.classList.remove("invalid");
+              touchError.style.display = "none";
+              if( labourTouch.value < 100 && labourTouch.value > 0 )
+              {
+                  labourTouch.classList.remove("invalid");
+                  labourTouchError.style.display = "none";
 
-    //               let givenpurity = purity(weight.value,touch.value);
+                  let givenpurity = purity(weight.value,touch.value);
 
-    //               if(thiruvaniDeliveryTouch !== null && thiruvaniDeliveryTouch.value)
-    //               {
-    //                 if( thiruvaniDeliveryTouch.value < 100 && thiruvaniDeliveryTouch.value > 0)
-    //                 {
-    //                   thiruvaniDeliveryTouch.classList.remove("invalid");
-    //                   thiruvaniDeliveryTouchError.style.display = "none";
+                  if(thiruvaniDeliveryTouch !== null && thiruvaniDeliveryTouch.value)
+                  {
+                    if( thiruvaniDeliveryTouch.value < 100 && thiruvaniDeliveryTouch.value > 0)
+                    {
+                      thiruvaniDeliveryTouch.classList.remove("invalid");
+                      thiruvaniDeliveryTouchError.style.display = "none";
 
-    //                   obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
-    //                   finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
-    //                   estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-    //                 }
-    //                 else
-    //                 {
-    //                   thiruvaniDeliveryTouch.classList.add('invalid');
-    //                   thiruvaniDeliveryTouchError.style.display = "inline";
-    //                   thiruvaniDeliveryTouchError.innerHTML = touchErrorMessage;
-    //                   return;
-    //                 }
-    //               }
-    //               else{
-    //                   obj.thiruvaniDeliveryTouch = 0;
-    //                   finaltouch = finalTouch(touch.value, labourTouch.value);
-    //                   estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-    //               }
+                      obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
+                      finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
+                      estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+                    }
+                    else
+                    {
+                      thiruvaniDeliveryTouch.classList.add('invalid');
+                      thiruvaniDeliveryTouchError.style.display = "inline";
+                      thiruvaniDeliveryTouchError.innerHTML = touchErrorMessage;
+                      return;
+                    }
+                  }
+                  else{
+                      obj.thiruvaniDeliveryTouch = 0;
+                      finaltouch = finalTouch(touch.value, labourTouch.value);
+                      estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+                  }
 
-    //               obj.silvertype = silvertype.value;
-    //               obj.weight = weight.value;
-    //               obj.touch = touch.value;
-    //               obj.labourTouch = labourTouch.value;
-    //               obj.purity = givenpurity;
-    //               obj.finalTouch = finaltouch;
-    //               obj.estimatedProductWeight = estimatedproductweight;
-    //               props.onSubmit(obj);
-    //               closemodal();
-    //           }
-    //           else 
-    //           {
-    //               labourTouch.classList.add('invalid');
-    //               labourTouchError.style.display = "inline";
-    //               labourTouchError.innerHTML = touchErrorMessage;
-    //           }   
-    //           }   
-    //       else {
-    //         touch.classList.add('invalid');
-    //         touchError.style.display = "inline";
-    //         touchError.innerHTML = touchErrorMessage;
-    //       }  
-    //     }
-    //     else{
-    //       weight.classList.add("invalid");
-    //       weightError.style.display = "inline";
-    //       weightError.innerHTML = weightErrorMessage;
-    //     }
-    //   }
-    // else {
-    //     silvertypeRadio.classList.add('invalid');
-    //     silverTypeError.style.display = "inline"; 
-    //     silverTypeError.innerHTML = silverTypeErrorMessage;
+                  obj.silvertype = silvertype.value;
+                  obj.weight = weight.value;
+                  obj.touch = touch.value;
+                  obj.labourTouch = labourTouch.value;
+                  obj.purity = givenpurity;
+                  obj.finalTouch = finaltouch;
+                  obj.estimatedProductWeight = estimatedproductweight;
+                  // props.onSubmit(obj);
+                  console.log(obj);
+              
+                }
+              else 
+              {
+                  labourTouch.classList.add('invalid');
+                  labourTouchError.style.display = "inline";
+                  labourTouchError.innerHTML = touchErrorMessage;
+              }   
+              }   
+          else {
+            touch.classList.add('invalid');
+            touchError.style.display = "inline";
+            touchError.innerHTML = touchErrorMessage;
+          }  
+        }
+        else{
+          weight.classList.add("invalid");
+          weightError.style.display = "inline";
+          weightError.innerHTML = weightErrorMessage;
+        }
+      }
+    else {
+        silvertypeRadio.classList.add('invalid');
+        silverTypeError.style.display = "inline"; 
+        silverTypeError.innerHTML = silverTypeErrorMessage;
 
-    //     weight.classList.add("invalid");
-    //     weightError.style.display = "inline";
-    //     weightError.innerHTML = weightErrorMessage;
+        weight.classList.add("invalid");
+        weightError.style.display = "inline";
+        weightError.innerHTML = weightErrorMessage;
         
-    //     touch.classList.add("invalid");
-    //     touchError.style.display = "inline";
-    //     touchError.innerHTML = touchErrorMessage;
+        touch.classList.add("invalid");
+        touchError.style.display = "inline";
+        touchError.innerHTML = touchErrorMessage;
 
-    //     labourTouch.classList.add("invalid");
-    //     labourTouchError.style.display = "inline";
-    //     labourTouchError.innerHTML = touchErrorMessage;
-    //   }
+        labourTouch.classList.add("invalid");
+        labourTouchError.style.display = "inline";
+        labourTouchError.innerHTML = touchErrorMessage;
+      }
   }
 
   function toggledeliverytouch()
@@ -278,10 +278,10 @@ export default function FormModal ({closeModal}) {
                   dealtoggle?
                   <h2>Add New Deal</h2>
                   :
-                  <h2>Add New client</h2>
+                  <h2>Add New Client</h2>
                 }
                   <svg onClick={closeModal} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M20.55 4.5501L13.05 12.0501L20.5 19.5001C20.8 19.8001 20.8 20.2501 20.5 20.5501C20.2 20.8501 19.75 20.8501 19.45 20.5501L12 13.0501L4.54999 20.5501C4.24999 20.8501 3.79999 20.8501 3.49999 20.5501C3.19999 20.2501 3.19999 19.8001 3.49999 19.5001L10.95 12.0001L3.44999 4.5001C3.14999 4.2001 3.19994 3.80009 3.49994 3.50009C3.79994 3.20009 4.19999 3.1501 4.49999 3.4501L12 10.9501L19.5 3.4501C19.8 3.1501 20.25 3.1501 20.55 3.4501C20.85 3.7501 20.85 4.2501 20.55 4.5501Z" fill="#18354A"/>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M20.55 4.5501L13.05 12.0501L20.5 19.5001C20.8 19.8001 20.8 20.2501 20.5 20.5501C20.2 20.8501 19.75 20.8501 19.45 20.5501L12 13.0501L4.54999 20.5501C4.24999 20.8501 3.79999 20.8501 3.49999 20.5501C3.19999 20.2501 3.19999 19.8001 3.49999 19.5001L10.95 12.0001L3.44999 4.5001C3.14999 4.2001 3.19994 3.80009 3.49994 3.50009C3.79994 3.20009 4.19999 3.1501 4.49999 3.4501L12 10.9501L19.5 3.4501C19.8 3.1501 20.25 3.1501 20.55 3.4501C20.85 3.7501 20.85 4.2501 20.55 4.5501Z" fill="#18354A"/>
                   </svg>
               </nav>
               <div className='form_element' id='formfirstchild'>
