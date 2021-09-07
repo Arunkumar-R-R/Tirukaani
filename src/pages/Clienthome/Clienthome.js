@@ -125,9 +125,9 @@ export default function Clienthome(props)
                 <nav className='clienthome-nav'>
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="40" height="40" fill="white"/>
-                    <path d="M13 20H27" stroke="#18354A" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M13 20L17 24" stroke="#18354A" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M13 20L17 16" stroke="#18354A" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13 20H27" stroke="#18354A" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M13 20L17 24" stroke="#18354A" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M13 20L17 16" stroke="#18354A" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <h2 className='clientname-nav'>Client</h2>
                 </nav>
