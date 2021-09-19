@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin: 0 15px 15px 0;
 }
 .add_btn_container{
     width: 100%;

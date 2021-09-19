@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import Toast from '../../components/Toast/Toast';
 import { useAuth } from '../../Context/AuthProvider';
 import Button from './../../components/Button/Button';
-import './Account.css'
+import './Account.css';
+import { useFirestore } from "../../utils/firebase";
+
 
 export default function Account(){
-
+    const [spells, setSpells] = React.useState([]);
     const [error, setError] = useState("");
     const { logout } = useAuth();
     const history = useHistory();
@@ -19,6 +21,26 @@ export default function Account(){
             setError('Failed to logout');
         }
     }
+
+    // useEffect(()=>{ 
+    //     const fetchData = async () => {
+    //         const data = await useFirestore.collection('users').get();
+    //         console.log(data)
+    //         setSpells(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    //       };
+    //       fetchData();
+    // },[]);
+
+    // useEffect(()=>{
+    //     console.log(spells)
+    //     let b = spells.map(doc =>{
+    //         console.log(doc)
+    //         useFirestore.collection('users').doc(doc.id).delete()
+    //         return doc.id
+    //     });
+    //     // useFirestore.collection('users').doc(b).delete()
+    //     console.log(b)
+    // })
 
     return (
         <div className='container'>

@@ -122,6 +122,12 @@ button
   margin: 32px 0 0 0;
 }
 
+.nodefault{
+  background: none;
+  border: none;
+  margin: 0;
+}
+
 #root, article, div, footer, header, main, nav, section {
   -webkit-box-align: stretch;
   -webkit-align-items: stretch;
