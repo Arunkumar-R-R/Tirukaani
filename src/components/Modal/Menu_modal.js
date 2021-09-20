@@ -2,11 +2,10 @@ import React from 'react';
 import Button from '../Button/Button';
 import './modal.css';
 
-export default function Menu_modal(){
+export default function Menu_modal({closeModal}){
     return (
         <>
-         <div className='b-modal modal display-block' >
-                 <div className='bottom'  onClick={e => e.stopPropagation()}>
+         
                     <div className='menu-item'>
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="#333333" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -34,8 +33,7 @@ export default function Menu_modal(){
                         </svg>
                         <span>Delete</span>
                     </div>
-                </div> 
-        </div>
+              
         </>
     );
 }

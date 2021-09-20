@@ -19,7 +19,7 @@
   .bottom
   {
       width:100%;
-      height: fitcontent;
+      height: fit-content;
       max-height: 100%;
       background-color: var(--white-color);
       transition: all 0.2s ease-in-out;
