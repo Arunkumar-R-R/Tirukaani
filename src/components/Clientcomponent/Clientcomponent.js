@@ -6,7 +6,7 @@ export default function Clientcomponent({data})
 {
     return (
         <>
-        <div className='client'>
+        <div className='client '>
             <div>
                 <h4 className='clientname'>{data.id}</h4>
                 <span className='numberofdeal'>Number of deal - <span className='dealcount'>0</span></span>

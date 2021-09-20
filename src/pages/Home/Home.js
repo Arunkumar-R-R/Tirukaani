@@ -23,21 +23,21 @@ export default function Home()
     return(
         <>
           <div className='container'>  
-                    <div className='row mx-auto'>
-                        <div className='col-xl-12 col-md-12 col-sm-12 col-xs-12'>
-                                {
-                                    clients ?
-                                    clients.map(client => {
-                                        return <Clientcomponent data={client} />
-                                    })
-                                    :
-                                    <div className= 'vh-100'>
-                                        <h2 className='no-data-available'>🗑️ No Client Available </h2>
-                                    </div>
-                                    
-                                }
+          <div className='row '>
+                <div className='col col-11 col-sm-6 col-md-5  mx-auto'>
+                    {
+                        clients ?
+                        clients.map(client => {
+                            return <Clientcomponent data={client} />
+                        })
+                        :
+                        <div className= 'vh-100'>
+                            <h2 className='no-data-available'>🗑️ No Client Available </h2>
                         </div>
-                    </div>
+                        
+                    }
+                </div>
+          </div>
           </div>
         </> 
     );
