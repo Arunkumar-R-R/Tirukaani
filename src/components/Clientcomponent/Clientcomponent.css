@@ -13,6 +13,11 @@
     align-items: center;
 }
 
+.client:last-child
+{
+    margin: 25px 0 100px 0;
+}
+
 .numberofdeal{
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-regular);
