@@ -9,19 +9,15 @@ export default function Home()
     const [clients, setClients] = useState([]);
 
     useEffect(()=>{
-        if(available){
-            
-        }else{
-            useFirestore.collection('clients').orderBy("timestamp", "desc").onSnapshot((snap) => {
-                let  documents = snap.docs.map((doc) => ({
-                     id: doc.id,
-                     data: doc.data(),
-                   }));
-                   setClients(documents); 
-                   console.log(documents);
-             }
-             );
-        }
+        useFirestore.collection('clients').orderBy("timestamp", "desc").onSnapshot((snap) => {
+            let  documents = snap.docs.map((doc) => ({
+                 id: doc.id,
+                 data: doc.data(),
+               }));
+               setClients(documents); 
+               console.log(documents);
+         }
+         );
     },[]);
 
     return(
