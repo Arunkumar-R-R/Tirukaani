@@ -29,7 +29,7 @@ export default function Clientcomponent({data})
         {
                show ?
                 <Modal show = { show } closeModal={closeModal}>
-                     <Menu_modal closeModal={closeModal} >
+                     <Menu_modal closeModal={closeModal} clientid={data.id} >
                      </Menu_modal>
                 </Modal>
                :''

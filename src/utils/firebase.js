@@ -32,3 +32,10 @@ export function addCollection(clientName){
   });
 } 
 
+export function deleteDoc(document){
+  useFirestore.collection("clients").doc(document).delete().then(() => {
+    console.log("Document successfully deleted!");
+}).catch((error) => {
+    console.error("Error removing document: ", error);
+});
+}
