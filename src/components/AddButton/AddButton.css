@@ -4,20 +4,18 @@
     background-color: var(--primary-color);
     height: 48px;
     width: 48px;
-    right: 15px ;
-    bottom: 15px;
     border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin: 0 15px 15px 0;
+    margin: 0;
 }
 .add_btn_container{
-    width: 100%;
     bottom: 0;
     position: relative;
-    display: flex;
+    align-self: flex-end;
+    /* display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-end; */
 }

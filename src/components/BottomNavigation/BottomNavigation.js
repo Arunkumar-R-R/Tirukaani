@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import AddButton from '../AddButton/AddButton';
 import './BottomNavigation.css'
 
 export default function BottomNavigation()
@@ -18,6 +19,7 @@ export default function BottomNavigation()
                     </svg>
                     <span className='bottom_item_title'>Home</span>
                 </NavLink>
+                <AddButton></AddButton>
                 <NavLink
                 activeStyle={{ backgroundColor: 'var(--hover-color)' }}
                 to="/account"

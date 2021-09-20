@@ -27,7 +27,6 @@ function App() {
                 <PrivateRoute  path="/home" >
                   <Home></Home>
                   <nav className='bottom_nav'>
-                    <AddButton></AddButton>
                     <BottomNavigation></BottomNavigation>
                   </nav>
                 </PrivateRoute>

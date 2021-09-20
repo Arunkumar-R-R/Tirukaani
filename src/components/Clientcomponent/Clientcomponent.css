@@ -15,7 +15,7 @@
 
 .client:last-child
 {
-    margin: 25px 0 130px 0;
+    margin: 25px 0 80px 0;
 }
 
 .numberofdeal{
@@ -30,4 +30,19 @@
 
 .numberofdeal .dealcount{
     font-weight: var(--font-weight-bold);
+}
+
+.menubtn{
+    height: 40px;
+    width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-small);
+    /* border: 1px solid var(--border-color); */
+    cursor: pointer;
+}
+.menubtn:hover{
+    background-color:var(--hover-color) ;
 }
