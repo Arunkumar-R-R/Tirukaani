@@ -9,6 +9,7 @@ import Account from './pages/Account/Account';
 import { AuthProvider } from './Context/AuthProvider';
 import PrivateRoute from './utils/PrivateRoute';
 import FormModal from './components/FormModal/FormModal';
+import Clienthome from './pages/Clienthome/Clienthome';
 
 
 function App() {
@@ -18,13 +19,19 @@ function App() {
         <Router>
           <AuthProvider>
               <Switch>
-                <PrivateRoute  path="/account" >
+                <PrivateRoute exact  path="/account" >
                   <Account></Account>
                   <nav className='bottom_nav'>
                       <BottomNavigation></BottomNavigation>
                   </nav>
                 </PrivateRoute>
-                <PrivateRoute  path="/home" >
+                <PrivateRoute  path="/home/:id" >
+                  <Clienthome></Clienthome>
+                  <nav className='bottom_nav'>
+                    <BottomNavigation></BottomNavigation>
+                  </nav>
+                </PrivateRoute>
+                <PrivateRoute exact path="/home" >
                   <Home></Home>
                   <nav className='bottom_nav'>
                     <BottomNavigation></BottomNavigation>

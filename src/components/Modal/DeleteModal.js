@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../Button/Button';
 import './modal.css';
 
-export default function Delete_modal(){
+export default function DeleteModal(){
     return (
         <>
          <div className='b-modal modal display-block' >

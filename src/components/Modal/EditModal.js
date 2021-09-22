@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../Button/Button';
 import './modal.css';
 
-export default function Edit_modal(){
+export default function EditModal(){
     return (
         <>
          <div className='b-modal modal display-block' >

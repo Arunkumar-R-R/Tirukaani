@@ -25,7 +25,7 @@ export default function Home()
           <div className='row '>
                 <div className='col col-11 col-sm-6 col-md-5  mx-auto'>
                     {
-                        clients.length !=0 ?
+                        clients.length !==0 ?
                         clients.map(client => {
                             return <Clientcomponent data={client} />
                         })

@@ -19,7 +19,7 @@ export default function FormModal ({closeModal}) {
   let obj={};
 
   function handleAddDealForm(e){
-    
+    console.log('clciked')
     e.preventDefault();
 
     let name = document.querySelector('#name');
@@ -381,9 +381,9 @@ if(katchatoggle){
               <div className= 'submit_button'>
                 {
                   dealtoggle?
-                  <Button type={'submit'} buttontype={'primarybtn'} text={"Add Deal"} />
+                  <Button type={"submit"} buttontype={'primarybtn'} text={"Add Deal"} />
                   :
-                  <Button type={'submit'} buttontype={'primarybtn'} text={"Create client"} />
+                  <Button type={"submit"} buttontype={'primarybtn'} text={"Create client"} />
                 }
                 </div>
             </form>    

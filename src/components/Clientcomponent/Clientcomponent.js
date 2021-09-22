@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
-import Menu_modal from '../Modal/Menu_modal';
+import { useHistory } from 'react-router-dom';
+import MenuModal from '../Modal/MenuModal';
 import { Modal } from '../Modal/Modal';
 import './Clientcomponent.css';
 
 export default function Clientcomponent({data})
 {
+    const history = useHistory();
+
     const [show,setshow] = useState(false);
     const closeModal =()=>{
         setshow(false)
     }
-    const openModal = () =>{
+    const openModal = (e) =>{
+        e.stopPropagation();
         setshow(true);
+    }
+    const goToDealPage = (e)=>{
+        let id = e.currentTarget.dataset.client;
+        history.push(`/home/${id}`);
     }
 
     return (
         <>
-        <div className='client '>
+        <div className='client' data-client={data.id} onClick={goToDealPage}>
             <div>
                 <h4 className='clientname'>{data.id}</h4>
                 <span className='numberofdeal'>Number of deal - <span className='dealcount'>0</span></span>
@@ -29,8 +37,8 @@ export default function Clientcomponent({data})
         {
                show ?
                 <Modal show = { show } closeModal={closeModal}>
-                     <Menu_modal closeModal={closeModal} clientid={data.id} >
-                     </Menu_modal>
+                     <MenuModal closeModal={closeModal} clientid={data.id} >
+                     </MenuModal>
                 </Modal>
                :''
            }

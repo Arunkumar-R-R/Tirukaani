@@ -1,9 +1,8 @@
 import React from 'react';
 import { deleteDoc } from '../../utils/firebase';
-import Button from '../Button/Button';
 import './modal.css';
 
-export default function Menu_modal({closeModal, clientid}){
+export default function MenuModal({closeModal, clientid}){
 
     function deleteClient(){
         console.log('clicked')
