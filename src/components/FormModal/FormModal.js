@@ -1,6 +1,4 @@
-import React, { useEffect,useState } from "react";
-import ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
+import React, {useState } from "react";
 import "./FormModal.css";
 import Button from "../Button/Button";
 import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, katchaPurity, katchaTouch, katchaweight, purity } from "../../utils/calculation";
@@ -15,11 +13,10 @@ export default function FormModal ({closeModal}) {
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setKatchaToggle] = useState(false);
   const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
-
+  const [currentTouchValue, setcurrentTouchValue] = useState('');
   let obj={};
 
   function handleAddDealForm(e){
-    console.log('clciked')
     e.preventDefault();
 
     let name = document.querySelector('#name');
@@ -43,126 +40,135 @@ export default function FormModal ({closeModal}) {
     let finaltouch;
     let estimatedproductweight;
     let givenpurity;
-
+    let katchatouch;
    
-if(katchatoggle){
-  let totalKatchaPurity = katchaPurity(inputList);
-  let totalKatchaWeight = katchaweight(inputList);
-  let katchatouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
-}
-    if(dealtoggle){
-      console.log(weight.value);
-    givenpurity = purity(weight.value,touch.value);   
-    finaltouch = finalTouch(touch.value, labourTouch.value);
-    estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-    console.log(givenpurity,'purity');
-    console.log(finaltouch,'finaltouch');
-    console.log(estimatedproductweight,'estimatedproductweight');
-
-    if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
-      silvertypeRadio.classList.remove('invalid');
-      silverTypeError.style.display = "none"; 
-      if(weight.value>0)
-      {
-        weight.classList.remove('invalid');
-        weightError.style.display = "none"; 
-        if( touch.value < 100 && touch.value > 0 ){
-            touch.classList.remove("invalid");
-            touchError.style.display = "none";
-            if( labourTouch.value < 100 && labourTouch.value > 0 )
-            {
-                labourTouch.classList.remove("invalid");
-                labourTouchError.style.display = "none";
-
-                let givenpurity = purity(weight.value,touch.value);
-
-                if(thiruvaniDeliveryTouch !== null && thiruvaniDeliveryTouch.value)
-                {
-                  if( thiruvaniDeliveryTouch.value < 100 && thiruvaniDeliveryTouch.value > 0)
-                  {
-                    thiruvaniDeliveryTouch.classList.remove("invalid");
-                    thiruvaniDeliveryTouchError.style.display = "none";
-
-                    obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
-                    finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
-                    estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-                  }
-                  else
-                  {
-                    thiruvaniDeliveryTouch.classList.add('invalid');
-                    thiruvaniDeliveryTouchError.style.display = "inline";
-                    thiruvaniDeliveryTouchError.innerHTML = touchErrorMessage;
-                    return;
-                  }
-                }
-                else{
-                    obj.thiruvaniDeliveryTouch = 0;
-                    finaltouch = finalTouch(touch.value, labourTouch.value);
-                    estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-                }
-
-                obj.silvertype = silvertype.value;
-                obj.weight = weight.value;
-                obj.touch = touch.value;
-                obj.labourTouch = labourTouch.value;
-                obj.purity = givenpurity;
-                obj.finalTouch = finaltouch;
-                obj.estimatedProductWeight = estimatedproductweight;
+    let totalKatchaPurity = katchaPurity(inputList);
+    let totalKatchaWeight = katchaweight(inputList);
+    katchatouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
+    console.log(totalKatchaPurity,' totalKatchaPurity')
+    console.log(totalKatchaWeight,' totalKatchaWeight')
+    setcurrentTouchValue(katchatouch);
+    // if(dealtoggle){
+    //   if(katchatoggle){
+    //     let totalKatchaPurity = katchaPurity(inputList);
+    //     let totalKatchaWeight = katchaweight(inputList);
+    //     katchatouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
+    //     console.log(totalKatchaPurity,' totalKatchaPurity')
+    //     console.log(totalKatchaWeight,' totalKatchaWeight')
+    //   }
+    //   else{
+    //     givenpurity = purity(weight.value,touch.value);   
+    //     finaltouch = finalTouch(touch.value, labourTouch.value);
+    //     estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+    //     console.log(givenpurity,'purity');
+    //     console.log(finaltouch,'finaltouch');
+    //     console.log(estimatedproductweight,'estimatedproductweight');
+    
+    //     if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
+    //       silvertypeRadio.classList.remove('invalid');
+    //       silverTypeError.style.display = "none"; 
+    //       if(weight.value>0)
+    //       {
+    //         weight.classList.remove('invalid');
+    //         weightError.style.display = "none"; 
+    //         if( touch.value < 100 && touch.value > 0 ){
+    //             touch.classList.remove("invalid");
+    //             touchError.style.display = "none";
+    //             if( labourTouch.value < 100 && labourTouch.value > 0 )
+    //             {
+    //                 labourTouch.classList.remove("invalid");
+    //                 labourTouchError.style.display = "none";
+    
+    //                 let givenpurity = purity(weight.value,touch.value);
+    
+    //                 if(thiruvaniDeliveryTouch !== null && thiruvaniDeliveryTouch.value)
+    //                 {
+    //                   if( thiruvaniDeliveryTouch.value < 100 && thiruvaniDeliveryTouch.value > 0)
+    //                   {
+    //                     thiruvaniDeliveryTouch.classList.remove("invalid");
+    //                     thiruvaniDeliveryTouchError.style.display = "none";
+    
+    //                     obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
+    //                     finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
+    //                     estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+    //                   }
+    //                   else
+    //                   {
+    //                     thiruvaniDeliveryTouch.classList.add('invalid');
+    //                     thiruvaniDeliveryTouchError.style.display = "inline";
+    //                     thiruvaniDeliveryTouchError.innerHTML = touchErrorMessage;
+    //                     return;
+    //                   }
+    //                 }
+    //                 else{
+    //                     obj.thiruvaniDeliveryTouch = 0;
+    //                     finaltouch = finalTouch(touch.value, labourTouch.value);
+    //                     estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+    //                 }
+    
+    //                 obj.silvertype = silvertype.value;
+    //                 obj.weight = weight.value;
+    //                 obj.touch = touch.value;
+    //                 obj.labourTouch = labourTouch.value;
+    //                 obj.purity = givenpurity;
+    //                 obj.finalTouch = finaltouch;
+    //                 obj.estimatedProductWeight = estimatedproductweight;
+                    
+    //                 // props.onSubmit(obj);
+    //                 console.log(obj);
                 
-                // props.onSubmit(obj);
-                console.log(obj);
-            
-              }
-            else 
-            {
-                labourTouch.classList.add('invalid');
-                labourTouchError.style.display = "inline";
-                labourTouchError.innerHTML = touchErrorMessage;
-            }   
-            }   
-        else {
-          touch.classList.add('invalid');
-          touchError.style.display = "inline";
-          touchError.innerHTML = touchErrorMessage;
-        }  
-      }
-      else{
-        weight.classList.add("invalid");
-        weightError.style.display = "inline";
-        weightError.innerHTML = weightErrorMessage;
-      }
-    }
-  else {
-      silvertypeRadio.classList.add('invalid');
-      silverTypeError.style.display = "inline"; 
-      silverTypeError.innerHTML = silverTypeErrorMessage;
-
-      weight.classList.add("invalid");
-      weightError.style.display = "inline";
-      weightError.innerHTML = weightErrorMessage;
-      
-      touch.classList.add("invalid");
-      touchError.style.display = "inline";
-      touchError.innerHTML = touchErrorMessage;
-
-      labourTouch.classList.add("invalid");
-      labourTouchError.style.display = "inline";
-      labourTouchError.innerHTML = touchErrorMessage;
-    }
-
-    }else{
-      let clientName = name.value
-      addCollection(clientName);
-      closemodal();
-    }
-    if(deliverytouchtoggle){
-      console.log(thiruvaniDeliveryTouch.value,'DeliveryTouch')
-      finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
-      estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-      console.log(finaltouch,'addDeliveryTouch')
-      console.log(estimatedproductweight,'DeliveryTouch with estimatedProductWeight')
-      console.log(inputList);
-    }
+    //               }
+    //             else 
+    //             {
+    //                 labourTouch.classList.add('invalid');
+    //                 labourTouchError.style.display = "inline";
+    //                 labourTouchError.innerHTML = touchErrorMessage;
+    //             }   
+    //             }   
+    //         else {
+    //           touch.classList.add('invalid');
+    //           touchError.style.display = "inline";
+    //           touchError.innerHTML = touchErrorMessage;
+    //         }  
+    //       }
+    //       else{
+    //         weight.classList.add("invalid");
+    //         weightError.style.display = "inline";
+    //         weightError.innerHTML = weightErrorMessage;
+    //       }
+    //     }
+    //   else {
+    //       silvertypeRadio.classList.add('invalid');
+    //       silverTypeError.style.display = "inline"; 
+    //       silverTypeError.innerHTML = silverTypeErrorMessage;
+    
+    //       weight.classList.add("invalid");
+    //       weightError.style.display = "inline";
+    //       weightError.innerHTML = weightErrorMessage;
+          
+    //       touch.classList.add("invalid");
+    //       touchError.style.display = "inline";
+    //       touchError.innerHTML = touchErrorMessage;
+    
+    //       labourTouch.classList.add("invalid");
+    //       labourTouchError.style.display = "inline";
+    //       labourTouchError.innerHTML = touchErrorMessage;
+    //     }
+    
+    //   }
+    // }else{
+    //   let clientName = name.value
+    //   addCollection(clientName);
+    //   closemodal();
+    // }
+    // if(deliverytouchtoggle){
+    //   console.log(thiruvaniDeliveryTouch.value,'DeliveryTouch')
+    //   finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
+    //   estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+    //   console.log(finaltouch,'addDeliveryTouch')
+    //   console.log(estimatedproductweight,'DeliveryTouch with estimatedProductWeight')
+    //   console.log(inputList);
+    // }
   }
 
   function toggledeliverytouch()
@@ -216,13 +222,7 @@ if(katchatoggle){
     setInputList(list);
   }
 
-  // function removeclass()
-  // {
-  //   let iscontain =  appBody.classList.contains("hidescroll");
-  //   if(iscontain){
-  //     appBody.classList.remove("hidescroll");
-  //   }
-  // }
+
 
   function closemodal()
   {
@@ -230,6 +230,14 @@ if(katchatoggle){
     // removeclass();
     // setDeliverytouchtoggle(false);
   }
+
+  // function removeclass()
+  // {
+  //   let iscontain =  appBody.classList.contains("hidescroll");
+  //   if(iscontain){
+  //     appBody.classList.remove("hidescroll");
+  //   }
+  // }
 
   // const closeOnEscapeKeyDown = e => {
   //   if ((e.charCode || e.keyCode) === 27) {
@@ -249,7 +257,7 @@ if(katchatoggle){
   return (
     <>
      <form id='form' onSubmit={handleAddDealForm}>
-              <nav className='modal-head'>
+              {/* <nav className='modal-head'>
               {
                   dealtoggle?
                   <h2>Add New Deal</h2>
@@ -274,8 +282,8 @@ if(katchatoggle){
                     required
                 />
                 <span id="nameerror" className='error'></span>
-              </div> 
-              <div className='deal-toggle-container'>
+              </div>  */}
+              {/* <div className='deal-toggle-container'>
                 <div className='deal-toggle'  onClick={toggledeal}>
                     <input className='dealcheck' type="checkbox"/>
                     <small>Add deal </small>      
@@ -385,7 +393,15 @@ if(katchatoggle){
                   :
                   <Button type={"submit"} buttontype={'primarybtn'} text={"Create client"} />
                 }
-                </div>
+                </div> */}
+                      <div >
+                        <Katcha inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Katcha>
+                          <Add_katcha Add_katcha onClick={addWeightInput}></Add_katcha>
+                    </div>
+                    <Button type={"submit"} buttontype={'primarybtn'} text={"Create client"} />
+                    {
+                      currentTouchValue
+                    }
             </form>    
     </>
   );

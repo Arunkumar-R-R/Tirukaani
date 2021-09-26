@@ -16,7 +16,7 @@ function App() {
   
   return (
     <div className="App">
-        <Router>
+        {/* <Router>
           <AuthProvider>
               <Switch>
                 <PrivateRoute exact  path="/account" >
@@ -42,7 +42,8 @@ function App() {
                 </Route>
               </Switch>
           </AuthProvider>
-        </Router>
+        </Router> */}
+        <FormModal></FormModal>
     </div>
   );
 }
