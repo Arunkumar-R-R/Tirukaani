@@ -195,3 +195,9 @@ legend{
   font-size: var(--font-size-small);
   margin: 0;
 }
+@media (min-width: 576px) {
+  .App{
+    display: flex;
+    flex-flow: row nowrap;
+  }
+}

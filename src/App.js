@@ -20,22 +20,22 @@ function App() {
           <AuthProvider>
               <Switch>
                 <PrivateRoute exact  path="/account" >
-                  <Account></Account>
                   <nav className='bottom_nav'>
                       <BottomNavigation></BottomNavigation>
                   </nav>
+                  <Account></Account>
                 </PrivateRoute>
                 <PrivateRoute  path="/home/:id" >
-                  <Clienthome></Clienthome>
                   <nav className='bottom_nav'>
                     <BottomNavigation></BottomNavigation>
                   </nav>
+                  <Clienthome></Clienthome>
                 </PrivateRoute>
                 <PrivateRoute exact path="/home" >
-                  <Home></Home>
                   <nav className='bottom_nav'>
                     <BottomNavigation></BottomNavigation>
                   </nav>
+                  <Home></Home>
                 </PrivateRoute>
                 <Route exact path="/" >
                   <Login></Login>

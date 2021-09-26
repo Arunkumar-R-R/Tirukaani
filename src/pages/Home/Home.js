@@ -22,8 +22,8 @@ export default function Home()
     return(
         <>
           <div className='container'>  
-          <div className='row '>
-                <div className='col col-11 col-sm-6 col-md-5  mx-auto'>
+          <div className='row'>
+                <div className=' col-11 col-xl-4 col-lg-6  col-md-6 col-sm-6'>
                     {
                         clients.length !==0 ?
                         clients.map(client => {

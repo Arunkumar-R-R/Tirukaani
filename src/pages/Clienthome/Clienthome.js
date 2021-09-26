@@ -98,8 +98,8 @@ export default function Clienthome()
                 }
             </div>  */}
             
-                <div className='Clienthome-container'>
-                    <nav className='clienthome-nav col-11 mx-auto'>
+                <div className='container'>
+                    <nav className='clienthome-nav col-xl-12 col-lg-12 col-11 mx-auto'>
                         
                         <Link to={'/home'} >
                             <svg width="43" height="43" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
