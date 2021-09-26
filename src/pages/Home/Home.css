@@ -36,3 +36,11 @@
     left: 0; 
 }
 
+@media (min-width: 576px) {
+    .bottom_nav{
+        bottom: unset;
+        right: unset;
+        left: 0; 
+        height: 100%;
+    }
+   }
