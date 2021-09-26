@@ -18,17 +18,16 @@
 
   .bottom
   {
-      width:100%;
       height: fit-content;
       max-height: 100%;
       background-color: var(--white-color);
       transition: all 0.2s ease-in-out;
-      bottom: 0;
       position: absolute;
       overflow-y: auto;
       padding: 20px 24px;
       border-radius:20px 20px 0 0  ;
       z-index: 5;
+      bottom: 0;
   }
   
   .display-block {
@@ -91,3 +90,20 @@
     cursor: pointer;
     width: fit-content;
 }
+
+
+@media (min-width: 426px) {
+  .bottom{
+      bottom: unset;
+      border-radius: 20px;
+      height: fit-content;
+      max-height: 80%;
+  }
+ }
+@media (min-width: 426px) and (max-width:573px) {
+  .bottom{
+      /* transform: translateX(50%);
+      transform: translatey(50%); */
+      width: 80%;
+  }
+ }

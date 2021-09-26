@@ -248,13 +248,13 @@ if(katchatoggle){
 
   return (
     <>
-     <form id='form' onSubmit={handleAddDealForm}>
+     <form className='col-11 mx-auto' id='form' onSubmit={handleAddDealForm}>
               <nav className='modal-head'>
               {
                   dealtoggle?
-                  <h2>Add New Deal</h2>
+                  <h2 className='modal-title'>Add New Deal</h2>
                   :
-                  <h2>Add New Client</h2>
+                  <h2 className='modal-title'>Add New Client</h2>
               }
               <button className='nodefault' tabIndex="0"  aria-pressed="false" onClick={closeModal}>
                 <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

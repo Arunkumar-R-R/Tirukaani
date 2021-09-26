@@ -99,10 +99,10 @@ export default function Clienthome()
             </div>  */}
             
                 <div className='Clienthome-container'>
-                    <nav className='clienthome-nav'>
+                    <nav className='clienthome-nav col-11 mx-auto'>
                         
                         <Link to={'/home'} >
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="43" height="43" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="40" height="40" fill="white"/>
                             <path d="M13 20H27" stroke="#18354A" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M13 20L17 24" stroke="#18354A" strokeLinecap="round" strokeLinejoin="round"/>

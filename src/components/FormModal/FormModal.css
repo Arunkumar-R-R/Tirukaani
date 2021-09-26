@@ -67,3 +67,6 @@ small{
   cursor: pointer;
   width: fit-content;
 }
+.modal-title{
+  margin: 0;
+}
