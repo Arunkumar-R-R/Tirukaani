@@ -19,7 +19,6 @@ export default function FormModal ({closeModal}) {
   let obj={};
 
   function handleAddDealForm(e){
-    console.log('clciked')
     e.preventDefault();
 
     let name = document.querySelector('#name');

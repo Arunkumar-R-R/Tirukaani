@@ -12,14 +12,17 @@ export default function Login()
     const history = useHistory();
     const { login } = useAuth();
     const [error, setError] = useState("");
+    const [isLoading,setIsLoading] = useState(false);
 
      async function handlesubmit(e){
         e.preventDefault();
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
+        setIsLoading(true); 
         try {
             await login(email, password);
             history.push("/home");
+            setIsLoading(false); 
         } catch {
             setError("Failed to log in");
         }
@@ -39,7 +42,7 @@ export default function Login()
                                 <label>Password</label>
                                 <input type='password'  id='password' name='password' required/>
                             </div>  
-                            <Button type={'submit'} text={"Login"} buttontype={'primarybtn'} />
+                            <Button type={'submit'} text={"Login"} buttontype={'primarybtn'} isLoading={isLoading} />
                     </form>
                     {error && <Toast type='alert-danger' text={error}></Toast>}
                 </div>

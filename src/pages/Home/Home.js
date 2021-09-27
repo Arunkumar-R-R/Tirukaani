@@ -7,6 +7,7 @@ import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
 export default function Home()
 {
     const [clients, setClients] = useState([]);
+    const [isLoading,setIsLoading] = useState(true);
 
     useEffect(()=>{
         useFirestore.collection('clients').orderBy("timestamp", "desc").onSnapshot((snap) => {
@@ -14,7 +15,8 @@ export default function Home()
                  id: doc.id,
                  data: doc.data(),
                }));
-               setClients(documents); 
+               setClients(documents);
+               setIsLoading(false); 
          }
          );
     },[]);
@@ -24,17 +26,25 @@ export default function Home()
           <div className='container'>  
           <div className='row'>
                 <div className=' col-11 col-xl-4 col-lg-6  col-md-6 col-sm-6'>
+                    { 
+                        isLoading && <div className= 'vh-100'>
+                           <h2 className='no-data-available'>Loading ...</h2>
+                        </div>
+                    }
+
                     {
-                        clients.length !==0 ?
+                        !isLoading && clients.length !==0 &&
                         clients.map(client => {
-                            return <Clientcomponent data={client} />
+                            return <Clientcomponent data={client} key={client.id} />
                         })
-                        :
-                        <div className= 'vh-100'>
+                    }{
+ 
+                        !isLoading && clients.length ==0 && <div className= 'vh-100'>
                             <h2 className='no-data-available'>🗑️ No Client Available </h2>
                         </div>
                         
-                    }
+                    } 
+                    
                 </div>
           </div>
           </div>
