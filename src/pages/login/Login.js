@@ -37,7 +37,7 @@ export default function Login()
                             <h3 className='form_title'>Login</h3>
                             <div className='form_element'>
                                 <label >Email</label>
-                                <input  type='email'  id='email' name='email' required/>
+                                <input  type='email'  id='email' name='email' autoComplete='off' required/>
                             </div> 
                             <div className='form_element' >
                                 <label>Password</label>
