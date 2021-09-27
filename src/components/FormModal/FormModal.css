@@ -15,6 +15,7 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  cursor: pointer;
 }
 label.elements{
   display: flex;

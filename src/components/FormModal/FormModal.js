@@ -81,10 +81,20 @@ if(katchatoggle){
                   {
                     thiruvaniDeliveryTouch.classList.remove("invalid");
                     thiruvaniDeliveryTouchError.style.display = "none";
-
+                 
                     obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
                     finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
                     estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+
+                    obj.silvertype = silvertype.value;
+                    obj.weight = weight.value;
+                    obj.touch = touch.value;
+                    obj.labourTouch = labourTouch.value;
+                    obj.purity = givenpurity;
+                    obj.finalTouch = finaltouch;
+                    obj.estimatedProductWeight = estimatedproductweight;
+                    console.log(obj);
+
                   }
                   else
                   {
@@ -226,24 +236,21 @@ if(katchatoggle){
   function closemodal()
   {
     closeModal();
-    // removeclass();
-    // setDeliverytouchtoggle(false);
   }
 
-  // const closeOnEscapeKeyDown = e => {
-  //   if ((e.charCode || e.keyCode) === 27) {
-  //     props.onClose();
-  //     removeclass();
-  //   }
-  // };
+  const closeOnEscapeKeyDown = e => {
+    if ((e.charCode || e.keyCode) === 27) {
+      closeModal();
+    }
+  };
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   document.body.addEventListener("keydown", closeOnEscapeKeyDown);
-  //   return function cleanup() {
-  //     document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-  //   };
-  // }, []);
+    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
+    return function cleanup() {
+      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+    };
+  }, []);
 
   return (
     <>
