@@ -63,7 +63,7 @@ export default function Clienthome()
                        deals.length>0?deals.map((deal,index)=>{
                         deal.dealno = `${index+1}`;
                         return <Dealcomponent deal={deal} index={deal.dealno} showdeal={showdeal}/>
-                    }):<h1 className='no-data-available'>No deal</h1>
+                    }):<h1 className='center-content-for-v-100'>No deal</h1>
 
                     }
                     </div>
@@ -116,7 +116,7 @@ export default function Clienthome()
                        deals.length>0?deals.map((deal,index)=>{
                         deal.dealno = `${index+1}`;
                         return <Dealcomponent deal={deal} index={deal.dealno} />
-                    }):<h1 className='no-data-available'>No deal</h1>
+                    }):<h1 className='center-content-for-v-100'>No deal</h1>
 
                     }
                     </div>

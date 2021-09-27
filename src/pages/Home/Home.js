@@ -28,7 +28,7 @@ export default function Home()
                 <div className=' col-11 col-xl-4 col-lg-6  col-md-6 col-sm-6'>
                     { 
                         isLoading && <div className= 'vh-100'>
-                           <h2 className='no-data-available'>Loading ...</h2>
+                           <h2 className='center-content-for-v-100'>Loading ...</h2>
                         </div>
                     }
 
@@ -40,7 +40,7 @@ export default function Home()
                     }{
  
                         !isLoading && clients.length ==0 && <div className= 'vh-100'>
-                            <h2 className='no-data-available'>🗑️ No Client Available </h2>
+                            <h2 className='center-content-for-v-100'>🗑️ No Client Available </h2>
                         </div>
                         
                     } 
