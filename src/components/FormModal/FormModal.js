@@ -29,150 +29,62 @@ export default function FormModal ({closeModal}) {
     let labourTouch = document.querySelector('#labourTouch');
     let thiruvaniDeliveryTouch = document.querySelector('#thiruvaniDeliveryTouch');
 
-    let silverTypeError = document.querySelector('#silverTypeError');
-    let weightError = document.querySelector('#weightError');
-    let touchError = document.querySelector('#touchError');
-    let labourTouchError = document.querySelector('#labourTouchError');
-    let thiruvaniDeliveryTouchError = document.querySelector('#thiruvaniDeliveryTouchError');
+    // let silverTypeError = document.querySelector('#silverTypeError');
+    // let weightError = document.querySelector('#weightError');
+    // let touchError = document.querySelector('#touchError');
+    // let labourTouchError = document.querySelector('#labourTouchError');
+    // let thiruvaniDeliveryTouchError = document.querySelector('#thiruvaniDeliveryTouchError');
 
-    const silverTypeErrorMessage = 'Select the silver type';
-    const weightErrorMessage = 'Enter the weight';
-    const touchErrorMessage = 'Enter the Touch below 100';
-
+    // const silverTypeErrorMessage = 'Select the silver type';
+    // const weightErrorMessage = 'Enter the weight';
+    // const touchErrorMessage = 'Enter the Touch below 100';
+    let clientName;
     let finaltouch;
     let estimatedproductweight;
     let givenpurity;
+    let totalKatchaPurity;
+    let totalKatchaWeight;
+    let finalKatchaTouch;
 
-   
-if(katchatoggle){
-  let totalKatchaPurity = katchaPurity(inputList);
-  let totalKatchaWeight = katchaweight(inputList);
-  let katchatouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
-}
     if(dealtoggle){
-      console.log(weight.value);
-    givenpurity = purity(weight.value,touch.value);   
-    finaltouch = finalTouch(touch.value, labourTouch.value);
-    estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-    console.log(givenpurity,'purity');
-    console.log(finaltouch,'finaltouch');
-    console.log(estimatedproductweight,'estimatedproductweight');
 
-    if( silvertype.value|| weight.value || touch.value || labourTouch.value ){
-      silvertypeRadio.classList.remove('invalid');
-      silverTypeError.style.display = "none"; 
-      if(weight.value>0)
-      {
-        weight.classList.remove('invalid');
-        weightError.style.display = "none"; 
-        if( touch.value < 100 && touch.value > 0 ){
-            touch.classList.remove("invalid");
-            touchError.style.display = "none";
-            if( labourTouch.value < 100 && labourTouch.value > 0 )
-            {
-                labourTouch.classList.remove("invalid");
-                labourTouchError.style.display = "none";
-
-                let givenpurity = purity(weight.value,touch.value);
-
-                if(thiruvaniDeliveryTouch !== null && thiruvaniDeliveryTouch.value)
-                {
-                  if( thiruvaniDeliveryTouch.value < 100 && thiruvaniDeliveryTouch.value > 0)
-                  {
-                    thiruvaniDeliveryTouch.classList.remove("invalid");
-                    thiruvaniDeliveryTouchError.style.display = "none";
-                 
-                    obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
-                    finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
-                    estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-
-                    obj.silvertype = silvertype.value;
-                    obj.weight = weight.value;
-                    obj.touch = touch.value;
-                    obj.labourTouch = labourTouch.value;
-                    obj.purity = givenpurity;
-                    obj.finalTouch = finaltouch;
-                    obj.estimatedProductWeight = estimatedproductweight;
-                    console.log(obj);
-
-                  }
-                  else
-                  {
-                    thiruvaniDeliveryTouch.classList.add('invalid');
-                    thiruvaniDeliveryTouchError.style.display = "inline";
-                    thiruvaniDeliveryTouchError.innerHTML = touchErrorMessage;
-                    return;
-                  }
-                }
-                else{
-                    obj.thiruvaniDeliveryTouch = 0;
-                    finaltouch = finalTouch(touch.value, labourTouch.value);
-                    estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-                }
-
-                obj.silvertype = silvertype.value;
-                obj.weight = weight.value;
-                obj.touch = touch.value;
-                obj.labourTouch = labourTouch.value;
-                obj.purity = givenpurity;
-                obj.finalTouch = finaltouch;
-                obj.estimatedProductWeight = estimatedproductweight;
-                
-                // props.onSubmit(obj);
-                console.log(obj);
-            
-              }
-            else 
-            {
-                labourTouch.classList.add('invalid');
-                labourTouchError.style.display = "inline";
-                labourTouchError.innerHTML = touchErrorMessage;
-            }   
-            }   
-        else {
-          touch.classList.add('invalid');
-          touchError.style.display = "inline";
-          touchError.innerHTML = touchErrorMessage;
-        }  
+      givenpurity = purity(weight.value,touch.value);   
+   
+      if(katchatoggle){
+        totalKatchaPurity = katchaPurity(inputList);
+        totalKatchaWeight = katchaweight(inputList);
+        finalKatchaTouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
+      }   
+      if(deliverytouchtoggle){
+        obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
+        finaltouch = addDeliveryTouch(thiruvaniDeliveryTouch.value,labourTouch.value);
+        estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+      }else{
+        finaltouch = finalTouch(touch.value, labourTouch.value);
+        estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+      }
+      obj.name = name.value;
+      console.log(silvertypeRadio)
+      if(silvertype){
+        obj.silvertype = silvertype.value;
+        obj.weight = weight.value;
+        obj.touch = touch.value;
+        obj.labourTouch = labourTouch.value;
+        obj.purity = givenpurity;
+        obj.finalTouch = finaltouch;
+        obj.estimatedProductWeight = estimatedproductweight;
+        console.log(obj);
       }
       else{
-        weight.classList.add("invalid");
-        weightError.style.display = "inline";
-        weightError.innerHTML = weightErrorMessage;
+        alert('please select any one of the silver form')
       }
-    }
-  else {
-      silvertypeRadio.classList.add('invalid');
-      silverTypeError.style.display = "inline"; 
-      silverTypeError.innerHTML = silverTypeErrorMessage;
-
-      weight.classList.add("invalid");
-      weightError.style.display = "inline";
-      weightError.innerHTML = weightErrorMessage;
-      
-      touch.classList.add("invalid");
-      touchError.style.display = "inline";
-      touchError.innerHTML = touchErrorMessage;
-
-      labourTouch.classList.add("invalid");
-      labourTouchError.style.display = "inline";
-      labourTouchError.innerHTML = touchErrorMessage;
-    }
-
+    
     }else{
-      let clientName = name.value
+      clientName = name.value;
       addCollection(clientName);
       closemodal();
     }
-    if(deliverytouchtoggle){
-      console.log(thiruvaniDeliveryTouch.value,'DeliveryTouch')
-      finaltouch = addDeliveryTouch(labourTouch.value,thiruvaniDeliveryTouch.value);
-      estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-      console.log(finaltouch,'addDeliveryTouch')
-      console.log(estimatedproductweight,'DeliveryTouch with estimatedProductWeight')
-      console.log(inputList);
-    }
-  }
+   }
 
   function toggledeliverytouch()
   {
@@ -224,14 +136,6 @@ if(katchatoggle){
     list.splice(index, 1);
     setInputList(list);
   }
-
-  // function removeclass()
-  // {
-  //   let iscontain =  appBody.classList.contains("hidescroll");
-  //   if(iscontain){
-  //     appBody.classList.remove("hidescroll");
-  //   }
-  // }
 
   function closemodal()
   {
@@ -289,98 +193,98 @@ if(katchatoggle){
                 {
                       dealtoggle ?
                       <>
-                    <div className='form_element'  onClick={getkatch}>
-                      <span className='radiolabel'>Silver Form</span>
-                      <label className='elements' >
-                          <input type='radio' value='Bar' name='silverform' /> 
-                          <span className='small-text' onClick={stopPropagation}>Bar</span>
-                      </label>
-                      <label className='elements' >
-                          <input type='radio' value='Spatla' name='silverform'  />
-                          <span className='small-text' onClick={stopPropagation}>Spatla</span>
-                      </label>
-                      <label className='elements'>
-                          <input type='radio' value='Katcha' name='silverform'  />
-                          <span className='small-text'  onClick={stopPropagation}>Katcha</span>
-                      </label>
-                      <label className='elements' >
-                          <input type='radio' value='Katti' name='silverform' />
-                          <span className='small-text'  onClick={stopPropagation}>Katti</span>
-                      </label>
-                      <span id="silverTypeError"  className='error'></span>
-                    </div>
-
-                    <div >
-                      {
-                        katchatoggle ? 
-                        <>
-                        {
-                          console.log(inputList)
-                        }
-                          <Katcha inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Katcha>
-                          <Add_katcha Add_katcha onClick={addWeightInput}></Add_katcha>
-                        </>
-                        :
-                        <>
-                        <div className='form_element'>
-                          <label htmlFor="weight">Weight</label>
-                          <input
-                            id="weight"
-                            name='weight'
-                            type="number"
-                            required
-                          />
-                          <span id="weightError"  className='error'></span>
+                        <div className='form_element'  onClick={getkatch}>
+                          <span className='radiolabel'>Silver Form</span>
+                          <label className='elements' >
+                              <input type='radio' value='Bar' name='silverform' /> 
+                              <span className='small-text' onClick={stopPropagation}>Bar</span>
+                          </label>
+                          <label className='elements' >
+                              <input type='radio' value='Spatla' name='silverform'  />
+                              <span className='small-text' onClick={stopPropagation}>Spatla</span>
+                          </label>
+                          <label className='elements'>
+                              <input type='radio' value='Katcha' name='silverform'  />
+                              <span className='small-text'  onClick={stopPropagation}>Katcha</span>
+                          </label>
+                          <label className='elements' >
+                              <input type='radio' value='Katti' name='silverform' />
+                              <span className='small-text'  onClick={stopPropagation}>Katti</span>
+                          </label>
+                          <span id="silverTypeError"  className='error'></span>
                         </div>
-                        <div className='form_element'>
-                          <label htmlFor="touch">Touch</label>
-                          <input
-                            id="touch"
-                            name='touch'
-                            type="number"
-                            maxLength = "100"
-                            required
-                          />
-                          <span id="touchError"  className='error'></span>
-                      </div> 
-                        </>
-                      }
-                    </div>
+
+                        <div >
+                          {
+                            katchatoggle ? 
+                            <>
+                            {
+                              console.log(inputList)
+                            }
+                              <Katcha inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Katcha>
+                              <Add_katcha Add_katcha onClick={addWeightInput}></Add_katcha>
+                            </>
+                            :
+                            <>
+                            <div className='form_element'>
+                              <label htmlFor="weight">Weight</label>
+                              <input
+                                id="weight"
+                                name='weight'
+                                type="number"
+                                required
+                              />
+                              <span id="weightError"  className='error'></span>
+                            </div>
+                            <div className='form_element'>
+                              <label htmlFor="touch">Touch</label>
+                              <input
+                                id="touch"
+                                name='touch'
+                                type="number"
+                                maxLength = "100"
+                                required
+                              />
+                              <span id="touchError"  className='error'></span>
+                          </div> 
+                            </>
+                          }
+                        </div>
                     
-                    <div className='form_element'>
-                    <label htmlFor="labourTouch">Labour Touch</label>
-                    <input
-                      id="labourTouch"
-                      name='labourTouch'
-                      type="number"
-                      maxLength = "100"
-                      required
-                    />
-                     <span id="labourTouchError"  className='error'></span>
-                </div>
-                    <div className='deliverytouch-toggle-container'>
-                    <div className='deliverytouch-toggle addthiruvanitoggle'  onClick={toggledeliverytouch} >
-                      <input className='deliverytouchcheck' type="checkbox" />
-                      <small>Add T delivery touch</small> 
-                    </div>
-                    {
-                      deliverytouchtoggle ?
-                    <div className='form_element deliverytouchinput'>
-                          <label htmlFor="thiruvaniDeliveryTouch">Thiruvani delivery touch</label>
-                          <input
-                            id="thiruvaniDeliveryTouch"
-                            name='thiruvaniDeliveryTouch'
-                            type="number"
-                            maxLength = "100"
-                            required
-                          />
-                           <span id="thiruvaniDeliveryTouchError"  className='error'></span>
-                    </div> 
-                    :''
-                  }
-                </div>
-                    </> 
-                    :''
+                        <div className='form_element'>
+                            <label htmlFor="labourTouch">Labour Touch</label>
+                            <input
+                              id="labourTouch"
+                              name='labourTouch'
+                              type="number"
+                              maxLength = "100"
+                              required
+                            />
+                            <span id="labourTouchError"  className='error'></span>
+                        </div>
+                        <div className='deliverytouch-toggle-container'>
+                            <div className='deliverytouch-toggle addthiruvanitoggle'  onClick={toggledeliverytouch} >
+                              <input className='deliverytouchcheck' type="checkbox" />
+                              <small>Add T delivery touch</small> 
+                            </div>
+                            {
+                              deliverytouchtoggle ?
+                              <div className='form_element deliverytouchinput'>
+                                    <label htmlFor="thiruvaniDeliveryTouch">Thiruvani delivery touch</label>
+                                    <input
+                                      id="thiruvaniDeliveryTouch"
+                                      name='thiruvaniDeliveryTouch'
+                                      type="number"
+                                      maxLength = "100"
+                                      required
+                                    />
+                                    <span id="thiruvaniDeliveryTouchError"  className='error'></span>
+                              </div> 
+                              :''
+                            }
+                         </div>
+                      </> 
+                      :''
                 }
               </div>
 
