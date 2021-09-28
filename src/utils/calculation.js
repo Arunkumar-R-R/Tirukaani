@@ -12,9 +12,21 @@ export const purity = (weight,touch) =>{
     let parsedTouch = parseFloat(touch);
 
     let weightInStringLength = weightInStringLengthCalc(parsedWeight);
+    console.log(weightInStringLength,'weightInStringLength');
 
     let purity = parsedWeight * parsedTouch;
     let purityInString = purity.toString()
+    console.log(purityInString,'purityInString');
+
+    let thirdCharacterInPurity = parseInt(purityInString.charAt(2));
+    let fourthCharacterInPurity = parseInt(purityInString.charAt(3));
+
+    if(thirdCharacterInPurity>5){
+        console.log(thirdCharacterInPurity,'3rd character in the purity greater than 5');
+    }
+    if(fourthCharacterInPurity >5){
+        console.log(fourthCharacterInPurity,'4th character in the purity greater than 5');
+    }
 
     let result = purityInString.substr(0,weightInStringLength);
     if(result > parsedWeight)
@@ -83,23 +95,31 @@ export const estimatedProductWeight = (purity, finalTouch, weight) =>{
 export const katchaPurity = (inputList)=>{
     let purityarray =  inputList.map(({weight,touch})=>{
         let katchapurity = purity(weight,touch);
+        console.log(katchapurity,'katchapurity');
         return katchapurity;
       });
+      console.log(purityarray,'purityarray');
     let totalpurity = purityarray.reduce((accumulator,currentValue)=>{
         let currentPurity = parseInt(currentValue);
         let store = parseInt(accumulator);
        return( store +  currentPurity);
     });
+    console.log(totalpurity,'totalpurity')
+
     return totalpurity;
 }
 
 export const katchaweight = (inputList) =>{
     let weightArray = inputList.map(({weight})=>weight);
+    console.log(weightArray,'weightArray')
+
     let totalWeight = weightArray.reduce((accumulator,currentValue)=>{
         let currentWeight = parseInt(currentValue);
         let store = parseInt(accumulator);
        return( store +  currentWeight);
     })
+    console.log(totalWeight,'totalWeight')
+
     return totalWeight;
 }
 

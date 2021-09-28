@@ -1,6 +1,6 @@
 import React from 'react';
 import { deleteDoc } from '../../utils/firebase';
-import './modal.css';
+import './Modal.css';
 
 export default function MenuModal({closeModal, clientid}){
 
