@@ -18,25 +18,28 @@ export const purity = (weight,touch) =>{
     let purityInString = purity.toString()
     console.log(purityInString,'purityInString');
 
-    let thirdCharacterInPurity = parseInt(purityInString.charAt(2));
-    let fourthCharacterInPurity = parseInt(purityInString.charAt(3));
-
-    if(thirdCharacterInPurity>5){
-        console.log(thirdCharacterInPurity,'3rd character in the purity greater than 5');
-    }
-    if(fourthCharacterInPurity >5){
-        console.log(fourthCharacterInPurity,'4th character in the purity greater than 5');
-    }
-
     let result = purityInString.substr(0,weightInStringLength);
+    console.log(result,'result');
     if(result > parsedWeight)
     {
+     
+      
         let newWeightInStringLength = weightInStringLength - 1;
+        let digitAfterRound = parseInt(purityInString.charAt(newWeightInStringLength));
+        console.log(digitAfterRound,'digitafterround for newWeightInStringLength')
+        if(digitAfterRound >= 5){
+            console.log(digitAfterRound,'digit after the cut in the purity greater than 5');
+        }
         let finalpurityvalue = purityInString.substr(0,newWeightInStringLength);
         finalpurity = finalpurityvalue;
     }
     else
     {
+        let digitAfterRound = parseInt(purityInString.charAt(weightInStringLength));
+        console.log(digitAfterRound,'digitafterround')
+        if(digitAfterRound >= 5){
+            console.log(digitAfterRound,'digit after the cut in the purity greater than 5');
+        }
         finalpurity = result;
     }
 
