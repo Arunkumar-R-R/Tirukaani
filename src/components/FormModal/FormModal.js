@@ -107,10 +107,9 @@ export default function FormModal ({closeModal}) {
     }
   }
 
-  function getkatch(e)
+  function getkatch(type)
   {
-    let silvertype = document.querySelector('input[name="silverform"]:checked').value;
-    if(silvertype == 'Katcha')
+    if(type === 'Katcha')
     {
       setKatchaToggle(true);
     }
@@ -193,23 +192,23 @@ export default function FormModal ({closeModal}) {
                 {
                       dealtoggle ?
                       <>
-                        <div className='form_element'  onClick={getkatch}>
+                        <div className='form_element'>
                           <span className='radiolabel'>Silver Form</span>
-                          <label className='elements' >
+                          <label className='elements' onClick={()=>getkatch('Bar')}>
                               <input type='radio' value='Bar' name='silverform' /> 
-                              <span className='small-text' onClick={stopPropagation}>Bar</span>
+                              <span className='small-text' >Bar</span>
                           </label>
-                          <label className='elements' >
+                          <label className='elements' onClick={()=>getkatch('Spatla')} >
                               <input type='radio' value='Spatla' name='silverform'  />
-                              <span className='small-text' onClick={stopPropagation}>Spatla</span>
+                              <span className='small-text' >Spatla</span>
                           </label>
-                          <label className='elements'>
+                          <label className='elements'  onClick={()=>getkatch('Katcha')}>
                               <input type='radio' value='Katcha' name='silverform'  />
-                              <span className='small-text'  onClick={stopPropagation}>Katcha</span>
+                              <span className='small-text'>Katcha</span>
                           </label>
-                          <label className='elements' >
+                          <label className='elements' onClick={()=>getkatch('Katti')}>
                               <input type='radio' value='Katti' name='silverform' />
-                              <span className='small-text'  onClick={stopPropagation}>Katti</span>
+                              <span className='small-text'>Katti</span>
                           </label>
                           <span id="silverTypeError"  className='error'></span>
                         </div>
