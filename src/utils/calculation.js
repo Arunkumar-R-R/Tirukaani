@@ -12,14 +12,12 @@ export const purity = (weight,touch) =>{
     let parsedTouch = parseFloat(touch);
 
     let weightInStringLength = weightInStringLengthCalc(parsedWeight);
-    console.log(weightInStringLength,'weightInStringLength');
 
     let purity = parsedWeight * parsedTouch;
     let purityInString = purity.toString()
-    console.log(purityInString,'purityInString');
 
     let result = purityInString.substr(0,weightInStringLength);
-    console.log(result,'result');
+    
     if(result > parsedWeight)
     {
         let newWeightInStringLength = weightInStringLength - 1;

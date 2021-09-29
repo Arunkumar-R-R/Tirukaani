@@ -64,7 +64,6 @@ export default function FormModal ({closeModal}) {
         estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
       }
       obj.name = name.value;
-      console.log(silvertypeRadio)
       if(silvertype){
         obj.silvertype = silvertype.value;
         obj.weight = weight.value;
