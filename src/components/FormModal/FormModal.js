@@ -159,6 +159,9 @@ export default function FormModal ({closeModal}) {
     else
     {
       setKatchaToggle(false);
+      setDeliverytouchToggle(false)
+      let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
+      deliverytouchcheck.checked = deliverytouchtoggle;
       setInputList([{ weight: "", touch: "" }]);
     }
   }
