@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import reactDom, { createPortal } from 'react-dom';
-import './modal.css'
+import './Modal.css'
 
 export const Modal = ({children, closeModal}) => {
 
