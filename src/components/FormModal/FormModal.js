@@ -45,39 +45,83 @@ export default function FormModal ({closeModal}) {
     let totalKatchaPurity;
     let totalKatchaWeight;
     let finalKatchaTouch;
-
+    //deal
     if(dealtoggle){
-
-      givenpurity = purity(weight.value,touch.value);   
-   
-      if(katchatoggle){
-        totalKatchaPurity = katchaPurity(inputList);
-        totalKatchaWeight = katchaweight(inputList);
-        finalKatchaTouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
-      }   
-      if(deliverytouchtoggle){
-        obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
-        finaltouch = addDeliveryTouch(thiruvaniDeliveryTouch.value,labourTouch.value);
-        estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+      // katcha
+      if(katchatoggle){ 
+        //More than 1 katcha item
+        if(inputList.length !=1){
+          totalKatchaPurity = katchaPurity(inputList);
+          totalKatchaWeight = katchaweight(inputList);
+          finalKatchaTouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
+          givenpurity = totalKatchaPurity;
+          if(deliverytouchtoggle){
+            obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
+            finaltouch = addDeliveryTouch(thiruvaniDeliveryTouch.value,labourTouch.value);
+            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalKatchaWeight);
+          }else{
+            finaltouch = finalTouch(finalKatchaTouch, labourTouch.value);
+            console.log(givenpurity,'givenpurity in katcha')
+            console.log(finaltouch,'finaltouch in katcha')
+            console.log(totalKatchaWeight,'totalKatchaWeight in katcha')
+            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalKatchaWeight);
+            console.log(estimatedproductweight,'estimatedproductweight in katcha');
+          }
+          obj.silvertype = silvertype.value;
+          obj.weight = totalKatchaWeight;
+          obj.touch = finalKatchaTouch;
+          obj.labourTouch = labourTouch.value;
+          obj.purity = givenpurity;
+          obj.finalTouch = finaltouch;
+          obj.estimatedProductWeight = estimatedproductweight;
+          console.log(obj,"more than 1 katcha item");
+        }else{
+          //one katcha item
+          alert('input list is 1');
+          givenpurity = purity(inputList[0].weight,inputList[0].touch);
+          if(deliverytouchtoggle){
+            obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
+            finaltouch = addDeliveryTouch(thiruvaniDeliveryTouch.value,labourTouch.value);
+            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, inputList[0].weight);
+          }else{
+            finaltouch = finalTouch(inputList[0].touch, labourTouch.value);
+            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, inputList[0].weight);
+          }
+          obj.silvertype = silvertype.value;
+          obj.weight = inputList[0].weight;
+          obj.touch = inputList[0].touch;
+          obj.labourTouch = labourTouch.value;
+          obj.purity = givenpurity;
+          obj.finalTouch = finaltouch;
+          obj.estimatedProductWeight = estimatedproductweight;
+          console.log(obj,"single katcha item");
+        }
       }else{
-        finaltouch = finalTouch(touch.value, labourTouch.value);
-        estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+        // bar, spatla , katti
+        givenpurity = purity(weight.value,touch.value);   
+        if(deliverytouchtoggle){
+          obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
+          finaltouch = addDeliveryTouch(thiruvaniDeliveryTouch.value,labourTouch.value);
+          estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+        }else{
+          finaltouch = finalTouch(touch.value, labourTouch.value);
+          estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
+        }
+        obj.name = name.value;
+        if(silvertype){
+          obj.silvertype = silvertype.value;
+          obj.weight = weight.value;
+          obj.touch = touch.value;
+          obj.labourTouch = labourTouch.value;
+          obj.purity = givenpurity;
+          obj.finalTouch = finaltouch;
+          obj.estimatedProductWeight = estimatedproductweight;
+          console.log(obj);
+        }
+        else{
+          alert('please select any one of the silver form');
+        }
       }
-      obj.name = name.value;
-      if(silvertype){
-        obj.silvertype = silvertype.value;
-        obj.weight = weight.value;
-        obj.touch = touch.value;
-        obj.labourTouch = labourTouch.value;
-        obj.purity = givenpurity;
-        obj.finalTouch = finaltouch;
-        obj.estimatedProductWeight = estimatedproductweight;
-        console.log(obj);
-      }
-      else{
-        alert('please select any one of the silver form')
-      }
-    
     }else{
       clientName = name.value;
       addCollection(clientName);

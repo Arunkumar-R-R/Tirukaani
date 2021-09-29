@@ -70,6 +70,8 @@ export const estimatedProductWeight = (purity, finalTouch, weight) =>{
     if(typeof purity === "string")
     {
         purityinnumber =  parseInt(purity);
+    }else{
+        purityinnumber =  purity;
     }
 
     let productweight = purityinnumber / finalTouch;
@@ -90,6 +92,7 @@ export const estimatedProductWeight = (purity, finalTouch, weight) =>{
     {
         finalProdcutWeight = productWeightInString.substr(0,weightInStringLength - 1);
     }
+    console.log(finalProdcutWeight,'finalProdcutWeight')
     return finalProdcutWeight;
 }
 
