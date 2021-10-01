@@ -10,7 +10,6 @@ export const purity = (weight,touch) =>{
 
     let parsedWeight = parseInt(weight);
     let parsedTouch = parseFloat(touch);
-
     let weightInStringLength = weightInStringLengthCalc(parsedWeight);
 
     let purity = parsedWeight * parsedTouch;

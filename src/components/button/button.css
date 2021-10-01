@@ -5,7 +5,7 @@
     border-radius: var(--border-radius-small);
     border: none;
     height: 48px;
-    width:100%;
+    width:250px;
     font-size:var(--font-size-small);
     font-family: inherit;
     display: flex;

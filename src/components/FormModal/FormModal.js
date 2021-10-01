@@ -203,7 +203,7 @@ export default function FormModal ({closeModal}) {
 
   return (
     <>
-     <form className='col-11 mx-auto' id='form' onSubmit={handleAddDealForm}>
+     <form className=' mx-auto' id='form' onSubmit={handleAddDealForm}>
               <nav className='modal-head'>
               {
                   dealtoggle?
@@ -228,7 +228,9 @@ export default function FormModal ({closeModal}) {
                     autoFocus
                     required
                 />
-                <span id="nameerror" className='error'></span>
+                <div>
+
+                </div>
               </div> 
               <div className='deal-toggle-container'>
                 <div className='deal-toggle'  onClick={toggledeal}>
