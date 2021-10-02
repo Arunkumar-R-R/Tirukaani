@@ -10,6 +10,7 @@ import { AuthProvider } from './Context/AuthProvider';
 import PrivateRoute from './utils/PrivateRoute';
 import FormModal from './components/FormModal/FormModal';
 import Clienthome from './pages/Clienthome/Clienthome';
+import DynamicSelect from './components/DynamicSelect/DynamicSelect';
 
 
 function App() {

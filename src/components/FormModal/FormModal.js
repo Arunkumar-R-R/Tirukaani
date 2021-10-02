@@ -7,6 +7,8 @@ import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch,
 import  Add_katcha from "../Add_katcha/Add_katcha";
 import Katcha from "../katcha/Katcha";
 import { addCollection } from "../../utils/firebase";
+import DynamicSelect from "../DynamicSelect/DynamicSelect";
+import { ClientProvider } from "../../Context/ClientProvider";
 
 
 export default function FormModal ({closeModal}) {
@@ -15,6 +17,7 @@ export default function FormModal ({closeModal}) {
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setKatchaToggle] = useState(false);
   const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
+  const [selectedClient,setSelectedClient] = useState('');
 
   let obj={};
 
@@ -219,18 +222,24 @@ export default function FormModal ({closeModal}) {
                
               </nav>
               <div className='form_element' id='formfirstchild'>
-                <label htmlFor="name">Name</label>
-                <input
-                    id="name"
-                    name='name'
-                    type="text"
-                    autoComplete='off'
-                    autoFocus
-                    required
-                />
-                <div>
-
-                </div>
+                {
+                  dealtoggle ?
+                  <ClientProvider>
+                    <DynamicSelect setSelectedClient={setSelectedClient}></DynamicSelect>
+                  </ClientProvider>
+                  :
+                  <>
+                    <label htmlFor="name">Name</label>
+                    <input
+                        id="name"
+                        name='name'
+                        type="text"
+                        autoComplete='off'
+                        autoFocus
+                        required
+                    />
+                  </>
+                }
               </div> 
               <div className='deal-toggle-container'>
                 <div className='deal-toggle'  onClick={toggledeal}>

@@ -21,6 +21,12 @@ export default function Home()
          );
     },[]);
 
+    useEffect(() => {
+        return () => {
+          console.log("cleaned up");
+        };
+      }, []);
+
     return(
         <>
           <div className='container'>  
