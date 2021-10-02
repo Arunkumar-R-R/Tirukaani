@@ -1,0 +1,47 @@
+@import url(../../App.css);
+
+.item-container{
+    margin: 25px 0;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+}
+
+.item-container input{
+    width: inherit;
+}
+input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+  .item-type-select-container{
+      display: flex;
+      flex-direction: row;
+      margin: 12px 0 0 0;
+      user-select: none;
+      justify-content: space-between;
+  }
+
+  .item-type-select-container label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+    width: 63px;
+    height: 26px;   
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    margin: 0;
+}
+
+  .item-type-select-container label > *{
+    margin: 0;
+}
+
+.margin-15{
+    margin: 15px 0 0 0;
+}
+.item-type-select-container label:hover {
+    background-color: var(--hover-color);
+  }
