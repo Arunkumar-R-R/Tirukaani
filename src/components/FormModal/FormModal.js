@@ -16,7 +16,7 @@ export default function FormModal ({closeModal}) {
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setKatchaToggle] = useState(false);
-  const [inputList, setInputList] =  useState([{ silverType: '', weight: "", touch: "" }]);
+  const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
   const [selectedClient,setSelectedClient] = useState('');
 
   let obj={};
