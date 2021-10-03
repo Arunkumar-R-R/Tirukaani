@@ -16,7 +16,7 @@ export default function FormModal ({closeModal}) {
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setKatchaToggle] = useState(false);
-  const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
+  const [inputList, setInputList] =  useState([{ silverType: '', weight: "", touch: "" }]);
   const [selectedClient,setSelectedClient] = useState('');
 
   let obj={};
@@ -79,7 +79,6 @@ export default function FormModal ({closeModal}) {
           obj.estimatedProductWeight = estimatedproductweight;
           console.log(obj,"more than 1 katcha item");
         }else{
-          //one katcha item
           alert('input list is 1');
           givenpurity = purity(inputList[0].weight,inputList[0].touch);
           if(deliverytouchtoggle){
@@ -249,7 +248,7 @@ export default function FormModal ({closeModal}) {
                 {
                       dealtoggle ?
                       <>
-                        <Item></Item>
+                        <Item inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Item>
                         <AddItem onClick={addWeightInput}></AddItem>
 
                         <div className='form_element'>
