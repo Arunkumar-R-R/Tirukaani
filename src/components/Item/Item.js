@@ -22,7 +22,6 @@ function Item({inputList,handleRemove,setInputList}) {
     }
 
     const renderCheckedRadio = (x,i)=>{
-        console.log(x,i)
         let silvertype = document.querySelectorAll(`input[name='silverType${i}']`);
         let selectedSilverType = Object.values(x)[2];
         if(silvertype!==null){
