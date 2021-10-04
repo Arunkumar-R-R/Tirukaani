@@ -5,7 +5,6 @@ import './Modal.css';
 export default function MenuModal({closeModal, clientid}){
 
     function deleteClient(){
-        console.log('clicked')
         deleteDoc(clientid);
         closeModal();
     }

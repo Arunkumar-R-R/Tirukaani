@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './Item.css'
 
 function Item({inputList,handleRemove,setInputList}) {
-    console.log(inputList,'input')
     const handleItemClick = (e,i) =>{
         e.stopPropagation();
         let clickedItemType = e.target.type;
