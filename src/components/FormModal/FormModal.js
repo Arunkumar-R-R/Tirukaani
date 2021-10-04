@@ -16,7 +16,7 @@ export default function FormModal ({closeModal}) {
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
   const [katchatoggle, setKatchaToggle] = useState(false);
-  const [inputList, setInputList] =  useState([{ weight: "", touch: "" }]);
+  const [inputList, setInputList] =  useState([{ weight: "", touch: "" ,silverType:""}]);
   const [selectedClient,setSelectedClient] = useState('');
 
   let obj={};
@@ -173,9 +173,9 @@ export default function FormModal ({closeModal}) {
     e.stopPropagation();
   }
 
-  function addWeightInput()
+  function addItem()
   { 
-    setInputList([...inputList,{ weight: "", touch: "" } ]);
+    setInputList([...inputList,{ weight: "", touch: "", silverType:""} ]);
   }
 
   function handleRemove(index){
@@ -249,7 +249,7 @@ export default function FormModal ({closeModal}) {
                       dealtoggle ?
                       <>
                         <Item inputList={inputList} handleRemove={handleRemove} setInputList={setInputList} ></Item>
-                        <AddItem onClick={addWeightInput}></AddItem>
+                        <AddItem onClick={addItem}></AddItem>
 
                         <div className='form_element'>
                             <label htmlFor="labourTouch">Labour Touch</label>

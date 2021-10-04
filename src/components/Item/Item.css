@@ -5,6 +5,7 @@
     padding: 15px;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-small);
+    width: 250px;
 }
 
 .item-container input{

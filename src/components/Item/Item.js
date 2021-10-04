@@ -7,9 +7,10 @@ function Item({inputList,handleRemove,setInputList}) {
         e.stopPropagation();
         let clickedItemType = e.target.type;
         if(clickedItemType === 'radio'){
-            const { name, value } = e.target;
+            console.log(e.target)
+            const { id, value } = e.target;
             const list = [...inputList];
-            list[i][name] = value;
+            list[i][id] = value;
             setInputList(list);
         }
         if(clickedItemType === 'number'){
@@ -18,16 +19,6 @@ function Item({inputList,handleRemove,setInputList}) {
             list[i][name] = value;
             setInputList(list);
         }
-    }
-
-    const handleRemoveButton = (i) =>{
-        let silvertype = document.querySelector(`input[name="silverType${i}"]:checked`);
-        let nextItemSilverType = document.querySelector(`input[name="silverType${i+1}"]:checked`);
-        if(silvertype!==null){
-            silvertype.checked = false;
-            nextItemSilverType.checked =true;
-        }
-        handleRemove(i);
     }
 
     const renderCheckedRadio = (x,i)=>{
@@ -55,7 +46,7 @@ function Item({inputList,handleRemove,setInputList}) {
                            </legend>
                            {
                                 i+1 > 1 ?
-                                <div onClick={()=>handleRemoveButton(i)} id={`${i}`} className='remove-input'>
+                                <div onClick={()=>handleRemove(i)} id={`${i}`} className='remove-input'>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-trash" width="18" height="18" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#18354A" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <line x1="4" y1="7" x2="20" y2="7" />
