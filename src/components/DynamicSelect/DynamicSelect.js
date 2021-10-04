@@ -55,11 +55,9 @@ function DynamicSelect({setSelectedClient}) {
             <div className='select-container'>
             {
                 client.map((ele)=>{
-                    return <a>
-                        <div onClick={()=>{handleSelectClick(ele.id)}}>
-                            <small className='existing-client'>{ele.id}</small>
-                         </div>
-                    </a>
+                    return <div onClick={()=>{handleSelectClick(ele.id)}}>
+                    <small className='existing-client'>{ele.id}</small>
+                 </div>
                 })
             }
             </div>
