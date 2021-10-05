@@ -118,31 +118,6 @@ export default function FormModal ({closeModal}) {
     if(deliverytouchtoggle){
       setDeliverytouchToggle(false);
     }
-    if(dealtoggle)
-    {
-      setKatchaToggle(false);
-    }
-  }
-
-  function getkatch(type)
-  {
-    if(type === 'Katcha')
-    {
-      setKatchaToggle(true);
-    }
-    else
-    {
-      setKatchaToggle(false);
-      setDeliverytouchToggle(false)
-      let deliverytouchcheck = document.querySelector('.deliverytouchcheck');
-      deliverytouchcheck.checked = deliverytouchtoggle;
-      setInputList([{ weight: "", touch: "" }]);
-    }
-  }
-
-  function stopPropagation(e)
-  {
-    e.stopPropagation();
   }
 
   function addItem()
