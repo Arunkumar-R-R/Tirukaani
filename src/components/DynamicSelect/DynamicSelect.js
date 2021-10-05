@@ -19,7 +19,7 @@ function DynamicSelect({setSelectedClient}) {
         setHide(false);
     }
 
-    const  handleClick = (event)=>{
+    const  handleClick = ()=>{
         setHide(!hide);
     }
 

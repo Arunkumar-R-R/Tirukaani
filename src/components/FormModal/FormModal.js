@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from "react";
 import "./FormModal.css";
 import Button from "../Button/Button";
-import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, katchaPurity, katchaTouch, katchaweight, purity } from "../../utils/calculation";
+import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, ItemsPurity, ItemsTouch, ItemsWeight, katchaPurity, katchaTouch, katchaweight, purity } from "../../utils/calculation";
 import  Add_katcha from "../AddItem/AddItem";
 import Katcha from "../katcha/Katcha";
 import { addCollection } from "../../utils/firebase";
@@ -15,7 +15,6 @@ export default function FormModal ({closeModal}) {
 
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
   const [dealtoggle, setDealToggle] = useState(false);
-  const [katchatoggle, setKatchaToggle] = useState(false);
   const [inputList, setInputList] =  useState([{ weight: "", touch: "" ,silverType:""}]);
   const [selectedClient,setSelectedClient] = useState('');
 
@@ -25,10 +24,10 @@ export default function FormModal ({closeModal}) {
     e.preventDefault();
 
     let name = document.querySelector('#name');
-    let silvertypeRadio = document.querySelector('input[name="silverform"]');
-    let silvertype = document.querySelector('input[name="silverform"]:checked');
-    let weight = document.querySelector('#weight');
-    let touch = document.querySelector('#touch');
+    // let silvertypeRadio = document.querySelector('input[name="silverform"]');
+    // let silvertype = document.querySelector('input[name="silverform"]:checked');
+    // let weight = document.querySelector('#weight');
+    // let touch = document.querySelector('#touch');
     let labourTouch = document.querySelector('#labourTouch');
     let thiruvaniDeliveryTouch = document.querySelector('#thiruvaniDeliveryTouch');
 
@@ -45,41 +44,39 @@ export default function FormModal ({closeModal}) {
     let finaltouch;
     let estimatedproductweight;
     let givenpurity;
-    let totalKatchaPurity;
-    let totalKatchaWeight;
-    let finalKatchaTouch;
+    let totalItemsPurity;
+    let totalItemsWeight;
+    let finalItemsTouch;
     //deal
     if(dealtoggle){
-      // katcha
-      if(katchatoggle){ 
-        //More than 1 katcha item
+        //More than 1  item
         if(inputList.length !=1){
-          totalKatchaPurity = katchaPurity(inputList);
-          totalKatchaWeight = katchaweight(inputList);
-          finalKatchaTouch = katchaTouch(totalKatchaPurity, totalKatchaWeight);
-          givenpurity = totalKatchaPurity;
+          totalItemsPurity = ItemsPurity(inputList);
+          totalItemsWeight = ItemsWeight(inputList);
+          finalItemsTouch = ItemsTouch(totalItemsPurity, totalItemsWeight);
+          givenpurity = totalItemsPurity;
           if(deliverytouchtoggle){
             obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
             finaltouch = addDeliveryTouch(thiruvaniDeliveryTouch.value,labourTouch.value);
-            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalKatchaWeight);
+            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalItemsWeight);
           }else{
-            finaltouch = finalTouch(finalKatchaTouch, labourTouch.value);
-            console.log(givenpurity,'givenpurity in katcha')
-            console.log(finaltouch,'finaltouch in katcha')
-            console.log(totalKatchaWeight,'totalKatchaWeight in katcha')
-            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalKatchaWeight);
-            console.log(estimatedproductweight,'estimatedproductweight in katcha');
+            finaltouch = finalTouch(finalItemsTouch, labourTouch.value);
+            // console.log(givenpurity,'givenpurity in katcha')
+            // console.log(finaltouch,'finaltouch in katcha')
+            // console.log(totalKatchaWeight,'totalKatchaWeight in katcha')
+            estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalItemsWeight);
+            // console.log(estimatedproductweight,'estimatedproductweight in katcha');
           }
-          obj.silvertype = silvertype.value;
-          obj.weight = totalKatchaWeight;
-          obj.touch = finalKatchaTouch;
+          // obj.silvertype = silvertype.value;
+          obj.weight = totalItemsWeight;
+          obj.touch = finalItemsTouch;
           obj.labourTouch = labourTouch.value;
           obj.purity = givenpurity;
           obj.finalTouch = finaltouch;
           obj.estimatedProductWeight = estimatedproductweight;
-          console.log(obj,"more than 1 katcha item");
+          // console.log(obj,"more than 1 katcha item");
         }else{
-          alert('input list is 1');
+          // alert('input list is 1');
           givenpurity = purity(inputList[0].weight,inputList[0].touch);
           if(deliverytouchtoggle){
             obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
@@ -89,41 +86,16 @@ export default function FormModal ({closeModal}) {
             finaltouch = finalTouch(inputList[0].touch, labourTouch.value);
             estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, inputList[0].weight);
           }
-          obj.silvertype = silvertype.value;
+          // obj.silvertype = silvertype.value;
           obj.weight = inputList[0].weight;
           obj.touch = inputList[0].touch;
           obj.labourTouch = labourTouch.value;
           obj.purity = givenpurity;
           obj.finalTouch = finaltouch;
           obj.estimatedProductWeight = estimatedproductweight;
-          console.log(obj,"single katcha item");
+          // console.log(obj,"single katcha item");
         }
-      }else{
-        // bar, spatla , katti
-        givenpurity = purity(weight.value,touch.value);   
-        if(deliverytouchtoggle){
-          obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
-          finaltouch = addDeliveryTouch(thiruvaniDeliveryTouch.value,labourTouch.value);
-          estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-        }else{
-          finaltouch = finalTouch(touch.value, labourTouch.value);
-          estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, weight.value);
-        }
-        obj.name = name.value;
-        if(silvertype){
-          obj.silvertype = silvertype.value;
-          obj.weight = weight.value;
-          obj.touch = touch.value;
-          obj.labourTouch = labourTouch.value;
-          obj.purity = givenpurity;
-          obj.finalTouch = finaltouch;
-          obj.estimatedProductWeight = estimatedproductweight;
-          console.log(obj);
-        }
-        else{
-          alert('please select any one of the silver form');
-        }
-      }
+      
     }else{
       clientName = name.value;
       addCollection(clientName);

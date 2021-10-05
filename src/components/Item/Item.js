@@ -6,7 +6,6 @@ function Item({inputList,handleRemove,setInputList}) {
         e.stopPropagation();
         let clickedItemType = e.target.type;
         if(clickedItemType === 'radio'){
-            console.log(e.target)
             const { id, value } = e.target;
             const list = [...inputList];
             list[i][id] = value;
