@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Button from '../../components/Button/Button';
 import FormModal from '../../components/FormModal/FormModal';
-import Dealcomponent from '../../components/Dealcomponent/Dealcomponent';
 import Dealmodal from '../../components/Dealmodal/Dealmodal';
 import {  useParams } from 'react-router-dom'
 
@@ -10,6 +9,7 @@ import {
     Link
   } from "react-router-dom";
 import { useFirestore } from '../../utils/firebase';
+import Deal from '../../components/Deal/Deal';
 
 
 export default function Clienthome()
@@ -47,7 +47,7 @@ export default function Clienthome()
         useFirestore.collection('clients').doc(id).collection('deals').orderBy("timestamp", "desc").onSnapshot((snap) => {
             let  documents = snap.docs.map((doc) => ({
                 id:doc.id,
-                data:doc.data
+                data:doc.data()
             }
             ));
                 setDeals(documents);
@@ -143,8 +143,9 @@ export default function Clienthome()
                         {
                             !isLoading && deals.length !==0 &&
                             deals.map((deal,index) => {
-                                deal.dealno = `${index+1}`;
-                                return <Dealcomponent deal={deal} index={deal.dealno} />
+                                // deal.dealno = `${index+1}`;
+                                deal.dealno = `${(deals.length)-index}`;
+                                return <Deal deal={deal} index={deal.dealno} />
                             })
                         }
                         {
