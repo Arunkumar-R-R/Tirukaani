@@ -26,7 +26,7 @@ export const auth = firebase.auth()
 export default app
 
 export function addCollection(clientName){
-  useFirestore.collection( 'clients').doc(clientName).set({
+  useFirestore.collection('clients').doc(clientName).set({
     name:clientName,
     timestamp:firebase.firestore.FieldValue.serverTimestamp(),
   });
@@ -34,12 +34,25 @@ export function addCollection(clientName){
 
 export function addSubCollection(data){
   data.timestamp = firebase.firestore.FieldValue.serverTimestamp();
-  useFirestore.collection('clients').doc(data.name).collection('deals').add(data).then((data) => {
-    console.log(data.id);
-    console.log("Document has added");
-}).catch((err) => {
-    console.log(err)
+  const documentRef = useFirestore.collection('clients').doc(data.name);
+
+  documentRef.get().then((docSnapshot) => {
+    if (docSnapshot.exists) {
+      documentRef.onSnapshot(() => {
+          documentRef.collection('deals').add(data).then(() => {
+            alert('successfully added')
+        }).catch((err) => {
+          alert(`error occured ${err}`)
+        });
+      });
+    } else {
+      documentRef.set({
+        name:data.name,
+        timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+      });
+    }
 });
+    
 }
 
 export function deleteDoc(document){
