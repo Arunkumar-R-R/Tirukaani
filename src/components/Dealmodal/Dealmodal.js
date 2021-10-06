@@ -16,7 +16,7 @@ export default function Dealmodal({dealinformation,closeModal}){
     let estimatedThiruvaniWeight = dealinformation[0].data.estimatedProductWeight;
     // console.log(dealinformation);
     return(
-        <>
+        <div className='deal-info-modal'>
                     <div className='dealmodalnav'>
                         <h3 className='dealname'> Deal {dealinformation[0].dealno}</h3>
                         <svg  onClick={()=>{closeModal()}} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@ export default function Dealmodal({dealinformation,closeModal}){
                             <Button type={'submit'} text={"Close"}  buttontype={'secondarybtn btn-width-fit-parent'} onClick={()=>{closeModal()}} />
                             <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn btn-width-fit-parent'} />
                     </div> 
-        </>
+        </div>
     );
 
 }
