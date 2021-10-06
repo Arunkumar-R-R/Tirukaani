@@ -14,7 +14,7 @@ export default function Dealmodal({dealinformation,closeModal}){
     let labourTouch = dealinformation[0].data.labourTouch;
     let totalTouch = dealinformation[0].data.finalTouch;
     let estimatedThiruvaniWeight = dealinformation[0].data.estimatedProductWeight;
-    console.log(dealinformation);
+    // console.log(dealinformation);
     return(
         <>
                     <div className='dealmodalnav'>
