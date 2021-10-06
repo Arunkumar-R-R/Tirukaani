@@ -1,10 +1,10 @@
 import React from 'react';
 import './Deal.css';
 
-export default function Deal({deal,index})
+export default function Deal({deal,index,openModal})
 {
     return (
-    <div className='dealcomponent' id={deal.id} key={deal.id}  onClick={()=>{console.log('clicked')}}>
+    <div className='dealcomponent' id={deal.id} key={deal.id}  onClick={()=>{openModal(deal.id)}}>
         <header className='deal-header'>
             <h3>Deal {index} </h3>
         </header>

@@ -10,38 +10,24 @@ import {
   } from "react-router-dom";
 import { useFirestore } from '../../utils/firebase';
 import Deal from '../../components/Deal/Deal';
-
+import { Modal } from '../../components/Modal/Modal';
 
 export default function Clienthome()
 {
-    // let cdeal;
+    const [show,setshow] = useState(false);
+    const [individualdeal, setindividualdeal] = useState('');
 
-    // const [show, setShow] = useState(false);
-    // const [dealmodalshow, setdealmodalshow ] = useState(false);
-    // const [deals, setDeal] = useState([]);
-    // const [individualdeal, setindividualdeal] = useState(cdeal);
-
-    // let newDeal=[];
-
-    // const addDeal = deal => {
-    //     newDeal.push(deal);
-    //     setDeal(newDeal);
-    // };
-
-    // function showdeal(deal)
-    // {
-    // //    console.log(deal);
-    //    setdealmodalshow(true);
-    //    setindividualdeal(deal) ;
-    // }   
-    // useEffect(()=>{
-    //     if(deals.length>0)
-    //     {
-    //         newDeal = [...deals];
-    //     }
-    // },[newDeal]);
     const [deals, setDeals] = useState([]);
     const [isLoading,setIsLoading] = useState(true);
+
+    const closeModal =()=>{
+        setshow(false)
+    }
+    const openModal = (deal) =>{
+        setshow(true);
+        let clickedDeal= deals.filter(individualDeal=> individualDeal.id === deal);
+        setindividualdeal(clickedDeal) ;
+    }
 
     useEffect(()=>{
         useFirestore.collection('clients').doc(id).collection('deals').orderBy("timestamp", "desc").onSnapshot((snap) => {
@@ -145,7 +131,7 @@ export default function Clienthome()
                             deals.map((deal,index) => {
                                 // deal.dealno = `${index+1}`;
                                 deal.dealno = `${(deals.length)-index}`;
-                                return <Deal deal={deal} index={deal.dealno} />
+                                return <Deal deal={deal} index={deal.dealno} openModal={openModal}/>
                             })
                         }
                         {
@@ -155,6 +141,13 @@ export default function Clienthome()
                             </div>
                             
                         } 
+                        {
+                            show ?
+                                <Modal show = { show } closeModal={closeModal}>
+                                    <Dealmodal dealinformation={individualdeal} closeModal={closeModal}></Dealmodal>
+                                </Modal>
+                            :''
+                        }
 
                     </div>
                 </div>
