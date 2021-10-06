@@ -7,9 +7,6 @@ function DynamicSelect({setSelectedClient}) {
     const [ClientSelected,setClientSelected] = useState('');
     const [hide,setHide] = useState(true);
     const client  = useClient();
-    // let obj = {
-    //   name:['arun','kumar','karishma','aishwariya']
-    // }
 
     const  handleSelectClick = (ele)=>{
         const input = document.querySelector('#name');

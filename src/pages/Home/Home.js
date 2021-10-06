@@ -8,6 +8,8 @@ export default function Home()
 {
     const [clients, setClients] = useState([]);
     const [isLoading,setIsLoading] = useState(true);
+    const [dealsCount, setDealsCount] = useState(0);
+
 
     useEffect(()=>{
         useFirestore.collection('clients').orderBy("timestamp", "desc").onSnapshot((snap) => {
@@ -41,7 +43,7 @@ export default function Home()
                     {
                         !isLoading && clients.length !==0 &&
                         clients.map(client => {
-                            return <Clientcomponent data={client} key={client.id} />
+                            return <Clientcomponent data={client} key={client.id} count={dealsCount}/>
                         })
                     }{
  
