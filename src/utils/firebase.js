@@ -32,6 +32,16 @@ export function addCollection(clientName){
   });
 } 
 
+export function addSubCollection(data){
+  data.timestamp = firebase.firestore.FieldValue.serverTimestamp();
+  useFirestore.collection('clients').doc(data.name).collection('deals').add(data).then((data) => {
+    console.log(data.id);
+    console.log("Document has added");
+}).catch((err) => {
+    console.log(err)
+});
+}
+
 export function deleteDoc(document){
   useFirestore.collection("clients").doc(document).delete().then(() => {
     console.log("Document successfully deleted!");

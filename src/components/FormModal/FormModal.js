@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { addDeliveryTouch, adddeliverytouch, estimatedProductWeight, finalTouch, ItemsPurity, ItemsTouch, ItemsWeight, katchaPurity, katchaTouch, katchaweight, purity } from "../../utils/calculation";
 import  Add_katcha from "../AddItem/AddItem";
 import Katcha from "../katcha/Katcha";
-import { addCollection } from "../../utils/firebase";
+import { addCollection, addSubCollection } from "../../utils/firebase";
 import DynamicSelect from "../DynamicSelect/DynamicSelect";
 import { ClientProvider } from "../../Context/ClientProvider";
 import Item from "../Item/Item";
@@ -68,12 +68,14 @@ export default function FormModal ({closeModal}) {
             // console.log(estimatedproductweight,'estimatedproductweight in katcha');
           }
           // obj.silvertype = silvertype.value;
+          obj.name = name.value;
           obj.weight = totalItemsWeight;
           obj.touch = finalItemsTouch;
           obj.labourTouch = labourTouch.value;
           obj.purity = givenpurity;
           obj.finalTouch = finaltouch;
           obj.estimatedProductWeight = estimatedproductweight;
+          addSubCollection(obj);
           // console.log(obj,"more than 1 katcha item");
         }else{
           // alert('input list is 1');
@@ -87,15 +89,17 @@ export default function FormModal ({closeModal}) {
             estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, inputList[0].weight);
           }
           // obj.silvertype = silvertype.value;
+          obj.name = name.value;
           obj.weight = inputList[0].weight;
           obj.touch = inputList[0].touch;
           obj.labourTouch = labourTouch.value;
           obj.purity = givenpurity;
           obj.finalTouch = finaltouch;
           obj.estimatedProductWeight = estimatedproductweight;
+          addSubCollection(obj);
           // console.log(obj,"single katcha item");
         }
-      
+        closemodal();
     }else{
       clientName = name.value;
       addCollection(clientName);
