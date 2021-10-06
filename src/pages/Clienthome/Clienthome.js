@@ -9,6 +9,7 @@ import './Clienthome.css';
 import {
     Link
   } from "react-router-dom";
+import { useFirestore } from '../../utils/firebase';
 
 
 export default function Clienthome()
@@ -39,8 +40,29 @@ export default function Clienthome()
     //         newDeal = [...deals];
     //     }
     // },[newDeal]);
-    let deals = '';
-     const { id } = useParams()
+    const [deals, setDeals] = useState([]);
+    const [isLoading,setIsLoading] = useState(true);
+
+    useEffect(()=>{
+        useFirestore.collection('clients').doc(id).collection('deals').orderBy("timestamp", "desc").onSnapshot((snap) => {
+            let  documents = snap.docs.map((doc) => ({
+                id:doc.id,
+                data:doc.data
+            }
+            ));
+                setDeals(documents);
+                setIsLoading(false); 
+         }
+         );
+    },[]);
+
+    useEffect(() => {
+        return () => {
+          console.log("cleaned up");
+        };
+      }, []);
+
+    const { id } = useParams()
 
         return (
         <>
@@ -112,13 +134,27 @@ export default function Clienthome()
                         <h2 className='clientname-nav'>{id}</h2>
                     </nav>
                     <div className='deal-container'>
-                    {
-                       deals.length>0?deals.map((deal,index)=>{
-                        deal.dealno = `${index+1}`;
-                        return <Dealcomponent deal={deal} index={deal.dealno} />
-                    }):<h1 className='center-content-for-v-100'>No deal</h1>
+                          { 
+                        isLoading && <div className= 'vh-100'>
+                           <h2 className='center-content-for-v-100'>Loading ...</h2>
+                        </div>
+                        }
 
-                    }
+                        {
+                            !isLoading && deals.length !==0 &&
+                            deals.map((deal,index) => {
+                                deal.dealno = `${index+1}`;
+                                return <Dealcomponent deal={deal} index={deal.dealno} />
+                            })
+                        }
+                        {
+    
+                            !isLoading && deals.length ==0 && <div className= 'vh-100'>
+                                <h1 className='center-content-for-v-100'>No deal</h1>
+                            </div>
+                            
+                        } 
+
                     </div>
                 </div>
 
