@@ -4,16 +4,23 @@ import './Dealmodal.css';
 
 import Button from '../../components/Button/Button';
 import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
-import { finalTouch, purity } from '../../utils/calculation';
+import { calculateBalance, finalTouch, purity } from '../../utils/calculation';
 
 export default function Dealmodal({dealinformation,closeModal}){
-    const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState("");
+    const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState();
+    const [balance, setBalance] = useState();
+
     let weight = dealinformation[0].data.weight;
     let touch = dealinformation[0].data.touch;
     let purity = dealinformation[0].data.purity;
     let labourTouch = dealinformation[0].data.labourTouch;
     let totalTouch = dealinformation[0].data.finalTouch;
     let estimatedThiruvaniWeight = dealinformation[0].data.estimatedProductWeight;
+
+    useEffect(()=>{
+        const balance = calculateBalance(finalThiruvaniWeight,estimatedThiruvaniWeight);
+        setBalance(balance);
+    },[finalThiruvaniWeight]);
     // console.log(dealinformation);
     return(
         <div className='deal-info-modal'>
@@ -45,7 +52,7 @@ export default function Dealmodal({dealinformation,closeModal}){
                                 <p className='dealinfo'>Est thiruvani weight</p>
                                 <small className='dealvalue'>{estimatedThiruvaniWeight}</small>
                             </div>
-                            {/* <div className=' dealinforow'>
+                            <div className=' dealinforow'>
                                 <p className='dealinfo'>Final thiruvani weight </p>
                                 <InlineEditableInput
                                     text={finalThiruvaniWeight}
@@ -65,8 +72,8 @@ export default function Dealmodal({dealinformation,closeModal}){
                             </div>
                             <div className=' dealinforow'>
                                 <p className='dealinfo'>Balance </p>
-                                <small className='dealvalue'> P</small>
-                            </div> */}
+                                <small className='dealvalue' style={{color: balance.flag}}>{balance.flag ==='red'? '-' : '+'}{balance.gram}</small>
+                            </div>
                         </div>
                     </div>
                     <div className='buttongroup'>

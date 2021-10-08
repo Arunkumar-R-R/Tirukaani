@@ -139,3 +139,17 @@ export const ItemsTouch = (purity,weight)=>{
     // console.log(katchatouch)
     return itemTouch;
 }
+export const calculateBalance = (finalThiruvaniWeight,estimatedThiruvaniWeight)=>{
+    let balance = {};
+    if( finalThiruvaniWeight > estimatedThiruvaniWeight ){
+        balance.gram = finalThiruvaniWeight - estimatedThiruvaniWeight;
+        balance.flag = 'green';
+    }else if(finalThiruvaniWeight < estimatedThiruvaniWeight && finalThiruvaniWeight!==0 ){
+        balance.gram = estimatedThiruvaniWeight - finalThiruvaniWeight;
+        balance.flag = 'red';
+    }else{
+         balance.gram = 0;
+         balance.flag = `var(--text-color)`;
+    }
+    return balance;
+}

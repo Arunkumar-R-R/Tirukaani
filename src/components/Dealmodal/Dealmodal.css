@@ -8,8 +8,7 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    padding: 20px ;
-    background-color: var(--hover-color);
+    width: 100%;
 }
 .deal-info-container{
     width: 100%;
