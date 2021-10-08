@@ -149,7 +149,7 @@ export const calculateBalance = (finalThiruvaniWeight,estimatedThiruvaniWeight)=
         balance.flag = 'red';
     }else{
          balance.gram = 0;
-         balance.flag = `var(--text-color)`;
+         balance.flag = 0;
     }
     return balance;
 }

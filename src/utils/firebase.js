@@ -62,3 +62,11 @@ export function deleteDoc(document){
     console.error("Error removing document: ", error);
 });
 }
+
+export function UpdateDoc(document){
+  useFirestore.collection("clients").doc(document.data.name).collection('deals').doc(document.id).update(document.data).then(() => {
+    console.log("Document successfully updated!");
+}).catch((error) => {
+    console.error("Error updating document: ", error);
+});
+}

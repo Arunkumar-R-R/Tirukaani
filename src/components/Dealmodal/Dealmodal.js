@@ -5,10 +5,14 @@ import './Dealmodal.css';
 import Button from '../../components/Button/Button';
 import InlineEditableInput from '../../components/EditableInput/InlineEditableInput';
 import { calculateBalance, finalTouch, purity } from '../../utils/calculation';
+import { UpdateDoc } from '../../utils/firebase';
 
 export default function Dealmodal({dealinformation,closeModal}){
     const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState();
-    const [balance, setBalance] = useState();
+    const [balance, setBalance] = useState({
+        flag:'var(--text-color)',
+        gram:0
+    });
 
     let weight = dealinformation[0].data.weight;
     let touch = dealinformation[0].data.touch;
@@ -16,11 +20,30 @@ export default function Dealmodal({dealinformation,closeModal}){
     let labourTouch = dealinformation[0].data.labourTouch;
     let totalTouch = dealinformation[0].data.finalTouch;
     let estimatedThiruvaniWeight = dealinformation[0].data.estimatedProductWeight;
-
+    let ThiruvaniWeight;
+    let balanceInGram ;
+    let balanceFlag;
+    if( dealinformation[0].data.balance && dealinformation[0].data.finalProductWeight && dealinformation[0].data.flag ){
+        ThiruvaniWeight = dealinformation[0].data.finalProductWeight;
+        balanceInGram = dealinformation[0].data.balance;
+        balanceFlag = dealinformation[0].data.flag;
+    }
     useEffect(()=>{
         const balance = calculateBalance(finalThiruvaniWeight,estimatedThiruvaniWeight);
         setBalance(balance);
+        console.log('changed');
     },[finalThiruvaniWeight]);
+
+    const addBalance = ()=>{
+        if(balance.gram){
+            dealinformation[0].data.balance = balance.gram;
+            dealinformation[0].data.flag = balance.flag;
+            dealinformation[0].data.finalProductWeight = finalThiruvaniWeight;
+            UpdateDoc(dealinformation[0]);
+        }
+        alert('no changed made');
+        closeModal();
+    }
     // console.log(dealinformation);
     return(
         <div className='deal-info-modal'>
@@ -56,7 +79,7 @@ export default function Dealmodal({dealinformation,closeModal}){
                                 <p className='dealinfo'>Final thiruvani weight </p>
                                 <InlineEditableInput
                                     text={finalThiruvaniWeight}
-                                    placeholder="---"
+                                    placeholder={`${ThiruvaniWeight || '---'}`}
                                     type="input"
                                 >
                                     <input
@@ -72,13 +95,17 @@ export default function Dealmodal({dealinformation,closeModal}){
                             </div>
                             <div className=' dealinforow'>
                                 <p className='dealinfo'>Balance </p>
-                                <small className='dealvalue' style={{color: balance.flag}}>{balance.flag ==='red'? '-' : '+'}{balance.gram}</small>
+                                <small className='dealvalue' style={{color: balanceFlag|| balance.flag}}>
+                                    {( balanceFlag || balance.flag )==='red'&& '-'}
+                                    {( balanceFlag || balance.flag ) ==='green'&& '+'}
+                                    {(balanceInGram || balance.flag ) === 0 && ''}
+                                    { balanceInGram || balance.gram }</small>
                             </div>
                         </div>
                     </div>
                     <div className='buttongroup'>
                             <Button type={'submit'} text={"Close"}  buttontype={'secondarybtn btn-width-fit-parent'} onClick={()=>{closeModal()}} />
-                            <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn btn-width-fit-parent'} />
+                            <Button type={'submit'} text={"Save changes"} buttontype={'primarybtn btn-width-fit-parent'} onClick={()=>addBalance()}/>
                     </div> 
         </div>
     );
