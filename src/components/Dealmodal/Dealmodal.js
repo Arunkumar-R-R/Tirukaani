@@ -20,7 +20,7 @@ export default function Dealmodal({dealinformation,closeModal}){
     let labourTouch = dealinformation[0].data.labourTouch;
     let totalTouch = dealinformation[0].data.finalTouch;
     let estimatedThiruvaniWeight = dealinformation[0].data.estimatedProductWeight;
-    
+
     useEffect(()=>{
         const balance = calculateBalance(finalThiruvaniWeight,estimatedThiruvaniWeight);
         setBalance(balance);
@@ -88,8 +88,8 @@ export default function Dealmodal({dealinformation,closeModal}){
                             <div className=' dealinforow'>
                                 <p className='dealinfo'>Balance </p>
                                 <small className='dealvalue' style={{color: balance.color}}>
-                                    {deal.data.color =='green' && '+'}
-                                    {deal.data.color =='red' && '-'}
+                                    { balance.color =='green' && '+'}
+                                    { balance.color =='red' && '-'}
                                     { balance.gram }</small>
                             </div>
                         </div>
