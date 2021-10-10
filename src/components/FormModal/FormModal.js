@@ -96,6 +96,9 @@ export default function FormModal ({closeModal}) {
           obj.purity = givenpurity;
           obj.finalTouch = finaltouch;
           obj.estimatedProductWeight = estimatedproductweight;
+          obj.finalProductWeight = '---'
+          obj.color = '#333'
+          obj.balance = '---'
           addSubCollection(obj);
           // console.log(obj,"single katcha item");
         }

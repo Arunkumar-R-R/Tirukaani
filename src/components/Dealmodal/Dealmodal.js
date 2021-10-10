@@ -8,10 +8,10 @@ import { calculateBalance, finalTouch, purity } from '../../utils/calculation';
 import { UpdateDoc } from '../../utils/firebase';
 
 export default function Dealmodal({dealinformation,closeModal}){
-    const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState();
+    const [finalThiruvaniWeight, setfinalThiruvaniWeight] = useState(dealinformation[0].data.finalProductWeight);
     const [balance, setBalance] = useState({
-        flag:'var(--text-color)',
-        gram:0
+        color:dealinformation[0].data.color,
+        gram:dealinformation[0].data.balance
     });
 
     let weight = dealinformation[0].data.weight;
@@ -23,11 +23,11 @@ export default function Dealmodal({dealinformation,closeModal}){
     let ThiruvaniWeight;
     let balanceInGram ;
     let balanceFlag;
-    if( dealinformation[0].data.balance && dealinformation[0].data.finalProductWeight && dealinformation[0].data.flag ){
-        ThiruvaniWeight = dealinformation[0].data.finalProductWeight;
-        balanceInGram = dealinformation[0].data.balance;
-        balanceFlag = dealinformation[0].data.flag;
-    }
+    // if( dealinformation[0].data.balance && dealinformation[0].data.finalProductWeight && dealinformation[0].data.color ){
+    //     ThiruvaniWeight = dealinformation[0].data.finalProductWeight;
+    //     balanceInGram = dealinformation[0].data.balance;
+    //     balanceFlag = dealinformation[0].data.color;
+    // }
     useEffect(()=>{
         const balance = calculateBalance(finalThiruvaniWeight,estimatedThiruvaniWeight);
         setBalance(balance);
@@ -37,11 +37,10 @@ export default function Dealmodal({dealinformation,closeModal}){
     const addBalance = ()=>{
         if(balance.gram){
             dealinformation[0].data.balance = balance.gram;
-            dealinformation[0].data.flag = balance.flag;
+            dealinformation[0].data.color = balance.color;
             dealinformation[0].data.finalProductWeight = finalThiruvaniWeight;
             UpdateDoc(dealinformation[0]);
         }
-        alert('no changed made');
         closeModal();
     }
     // console.log(dealinformation);
@@ -79,7 +78,7 @@ export default function Dealmodal({dealinformation,closeModal}){
                                 <p className='dealinfo'>Final thiruvani weight </p>
                                 <InlineEditableInput
                                     text={finalThiruvaniWeight}
-                                    placeholder={`${ThiruvaniWeight || '---'}`}
+                                    placeholder={finalThiruvaniWeight}
                                     type="input"
                                 >
                                     <input
@@ -95,11 +94,11 @@ export default function Dealmodal({dealinformation,closeModal}){
                             </div>
                             <div className=' dealinforow'>
                                 <p className='dealinfo'>Balance </p>
-                                <small className='dealvalue' style={{color: balanceFlag|| balance.flag}}>
-                                    {( balanceFlag || balance.flag )==='red'&& '-'}
-                                    {( balanceFlag || balance.flag ) ==='green'&& '+'}
-                                    {(balanceInGram || balance.flag ) === 0 && ''}
-                                    { balanceInGram || balance.gram }</small>
+                                <small className='dealvalue' style={{color: balance.color}}>
+                                    {/* {( balanceFlag || balance.color )==='red'&& '-'}
+                                    {( balanceFlag || balance.color ) ==='green'&& '+'}
+                                    {(balanceInGram || balance.color ) === 0 && ''} */}
+                                    { balance.gram }</small>
                             </div>
                         </div>
                     </div>

@@ -19,11 +19,11 @@ export default function Deal({deal,index,openModal})
             </div>
             <div className='inforow'>
                 <p className='info'>Final thiruvani weight</p>
-                <small className='value'>{deal.data.finalProductWeight || '--'}</small>
+                <small className='value'>{deal.data.finalProductWeight}</small>
             </div>
             <div className='inforow'>
                 <p className='info'>Balance </p>
-                <small className='value'style={{color: deal.data.flag|| ' var(--heading-color)'}}>{deal.data.balance || '--'}</small>
+                <small className='value'style={{color: deal.data.color}}>{deal.data.balance}</small>
             </div>
         </div>
     </div>);

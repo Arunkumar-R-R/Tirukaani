@@ -141,15 +141,24 @@ export const ItemsTouch = (purity,weight)=>{
 }
 export const calculateBalance = (finalThiruvaniWeight,estimatedThiruvaniWeight)=>{
     let balance = {};
-    if( finalThiruvaniWeight > estimatedThiruvaniWeight ){
-        balance.gram = finalThiruvaniWeight - estimatedThiruvaniWeight;
-        balance.flag = 'green';
-    }else if(finalThiruvaniWeight < estimatedThiruvaniWeight && finalThiruvaniWeight!==0 ){
-        balance.gram = estimatedThiruvaniWeight - finalThiruvaniWeight;
-        balance.flag = 'red';
+    
+    let finalweight = parseInt(finalThiruvaniWeight);
+    let estimatedweight = parseInt(estimatedThiruvaniWeight);
+
+    if(finalweight !==''&& finalweight !==0 && finalweight !==NaN){
+        if( finalweight > estimatedweight ){
+            balance.gram = finalweight - estimatedweight;
+            balance.color = 'green';
+        }else if(finalweight < estimatedweight){
+            balance.gram = estimatedweight - finalweight;
+            balance.color = 'red';
+        }else{
+             balance.gram = 0;
+             balance.color = '#333';
+        }
     }else{
-         balance.gram = 0;
-         balance.flag = 0;
+        balance.gram = '---';
+        balance.color = '#333';
     }
     return balance;
 }
