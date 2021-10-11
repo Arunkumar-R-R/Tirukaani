@@ -11,12 +11,14 @@ import PrivateRoute from './utils/PrivateRoute';
 import FormModal from './components/FormModal/FormModal';
 import Clienthome from './pages/Clienthome/Clienthome';
 import DynamicSelect from './components/DynamicSelect/DynamicSelect';
+import { ClientProvider } from './Context/ClientProvider';
 
 
 function App() {
   
   return (
     <div className="App">
+      <ClientProvider>
         <Router>
           <AuthProvider>
               <Switch>
@@ -38,12 +40,14 @@ function App() {
                   </nav>
                   <Home></Home>
                 </PrivateRoute>
+                
                 <Route exact path="/" >
                   <Login></Login>
                 </Route>
               </Switch>
           </AuthProvider>
         </Router>
+      </ClientProvider>
     </div>
   );
 }

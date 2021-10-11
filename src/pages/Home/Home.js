@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import { useFirestore } from "../../utils/firebase";
 import Clientcomponent from '../../components/Clientcomponent/Clientcomponent';
+import { useClient } from '../../Context/ClientProvider';
 
 
 export default function Home()
@@ -10,18 +11,12 @@ export default function Home()
     const [isLoading,setIsLoading] = useState(true);
     const [dealsCount, setDealsCount] = useState(0);
 
-
+    let {clientsAvailable,isStillLoading} = useClient();
+    
     useEffect(()=>{
-        useFirestore.collection('clients').orderBy("timestamp", "desc").onSnapshot((snap) => {
-            let  documents = snap.docs.map((doc) => ({
-                 id: doc.id,
-                 data: doc.data(),
-               }));
-               setClients(documents);
-               setIsLoading(false); 
-         }
-         );
-    },[]);
+        setClients(clientsAvailable);
+        setIsLoading(isStillLoading);
+    });
 
     useEffect(() => {
         return () => {
@@ -42,7 +37,7 @@ export default function Home()
 
                     {
                         !isLoading && clients.length !==0 &&
-                        clients.map(client => {
+                        clientsAvailable.map(client => {
                             return <Clientcomponent data={client} key={client.id} count={dealsCount}/>
                         })
                     }{

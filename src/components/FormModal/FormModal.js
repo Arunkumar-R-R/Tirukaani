@@ -177,21 +177,19 @@ export default function FormModal ({closeModal}) {
               <div className='form_element' id='formfirstchild'>
                 {
                   dealtoggle ?
-                  <ClientProvider>
                     <DynamicSelect setSelectedClient={setSelectedClient}></DynamicSelect>
-                  </ClientProvider>
                   :
-                  <>
-                    <label htmlFor="name">Name</label>
-                    <input
-                        id="name"
-                        name='name'
-                        type="text"
-                        autoComplete='off'
-                        autoFocus
-                        required
-                    />
-                  </>
+                    <>
+                      <label htmlFor="name">Name</label>
+                      <input
+                          id="name"
+                          name='name'
+                          type="text"
+                          autoComplete='off'
+                          autoFocus
+                          required
+                      />
+                    </>
                 }
               </div> 
               <div className='deal-toggle-container'>

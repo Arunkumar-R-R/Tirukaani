@@ -6,6 +6,7 @@ const ClientContext = createContext();
 export function ClientProvider({children}){
 
   const [clients, setClients] = useState([]);
+  const [clientsData,setClientsData] = useState([]);
   const [isLoading,setIsLoading] = useState(true);
 
   useEffect(()=>{
@@ -26,8 +27,14 @@ export function ClientProvider({children}){
     };
   }, []);
   
+  let value = {
+    clientsAvailable:clients,
+    isStillLoading: isLoading,
+    clientsDeals:clientsData
+  }
+
   return  ( 
-    <ClientContext.Provider value={clients}>
+    <ClientContext.Provider value={value}>
       {children}
     </ClientContext.Provider>
   );

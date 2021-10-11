@@ -6,7 +6,7 @@ function DynamicSelect({setSelectedClient}) {
 
     const [ClientSelected,setClientSelected] = useState('');
     const [hide,setHide] = useState(true);
-    const client  = useClient();
+    const {clientsAvailable}  = useClient();
 
     const  handleSelectClick = (ele)=>{
         const input = document.querySelector('#name');
@@ -22,7 +22,7 @@ function DynamicSelect({setSelectedClient}) {
 
     const handleChange = (event) =>{
         let value = event.target.value;
-         client.forEach(element=>{
+        clientsAvailable.forEach(element=>{
             if(element === value){
                 setHide(true);
             } 
@@ -51,7 +51,7 @@ function DynamicSelect({setSelectedClient}) {
             hide ? 
             <div className='select-container'>
             {
-                client.map((ele)=>{
+                clientsAvailable.map((ele)=>{
                     return <div onClick={()=>{handleSelectClick(ele.id)}}>
                     <small className='existing-client'>{ele.id}</small>
                  </div>
