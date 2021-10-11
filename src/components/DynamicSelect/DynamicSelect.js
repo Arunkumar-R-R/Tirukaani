@@ -35,7 +35,6 @@ function DynamicSelect({setSelectedClient}) {
 
     useEffect(()=>{
         clientsAvailable.length === 0 && setHide(false)
-        console.log(hide);
     });
 
     return (
