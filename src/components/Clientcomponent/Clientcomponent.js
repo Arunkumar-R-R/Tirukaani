@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import useClientData from '../../utils/useClientData';
 import MenuModal from '../Modal/MenuModal';
 import { Modal } from '../Modal/Modal';
 import './Clientcomponent.css';
 
-export default function Clientcomponent({data,count})
+export default function Clientcomponent({data})
 {
     const history = useHistory();
 
@@ -20,13 +21,14 @@ export default function Clientcomponent({data,count})
         let id = e.currentTarget.dataset.client;
         history.push(`/home/${id}`);
     }
+    const deals = useClientData(data.id);
 
     return (
         <>
         <div className='client' data-client={data.id} onClick={goToDealPage}>
             <div>
                 <h4 className='clientname'>{data.id}</h4>
-                <span className='numberofdeal'>Number of deal - <span className='dealcount'>{count}</span></span>
+                <span className='numberofdeal'>Number of deal - <span className='dealcount'>{deals.length}</span></span>
             </div>
             <div className='menubtn' onClick={openModal}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

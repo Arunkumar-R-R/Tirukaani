@@ -24,7 +24,6 @@ export default function Dealmodal({dealinformation,closeModal}){
     useEffect(()=>{
         const balance = calculateBalance(finalThiruvaniWeight,estimatedThiruvaniWeight);
         setBalance(balance);
-        console.log('changed');
     },[finalThiruvaniWeight]);
 
     const addBalance = ()=>{
