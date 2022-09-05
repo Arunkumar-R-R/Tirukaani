@@ -1,18 +1,17 @@
 @import url(./../../App.css);
 
-.add_more_weights_btn
+.add-item
 {
-    margin: 20px 0 0 0;
     height: 40px;
     background-color: var(--hover-color);
     color: var(--text-color);
-
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.add_more_weights_btn span{
+.add-item span{
     margin:  0 0 0 10px;
     font-weight: var(--font-weight-medium);
 }

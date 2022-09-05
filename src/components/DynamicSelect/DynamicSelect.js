@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useClient } from '../../Context/ClientProvider';
 import './DynamicSelect.css'
 
@@ -6,10 +6,7 @@ function DynamicSelect({setSelectedClient}) {
 
     const [ClientSelected,setClientSelected] = useState('');
     const [hide,setHide] = useState(true);
-    const client  = useClient();
-    // let obj = {
-    //   name:['arun','kumar','karishma','aishwariya']
-    // }
+    const {clientsAvailable}  = useClient();
 
     const  handleSelectClick = (ele)=>{
         const input = document.querySelector('#name');
@@ -19,13 +16,13 @@ function DynamicSelect({setSelectedClient}) {
         setHide(false);
     }
 
-    const  handleClick = (event)=>{
-        setHide(!hide);
+    const  handleClick = ()=>{
+        clientsAvailable.length !== 0 && setHide(!hide);
     }
 
     const handleChange = (event) =>{
         let value = event.target.value;
-         client.forEach(element=>{
+        clientsAvailable.forEach(element=>{
             if(element === value){
                 setHide(true);
             } 
@@ -35,6 +32,10 @@ function DynamicSelect({setSelectedClient}) {
        });
        setSelectedClient(value)
     }
+
+    useEffect(()=>{
+        clientsAvailable.length === 0 && setHide(false)
+    });
 
     return (
         <>
@@ -50,21 +51,18 @@ function DynamicSelect({setSelectedClient}) {
                     required
                     defaultValue={ClientSelected}
                 />
-        {
-            hide ? 
-            <div className='select-container'>
-            {
-                client.map((ele)=>{
-                    return <a>
-                        <div onClick={()=>{handleSelectClick(ele.id)}}>
+                {
+                    hide &&
+                    <div className='select-container'>
+                    {
+                        clientsAvailable.map((ele)=>{
+                            return <div onClick={()=>{handleSelectClick(ele.id)}}>
                             <small className='existing-client'>{ele.id}</small>
-                         </div>
-                    </a>
-                })
-            }
-            </div>
-            : ''
-        }
+                        </div>
+                        })
+                    }
+                    </div>
+                }
         
         </>
     );

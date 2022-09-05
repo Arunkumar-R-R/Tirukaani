@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Button from '../../components/Button/Button';
 import FormModal from '../../components/FormModal/FormModal';
-import Dealcomponent from '../../components/Dealcomponent/Dealcomponent';
 import Dealmodal from '../../components/Dealmodal/Dealmodal';
 import {  useParams } from 'react-router-dom'
 
@@ -9,38 +8,47 @@ import './Clienthome.css';
 import {
     Link
   } from "react-router-dom";
-
+import { useFirestore } from '../../utils/firebase';
+import Deal from '../../components/Deal/Deal';
+import { Modal } from '../../components/Modal/Modal';
 
 export default function Clienthome()
 {
-    // let cdeal;
+    const [show,setshow] = useState(false);
+    const [individualdeal, setindividualdeal] = useState('');
 
-    // const [show, setShow] = useState(false);
-    // const [dealmodalshow, setdealmodalshow ] = useState(false);
-    // const [deals, setDeal] = useState([]);
-    // const [individualdeal, setindividualdeal] = useState(cdeal);
+    const [deals, setDeals] = useState([]);
+    const [isLoading,setIsLoading] = useState(true);
 
-    // let newDeal=[];
+    const closeModal =()=>{
+        setshow(false)
+    }
+    const openModal = (deal) =>{
+        setshow(true);
+        let clickedDeal= deals.filter(individualDeal=> individualDeal.id === deal);
+        setindividualdeal(clickedDeal) ;
+    }
 
-    // const addDeal = deal => {
-    //     newDeal.push(deal);
-    //     setDeal(newDeal);
-    // };
+    useEffect(()=>{
+        useFirestore.collection('clients').doc(id).collection('deals').orderBy("timestamp", "desc").onSnapshot((snap) => {
+            let  documents = snap.docs.map((doc) => ({
+                id:doc.id,
+                data:doc.data()
+            }
+            ));
+                setDeals(documents);
+                setIsLoading(false); 
+         }
+         );
+    },[]);
 
-    // function showdeal(deal)
-    // {
-    // //    console.log(deal);
-    //    setdealmodalshow(true);
-    //    setindividualdeal(deal) ;
-    // }   
-    // useEffect(()=>{
-    //     if(deals.length>0)
-    //     {
-    //         newDeal = [...deals];
-    //     }
-    // },[newDeal]);
-    let deals = '';
-     const { id } = useParams()
+    useEffect(() => {
+        return () => {
+          console.log("cleaned up");
+        };
+      }, []);
+
+    const { id } = useParams()
 
         return (
         <>
@@ -112,13 +120,35 @@ export default function Clienthome()
                         <h2 className='clientname-nav'>{id}</h2>
                     </nav>
                     <div className='deal-container'>
-                    {
-                       deals.length>0?deals.map((deal,index)=>{
-                        deal.dealno = `${index+1}`;
-                        return <Dealcomponent deal={deal} index={deal.dealno} />
-                    }):<h1 className='center-content-for-v-100'>No deal</h1>
+                          { 
+                        isLoading && <div className= 'vh-100'>
+                           <h2 className='center-content-for-v-100'>Loading ...</h2>
+                        </div>
+                        }
 
-                    }
+                        {
+                            !isLoading && deals.length !==0 &&
+                            deals.map((deal,index) => {
+                                // deal.dealno = `${index+1}`;
+                                deal.dealno = `${(deals.length)-index}`;
+                                return <Deal deal={deal} index={deal.dealno} openModal={openModal}/>
+                            })
+                        }
+                        {
+    
+                            !isLoading && deals.length ==0 && <div className= 'vh-100'>
+                                <h1 className='center-content-for-v-100'>No deal</h1>
+                            </div>
+                            
+                        } 
+                        {
+                            show ?
+                                <Modal show = { show } closeModal={closeModal}>
+                                    <Dealmodal dealinformation={individualdeal} closeModal={closeModal}></Dealmodal>
+                                </Modal>
+                            :''
+                        }
+
                     </div>
                 </div>
 

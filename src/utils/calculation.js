@@ -14,7 +14,6 @@ export const purity = (weight,touch) =>{
 
     let purity = parsedWeight * parsedTouch;
     let purityInString = purity.toString()
-
     let result = purityInString.substr(0,weightInStringLength);
     
     if(result > parsedWeight)
@@ -23,7 +22,7 @@ export const purity = (weight,touch) =>{
         let finalpurityvalue = purityInString.substr(0,newWeightInStringLength);
         let digitAfterRound = parseInt(purityInString.charAt(newWeightInStringLength));
         if(digitAfterRound >= 7){
-            console.log(digitAfterRound,'digit after the cut in the purity greater than 7');
+            // console.log(digitAfterRound,'digit after the cut in the purity greater than 7');
             finalpurity = parseInt(finalpurityvalue) + 1;
         } else{
             finalpurity = finalpurityvalue;
@@ -33,7 +32,7 @@ export const purity = (weight,touch) =>{
     {
         let digitAfterRound = parseInt(purityInString.charAt(weightInStringLength));
         if(digitAfterRound >= 7){
-            console.log(digitAfterRound,'digit after the cut in the purity greater than 7');
+            // console.log(digitAfterRound,'digit after the cut in the purity greater than 7');
             finalpurity = parseInt(result)  + 1;
         }else{
             finalpurity = result;
@@ -91,53 +90,75 @@ export const estimatedProductWeight = (purity, finalTouch, weight) =>{
     {
         finalProdcutWeight = productWeightInString.substr(0,weightInStringLength - 1);
     }
-    console.log(finalProdcutWeight,'finalProdcutWeight')
+    // console.log(finalProdcutWeight,'finalProdcutWeight')
     return finalProdcutWeight;
 }
 
-export const katchaPurity = (inputList)=>{
+export const ItemsPurity = (inputList)=>{
     let purityarray =  inputList.map(({weight,touch})=>{
-        let katchapurity = purity(weight,touch);
-        console.log(katchapurity,'katchapurity');
-        return katchapurity;
+        let itemPurity = purity(weight,touch);
+        // console.log(katchapurity,'katchapurity');
+        return itemPurity;
       });
-      console.log(purityarray,'purityarray');
     let totalpurity = purityarray.reduce((accumulator,currentValue)=>{
         let currentPurity = parseInt(currentValue);
         let store = parseInt(accumulator);
        return( store +  currentPurity);
     });
-    console.log(totalpurity,'totalpurity')
+    // console.log(totalpurity,'totalpurity')
 
     return totalpurity;
 }
 
-export const katchaweight = (inputList) =>{
+export const ItemsWeight = (inputList) =>{
     let weightArray = inputList.map(({weight})=>weight);
-    console.log(weightArray,'weightArray')
+    // console.log(weightArray,'weightArray')
 
     let totalWeight = weightArray.reduce((accumulator,currentValue)=>{
         let currentWeight = parseInt(currentValue);
         let store = parseInt(accumulator);
        return( store +  currentWeight);
     })
-    console.log(totalWeight,'totalWeight')
+    // console.log(totalWeight,'totalWeight')
 
     return totalWeight;
 }
 
-export const katchaTouch = (purity,weight)=>{
+export const ItemsTouch = (purity,weight)=>{
     let parsedWeight = parseInt(weight);
     let parsedPurity = parseInt(purity);
-    console.log(parsedWeight,'parsedWeight');
-    console.log(parsedPurity,'parsedPurity');
+    // console.log(parsedWeight,'parsedWeight');
+    // console.log(parsedPurity,'parsedPurity');
     let touch = (parsedPurity / parsedWeight);
-    console.log(touch,'touch');
+    // console.log(touch,'touch');
     const afterDecimalPointTouchValue = touch.toString().split('.')[1];
-    console.log(afterDecimalPointTouchValue);
+    // console.log(afterDecimalPointTouchValue);
     let finalTouch = afterDecimalPointTouchValue.substr(0,4);
-    console.log(finalTouch,'finalTouch');
-    let katchatouch = (finalTouch / 100).toFixed(2);
-    console.log(katchatouch)
-    return katchatouch;
+    // console.log(finalTouch,'finalTouch');
+    let itemTouch = (finalTouch / 100).toFixed(2);
+    // console.log(katchatouch)
+    return itemTouch;
+}
+export const calculateBalance = (finalThiruvaniWeight,estimatedThiruvaniWeight)=>{
+    let balance = {};
+    
+    let finalweight = parseInt(finalThiruvaniWeight);
+    let estimatedweight = parseInt(estimatedThiruvaniWeight);
+
+    if(finalweight !==''&& finalweight !==0 && finalweight !==NaN){
+        if( finalweight > estimatedweight ){
+            balance.gram = finalweight - estimatedweight;
+            balance.color = 'green';
+        }else if(finalweight < estimatedweight){
+            balance.gram = estimatedweight - finalweight;
+            balance.color = 'red';
+        }else{
+             balance.gram = 0;
+             balance.color = '#333';
+        }
+    }else{
+        balance.gram = '---';
+        balance.color = '#333';
+    }
+    return balance;
 }

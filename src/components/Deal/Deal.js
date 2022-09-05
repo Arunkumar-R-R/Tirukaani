@@ -1,29 +1,33 @@
 import React from 'react';
-import './Dealcomponent.css';
+import './Deal.css';
 
-export default function Dealcomponent({deal,index,showdeal})
+export default function Deal({deal,index,openModal})
 {
     return (
-    <div className='dealcomponent' id={`deal${index}`} key={`deal${index}`}  onClick={()=>{showdeal(deal)}}>
+    <div className='dealcomponent' id={deal.id} key={deal.id}  onClick={()=>{openModal(deal.id)}}>
         <header className='deal-header'>
             <h3>Deal {index} </h3>
         </header>
         <div className='information-container'>
             <div className='inforow'>
                 <p className='info'>Client given purity</p>
-                <small className='value'>{deal.purity} P</small>
+                <small className='value'>{deal.data.purity} P</small>
             </div>
             <div className='inforow'>
                 <p className='info'>Est thiruvani weight</p>
-                <small className='value'>{deal.estimatedProductWeight}</small>
+                <small className='value'>{deal.data.estimatedProductWeight}</small>
             </div>
             <div className='inforow'>
                 <p className='info'>Final thiruvani weight</p>
-                <small className='value'>--</small>
+                <small className='value'>{deal.data.finalProductWeight}</small>
             </div>
             <div className='inforow'>
                 <p className='info'>Balance </p>
-                <small className='value'>--</small>
+                <small className='value'style={{color: deal.data.color}}>
+                    {deal.data.color =='green' && '+'}
+                    {deal.data.color =='red' && '-'}
+                    {deal.data.balance}
+                </small>
             </div>
         </div>
     </div>);

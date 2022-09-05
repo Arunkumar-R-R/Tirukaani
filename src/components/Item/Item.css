@@ -1,0 +1,26 @@
+@import url(../../App.css);
+
+.item-container{
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    width: 250px;
+}
+
+.item-container input{
+    width: inherit;
+}
+
+.item-type-select-container{
+    margin: 12px 0 0 0;
+    user-select: none;
+}
+
+.item-type-select-container label.elements:last-child{
+    margin: 0;
+}
+
+.margin-15{
+    margin: 15px 0 0 0;
+}
