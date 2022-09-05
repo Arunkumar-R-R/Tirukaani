@@ -1,2 +1,5 @@
 # Tirukaani
-web app to calculate the weights of material to make a silver Anklet screw. keep track of deals and manage the balance in format to ease running business
+React Progressive Web Application for managing silver material details
+[Demo](https://tirukaani.netlify.app/)
+
+Try username = demo@gmail.com, password = demodemo
