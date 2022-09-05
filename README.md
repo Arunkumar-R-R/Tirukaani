@@ -1,5 +1,5 @@
 # Tirukaani
-React Progressive Web Application for managing silver material details
+React Progressive Web Application for managing silver material details <br>
 [Demo](https://tirukaani.netlify.app/)
 
-Try username = demo@gmail.com, password = demodemo
+Try Email = "demo@gmail.com", password = demodemo
