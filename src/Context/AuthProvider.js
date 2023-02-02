@@ -4,9 +4,7 @@ import { auth } from "../utils/firebase";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-
-  const userLocal = JSON.parse(localStorage.getItem('user'));
-
+  const userLocal = JSON.parse(localStorage.getItem("user"));
   const [currentUser, setCurrentUser] = useState(userLocal);
 
   function login(email, password) {
@@ -14,40 +12,31 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
-    return auth.signOut()
+    return auth.signOut();
   }
 
   //it runs only once
   useEffect(() => {
-
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        localStorage.setItem('user', true);
+        localStorage.setItem("user", true);
         setCurrentUser(user);
-
       } else {
-        localStorage.removeItem('user');
+        localStorage.removeItem("user");
         setCurrentUser(false);
       }
     });
 
     return unsubscribe;
-
   }, []);
-
 
   const value = {
     currentUser,
     login,
     logout,
-  }
+  };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
-
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {
