@@ -1,17 +1,14 @@
 import React from "react";
+`import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./pages/login/Login";
 import BottomNavigation from "./components/BottomNavigation/BottomNavigation";
-import AddButton from "./components/AddButton/AddButton";
-import Account from "./pages/Account/Account";
 import { AuthProvider } from "./Context/AuthProvider";
-import PrivateRoute from "./utils/PrivateRoute";
-import FormModal from "./components/FormModal/FormModal";
-import Clienthome from "./pages/Clienthome/Clienthome";
-import DynamicSelect from "./components/DynamicSelect/DynamicSelect";
 import { ClientProvider } from "./Context/ClientProvider";
+import Account from "./pages/Account/Account";
+import Clienthome from "./pages/Clienthome/Clienthome";
+import Home from "./pages/Home/Home";
+import Login from "./pages/login/Login";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (

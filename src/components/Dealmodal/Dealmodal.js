@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./Dealmodal.css";
 
-import Button from "../../components/Button/Button";
+import Button from "../Button/Button";
 import InlineEditableInput from "../../components/EditableInput/InlineEditableInput";
 import { calculateBalance, finalTouch, purity } from "../../utils/calculation";
 import { UpdateDoc } from "../../utils/firebase";

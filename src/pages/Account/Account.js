@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Toast from "../../components/Toast/Toast";
 import { useAuth } from "../../Context/AuthProvider";
-import Button from "./../../components/Button/Button";
+import Button from "../../components/Button/Button";
 import "./Account.css";
 
 export default function Account() {
