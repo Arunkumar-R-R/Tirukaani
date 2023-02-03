@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import BottomNavigation from "./components/BottomNavigation/BottomNavigation";
+import Navigation from "./components/Navigation/Navigation";
 import { AuthProvider } from "./Context/AuthProvider";
 import { ClientProvider } from "./Context/ClientProvider";
 import Account from "./pages/Account/Account";
@@ -19,23 +19,22 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/account">
                 <nav className="bottom_nav">
-                  <BottomNavigation></BottomNavigation>
+                  <Navigation></Navigation>
                 </nav>
                 <Account></Account>
               </PrivateRoute>
               <PrivateRoute path="/home/:id">
                 <nav className="bottom_nav">
-                  <BottomNavigation></BottomNavigation>
+                  <Navigation></Navigation>
                 </nav>
                 <Clienthome></Clienthome>
               </PrivateRoute>
               <PrivateRoute exact path="/home">
                 <nav className="bottom_nav">
-                  <BottomNavigation></BottomNavigation>
+                  <Navigation></Navigation>
                 </nav>
                 <Home></Home>
               </PrivateRoute>
-
               <Route exact path="/">
                 <Login></Login>
               </Route>
