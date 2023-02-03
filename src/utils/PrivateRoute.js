@@ -6,7 +6,7 @@ export default function PrivateRoute({ path, ...props }) {
   const { currentUser } = useAuth();
   return (
     <>
-      {currentUser ? (
+      {currentUser !== null ? (
         <Route path={path}>{props.children}</Route>
       ) : (
         <Redirect to="/"></Redirect>
