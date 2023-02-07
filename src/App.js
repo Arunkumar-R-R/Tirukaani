@@ -16,13 +16,6 @@ function App() {
 
   return (
     <div className="App vh-100">
-      {currentUser == null || currentUser == false ? (
-        <Route exact path="/">
-          <Login></Login>
-        </Route>
-      ) : (
-        ""
-      )}
       <ClientProvider>
         <Router>
           <Switch>

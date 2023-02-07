@@ -33,11 +33,11 @@ export default function Login() {
   });
 
   return (
-    <div className="container ">
-      <div className="row mx-auto height-full">
-        <div className="col-12 cl-xl-12  col-lg-12 col-md-12 col-sm-12 col-xs-12 m-auto">
+    <div className="custom_container vh-100 d-flex justify-content-center">
+      <div className="row">
+        <div className="col-10 cl-xl-4  col-lg-4 col-md-5 col-sm-10 col-xs-10 mx-auto">
           <form className="form" onSubmit={handlesubmit}>
-            <h3 className="form_title">Login</h3>
+            <h1 className="form_title">Login</h1>
             <div className="form_element">
               <label>Email</label>
               <input
@@ -45,18 +45,26 @@ export default function Login() {
                 id="email"
                 name="email"
                 autoComplete="off"
+                className="w-100"
                 required
               />
             </div>
             <div className="form_element">
               <label>Password</label>
-              <input type="password" id="password" name="password" required />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="w-100"
+                required
+              />
             </div>
             <Button
               type={"submit"}
               text={"Login"}
               buttontype={"primarybtn"}
               isLoading={isLoading}
+              className={"mt-3"}
             />
           </form>
           {error && <Toast type="alert-danger" text={error}></Toast>}
