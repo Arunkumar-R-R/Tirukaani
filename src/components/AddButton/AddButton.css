@@ -2,20 +2,14 @@
 
 .add_btn{
     background-color: var(--primary-color);
-    height: 48px;
-    width: 48px;
-    border-radius: 50px;
     display: flex;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     margin: 0;
-}
-.add_btn_container{
-    bottom: 0;
-    position: relative;
-    align-self: flex-end;
-    /* display: flex;
-    justify-content: flex-end;
-    align-items: flex-end; */
+    padding: 8px 15px;
+    color: white;
+    width: fit-content;
+    height: 30px;
 }

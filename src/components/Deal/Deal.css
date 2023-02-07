@@ -8,7 +8,9 @@
     padding: 20px;
     cursor: pointer;
     width: 100%;
+    background-color: var(--white-color);
 }
+
 .dealcomponent:last-child{
     margin:  0 0 60px 0;
 }

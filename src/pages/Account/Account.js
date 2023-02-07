@@ -20,7 +20,7 @@ export default function Account() {
   }
 
   return (
-    <div className="container">
+    <div className="custom_container">
       <div className="row">
         <div className="col-11 col-xl-12 col-lg-11 col-md-10 col-sm-10 mx-auto">
           <h2 className="title">Account</h2>

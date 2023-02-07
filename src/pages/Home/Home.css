@@ -1,15 +1,5 @@
 @import url(./../../App.css);
 
-/* .container
-{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 15px;
-}  */
 .clients-container{
     position: relative;
     height: 100%;
@@ -31,18 +21,9 @@
 
 .bottom_nav{
     position: fixed;
+    height: 100%;
     bottom: 0;
     right: 0;
     left: 0; 
     z-index: 1;
 }
-
-@media (min-width: 576px) {
-    .bottom_nav{
-        bottom: unset;
-        right: unset;
-        left: 0; 
-        height: 100vh;
-        position: static;
-    }
-   }
