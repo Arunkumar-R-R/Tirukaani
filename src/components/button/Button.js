@@ -1,11 +1,11 @@
 import React from "react";
-import "./button.css";
+import "./Button.css";
 export default function Button(props) {
   return (
     <button
       type={props.type}
       onClick={props.onClick}
-      className={`button ${props.buttontype}`}
+      className={`button ${props.buttontype} ${props.className}`}
     >
       {props.isLoading ? "Loading... " : props.text}
     </button>

@@ -1,62 +1,48 @@
 @import url('./../../App.css');
 
-.bottom_navigation{
-    width: 100%;
-    position: relative;
+.navigation-container{
+    width:100%;
+    max-width: 800px;
     display: flex;
     flex-flow: row nowrap;
-    justify-content:space-evenly;
+    justify-content:space-between;
     align-items: center;
-    height: 60px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 0.01%);
-    filter: drop-shadow(4px 0px 10px rgba(0, 0, 0, 0.25));
+    margin: 0 auto;
 }
 
-.bottom_item 
-{
+
+.logo{
+    font-weight: bold;
+    font-size: var(--font-size-medium);
+    margin: 0;
+}
+
+.navigation-item{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_item {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    height: inherit;
-    width: 72px;
+    padding: 8px 12px;
+    height: 35px;
     cursor: pointer;
+    margin: 0 5px 0 0;
+    border: 2px solid white;
 }
-.bottom_item:hover{
+
+.nav_item:hover{
     background-color: var(--hover-color);
 }
 
-.bottom_item_title{
-    font-size: var(--font-size-smallest);
+.nav_item_title{
+    font-size: var(--font-weight-small);
     font-weight: var(--font-weight-medium);
     color:var(--text-color);
     user-select: none;
 }
-
-@media (min-width: 576px) {
-    .bottom_navigation{
-        width: fit-content;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        height: 100%;
-      
-    }
-    .bottom_item 
-    {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        height: inherit;
-        width: 72px;
-        height: 72px;
-        cursor: pointer;
-        margin: 10px 0;
-    }
-    .add_btn{
-        order: 3;
-        margin: 10px 0;
-    }
-    
-   }

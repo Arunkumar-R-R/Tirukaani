@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import BottomNavigation from "./components/BottomNavigation/BottomNavigation";
+import Navigation from "./components/Navigation/Navigation";
 import { AuthProvider } from "./Context/AuthProvider";
 import { ClientProvider } from "./Context/ClientProvider";
 import Account from "./pages/Account/Account";
@@ -9,38 +9,41 @@ import Clienthome from "./pages/Clienthome/Clienthome";
 import Home from "./pages/Home/Home";
 import Login from "./pages/login/Login";
 import PrivateRoute from "./utils/PrivateRoute";
+import { useAuth } from "./Context/AuthProvider";
 
 function App() {
+  const { currentUser } = useAuth();
+
   return (
-    <div className="App">
+    <div className="App vh-100">
       <ClientProvider>
         <Router>
-          <AuthProvider>
-            <Switch>
-              <PrivateRoute exact path="/account">
-                <nav className="bottom_nav">
-                  <BottomNavigation></BottomNavigation>
+          <Switch>
+            {currentUser === null || currentUser === false ? (
+              <>
+                <Route exact path="/">
+                  <Login></Login>
+                </Route>
+              </>
+            ) : (
+              <PrivateRoute>
+                <nav className="navigation">
+                  <Navigation></Navigation>
                 </nav>
-                <Account></Account>
+                <div className="main-container">
+                  <Route path="/account">
+                    <Account></Account>
+                  </Route>
+                  <Route path="/home/:id">
+                    <Clienthome></Clienthome>
+                  </Route>
+                  <Route exact path="/home">
+                    <Home></Home>
+                  </Route>
+                </div>
               </PrivateRoute>
-              <PrivateRoute path="/home/:id">
-                <nav className="bottom_nav">
-                  <BottomNavigation></BottomNavigation>
-                </nav>
-                <Clienthome></Clienthome>
-              </PrivateRoute>
-              <PrivateRoute exact path="/home">
-                <nav className="bottom_nav">
-                  <BottomNavigation></BottomNavigation>
-                </nav>
-                <Home></Home>
-              </PrivateRoute>
-
-              <Route exact path="/">
-                <Login></Login>
-              </Route>
-            </Switch>
-          </AuthProvider>
+            )}
+          </Switch>
         </Router>
       </ClientProvider>
     </div>

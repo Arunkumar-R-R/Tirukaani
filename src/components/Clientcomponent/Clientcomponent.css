@@ -3,15 +3,16 @@
 .client
 {
     border: 1px solid var(--border-color);
-    width: 100%;
+    width: 80%;
     padding: 18px 16px;
-    margin: 25px 0 0 10px ;
+    margin: 25px 0 0 0;
     border-radius: var(--border-radius-small);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    background-color: var(--white-color);
 }
 
 .client:last-child
