@@ -16,17 +16,17 @@ function App() {
 
   return (
     <div className="App vh-100">
-      <ClientProvider>
-        <Router>
-          <Switch>
-            {currentUser === null || currentUser === false ? (
-              <>
-                <Route exact path="/">
-                  <Login></Login>
-                </Route>
-              </>
-            ) : (
-              <PrivateRoute>
+      <Router>
+        <Switch>
+          {currentUser === null || currentUser === false ? (
+            <>
+              <Route exact path="/">
+                <Login></Login>
+              </Route>
+            </>
+          ) : (
+            <PrivateRoute>
+              <ClientProvider>
                 <nav className="navigation">
                   <Navigation></Navigation>
                 </nav>
@@ -41,11 +41,11 @@ function App() {
                     <Home></Home>
                   </Route>
                 </div>
-              </PrivateRoute>
-            )}
-          </Switch>
-        </Router>
-      </ClientProvider>
+              </ClientProvider>
+            </PrivateRoute>
+          )}
+        </Switch>
+      </Router>
     </div>
   );
 }

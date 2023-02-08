@@ -16,25 +16,12 @@ export default function Home() {
     setIsLoading(isStillLoading);
   });
 
-  useEffect(() => {
-    return () => {
-      console.log("cleaned up");
-    };
-  }, []);
-
   return (
     <>
       <div className="custom_container">
         <div className="row">
           <div className="col-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
-            {isLoading && (
-              <div className="vh-100">
-                <h2 className="center-content-for-v-100">Loading ...</h2>
-              </div>
-            )}
-
-            {!isLoading &&
-              clients.length !== 0 &&
+            {!isLoading && clients.length !== 0 ? (
               clientsAvailable.map((client) => {
                 return (
                   <Clientcomponent
@@ -43,7 +30,12 @@ export default function Home() {
                     count={dealsCount}
                   />
                 );
-              })}
+              })
+            ) : (
+              <div className="vh-100">
+                <h2 className="center-content-for-v-100">Loading ...</h2>
+              </div>
+            )}
             {!isLoading && clients.length == 0 && (
               <div className="vh-100">
                 <h2 className="center-content-for-v-100">
