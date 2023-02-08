@@ -44,12 +44,6 @@ export default function Clienthome() {
       });
   }, []);
 
-  useEffect(() => {
-    return () => {
-      console.log("cleaned up");
-    };
-  }, []);
-
   const { id } = useParams();
 
   return (
