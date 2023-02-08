@@ -18,14 +18,8 @@ export function ClientProvider({children}){
              setClients(documents);
              setIsLoading(false); 
        }
-       );
+    );
   },[]);
-
-  useEffect(() => {
-    return () => {
-      console.log("cleaned up");
-    };
-  }, []);
   
   let value = {
     clientsAvailable:clients,

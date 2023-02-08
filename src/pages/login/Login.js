@@ -28,7 +28,6 @@ export default function Login() {
 
   useEffect(() => {
     return () => {
-      console.log(" cleaned up in login");
       setIsLoading(false);
       history.replace();
     };
