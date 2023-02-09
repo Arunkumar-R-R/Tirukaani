@@ -15,7 +15,7 @@ function App() {
   const { currentUser } = useAuth();
 
   return (
-    <div className="App vh-100">
+    <div className="App vh-100 overflow-hidden">
       <Router>
         <Switch>
           {currentUser === null || currentUser === false ? (
@@ -30,7 +30,7 @@ function App() {
                 <nav className="navigation">
                   <Navigation></Navigation>
                 </nav>
-                <div className="main-container">
+                <div className="main-container overflow-auto">
                   <Route path="/account">
                     <Account></Account>
                   </Route>

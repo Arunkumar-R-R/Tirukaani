@@ -9,15 +9,12 @@
     cursor: pointer;
     width: 100%;
     background-color: var(--white-color);
+    margin: 0 0 16px 0;
 }
 
 .dealcomponent:last-child{
     margin:  0 0 60px 0;
 }
-
-/* .information-container{
-    width: 95%;
-} */
 
 .deal-header h3{
     margin: 0;

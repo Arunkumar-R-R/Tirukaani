@@ -15,7 +15,6 @@
     flex-flow: column wrap;
 }
 .deal-container{
-    min-height: calc(100vh - 138px);
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;

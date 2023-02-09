@@ -19,19 +19,11 @@ export default function Login() {
     try {
       await login(email, password);
       history.push("/home");
-      setIsLoading(false);
     } catch {
       setError("Failed to log in");
       setIsLoading(false);
     }
   }
-
-  useEffect(() => {
-    return () => {
-      setIsLoading(false);
-      history.replace();
-    };
-  });
 
   return (
     <div className="custom_container vh-100 d-flex justify-content-center">
