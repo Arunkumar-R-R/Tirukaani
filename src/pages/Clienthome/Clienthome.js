@@ -110,7 +110,7 @@ export default function Clienthome() {
               height="43"
               viewBox="0 0 40 40"
               fill='none'
-              className=" hover:fill-white"
+              className="backButton"
               xmlns="http://www.w3.org/2000/svg"
             >
               <rect width="40" height="40" rx="55" />

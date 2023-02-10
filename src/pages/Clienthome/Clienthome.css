@@ -32,3 +32,8 @@
     margin: 0 0 0 30px;
     font-weight: var(--font-weight-semi);
 }
+
+.backButton:hover{
+
+fill: rgba(225, 225, 225, 0.5);
+}
