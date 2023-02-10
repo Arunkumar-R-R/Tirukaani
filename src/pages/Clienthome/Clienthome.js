@@ -109,10 +109,11 @@ export default function Clienthome() {
               width="43"
               height="43"
               viewBox="0 0 40 40"
-              fill="none"
+              fill='none'
+              className=" hover:fill-white"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect width="40" height="40" fill="white" />
+              <rect width="40" height="40" rx="55" />
               <path
                 d="M13 20H27"
                 stroke="#18354A"
