@@ -18,15 +18,13 @@
         height: fit-content;
 }
 
-
-
-.primarybtn
+.primary
 {
     background-color: var(--primary-color);
     color: var(--white-color);
 }
 
-.secondarybtn
+.secondary
 {
     background-color: var(--white-color);
     color: var(--text-color);
@@ -39,4 +37,14 @@
 .btn-width-fit-parent
 {
     width: 125px;
+}
+
+.rounded{
+    border: 1px solid var(--white-color);
+    padding: 8px;
+    border-radius: 50% !important;
+}
+
+.rounded:hover{
+    border:1px solid var(--border-color);
 }

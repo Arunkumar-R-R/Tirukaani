@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Button from "../../components/Button/Button";
-import FormModal from "../../components/FormModal/FormModal";
 import Dealmodal from "../../components/Dealmodal/Dealmodal";
 import { useParams } from "react-router-dom";
 

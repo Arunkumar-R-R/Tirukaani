@@ -17,7 +17,7 @@ export default function EditModal(){
                         <form>
                             <label>Name</label>
                             <input type='text' required></input>
-                            <Button type={'submit'} text={'Save'} buttontype={'primarybtn'} ></Button>
+                            <Button type="primary" >Save</Button>
                         </form>
                     </div>
                 </div> 

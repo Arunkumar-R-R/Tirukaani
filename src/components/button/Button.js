@@ -1,13 +1,15 @@
-import React from "react";
+import React, { Children } from "react";
 import "./Button.css";
 export default function Button(props) {
   return (
     <button
       type={props.type}
       onClick={props.onClick}
-      className={`button ${props.buttontype} ${props.className}`}
+      className={`button ${props.type} ${props.className} ${props.borderRadius}`}
     >
-      {props.isLoading ? "Loading... " : props.text}
+      {
+        props.children
+      }
     </button>
   );
 }
