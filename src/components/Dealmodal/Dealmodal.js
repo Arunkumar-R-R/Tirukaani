@@ -40,7 +40,6 @@ export default function Dealmodal({ dealinformation, closeModal }) {
     }
     closeModal();
   };
-  // console.log(dealinformation);
   return (
     <div className="deal-info-modal">
       <div className="dealmodalnav">
@@ -117,19 +116,16 @@ export default function Dealmodal({ dealinformation, closeModal }) {
       </div>
       <div className="buttongroup">
         <Button
-          type={"submit"}
-          text={"Close"}
-          buttontype={"secondarybtn btn-width-fit-parent"}
+          type="secondary"
           onClick={() => {
             closeModal();
           }}
-        />
-        <Button
-          type={"submit"}
-          text={"Save changes"}
-          buttontype={"primarybtn btn-width-fit-parent"}
-          onClick={() => addBalance()}
-        />
+        >
+          Close
+        </Button>
+        <Button type="primary" onClick={() => addBalance()}>
+          Save changes
+        </Button>
       </div>
     </div>
   );

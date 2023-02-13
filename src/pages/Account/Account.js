@@ -28,10 +28,8 @@ export default function Account() {
             <h3>Logout of the app</h3>
             <Button
               onClick={handleLogout}
-              type={"submit"}
-              text={"Log out"}
-              buttontype={"secondarybtn"}
-            ></Button>
+              type='secondary'
+            >Logout</Button>
             {error && <Toast type="alert-danger" text={error}></Toast>}
           </div>
         </div>
