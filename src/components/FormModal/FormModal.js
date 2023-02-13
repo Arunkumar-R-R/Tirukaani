@@ -6,7 +6,6 @@ import  Add_katcha from "../AddItem/AddItem";
 import Katcha from "../katcha/Katcha";
 import { addCollection, addSubCollection } from "../../utils/firebase";
 import DynamicSelect from "../DynamicSelect/DynamicSelect";
-import { ClientProvider } from "../../Context/ClientProvider";
 import Item from "../Item/Item";
 import AddItem from "../AddItem/AddItem";
 
@@ -24,22 +23,8 @@ export default function FormModal ({closeModal}) {
     e.preventDefault();
 
     let name = document.querySelector('#name');
-    // let silvertypeRadio = document.querySelector('input[name="silverform"]');
-    // let silvertype = document.querySelector('input[name="silverform"]:checked');
-    // let weight = document.querySelector('#weight');
-    // let touch = document.querySelector('#touch');
     let labourTouch = document.querySelector('#labourTouch');
     let thiruvaniDeliveryTouch = document.querySelector('#thiruvaniDeliveryTouch');
-
-    // let silverTypeError = document.querySelector('#silverTypeError');
-    // let weightError = document.querySelector('#weightError');
-    // let touchError = document.querySelector('#touchError');
-    // let labourTouchError = document.querySelector('#labourTouchError');
-    // let thiruvaniDeliveryTouchError = document.querySelector('#thiruvaniDeliveryTouchError');
-
-    // const silverTypeErrorMessage = 'Select the silver type';
-    // const weightErrorMessage = 'Enter the weight';
-    // const touchErrorMessage = 'Enter the Touch below 100';
     let clientName;
     let finaltouch;
     let estimatedproductweight;
@@ -61,13 +46,8 @@ export default function FormModal ({closeModal}) {
             estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalItemsWeight);
           }else{
             finaltouch = finalTouch(finalItemsTouch, labourTouch.value);
-            // console.log(givenpurity,'givenpurity in katcha')
-            // console.log(finaltouch,'finaltouch in katcha')
-            // console.log(totalKatchaWeight,'totalKatchaWeight in katcha')
             estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, totalItemsWeight);
-            // console.log(estimatedproductweight,'estimatedproductweight in katcha');
           }
-          // obj.silvertype = silvertype.value;
           obj.name = name.value;
           obj.weight = totalItemsWeight;
           obj.touch = finalItemsTouch;
@@ -76,9 +56,7 @@ export default function FormModal ({closeModal}) {
           obj.finalTouch = finaltouch;
           obj.estimatedProductWeight = estimatedproductweight;
           addSubCollection(obj);
-          // console.log(obj,"more than 1 katcha item");
         }else{
-          // alert('input list is 1');
           givenpurity = purity(inputList[0].weight,inputList[0].touch);
           if(deliverytouchtoggle){
             obj.thiruvaniDeliveryTouch = thiruvaniDeliveryTouch.value;
@@ -88,7 +66,6 @@ export default function FormModal ({closeModal}) {
             finaltouch = finalTouch(inputList[0].touch, labourTouch.value);
             estimatedproductweight = estimatedProductWeight(givenpurity, finaltouch, inputList[0].weight);
           }
-          // obj.silvertype = silvertype.value;
           obj.name = name.value;
           obj.weight = inputList[0].weight;
           obj.touch = inputList[0].touch;
@@ -100,7 +77,6 @@ export default function FormModal ({closeModal}) {
           obj.color = '#333'
           obj.balance = '---'
           addSubCollection(obj);
-          // console.log(obj,"single katcha item");
         }
         closemodal();
     }else{
@@ -240,7 +216,7 @@ export default function FormModal ({closeModal}) {
                 }
               </div>
 
-              <div className= 'submit_button'>
+              <div className='submit_button'>
                 {
                   dealtoggle?
                   <Button type={"submit"} buttontype={'primarybtn'} text={"Add Deal"} />
@@ -248,7 +224,7 @@ export default function FormModal ({closeModal}) {
                   <Button type={"submit"} buttontype={'primarybtn'} text={"Create client"} />
                 }
                 </div>
-            </form>    
+      </form>
     </>
   );
 };

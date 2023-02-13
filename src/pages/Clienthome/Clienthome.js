@@ -92,7 +92,6 @@ export default function Clienthome() {
           {!isLoading &&
             deals.length !== 0 &&
             deals.map((deal, index) => {
-              // deal.dealno = `${index+1}`;
               deal.dealno = `${deals.length - index}`;
               return (
                 <Deal deal={deal} index={deal.dealno} openModal={openModal} />
