@@ -23,3 +23,8 @@
 {
   margin: 24px 0 0 0;
 }
+
+.disable_button{
+    cursor: not-allowed !important;
+    opacity: .7;
+}

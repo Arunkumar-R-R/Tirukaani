@@ -53,12 +53,11 @@ export default function Login() {
               />
             </div>
             <Button
-              type={"submit"}
-              text={"Login"}
-              buttontype={"primarybtn"}
-              isLoading={isLoading}
-              className={"mt-3"}
-            />
+              type="primary"
+              className={`mt-3 ${isLoading ? "disable_button" : ""}`}
+            >
+              {isLoading ? "Loading..." : "Login"}
+            </Button>
           </form>
           {error && <Toast type="alert-danger" text={error}></Toast>}
         </div>
