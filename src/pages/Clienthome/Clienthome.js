@@ -48,60 +48,6 @@ export default function Clienthome() {
 
   return (
     <>
-      {/* <div className='wrapper'>
-                <div className='Clienthome-container'>
-                <nav>
-                    <Link to={'/'} >
-                        <svg xmlns="http://www.w3.org/2000/svg" className=" icon-tabler-arrow-narrow-left" width="43" height="43" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#333333" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <line x1="5" y1="12" x2="9" y2="16"></line>
-                            <line x1="5" y1="12" x2="9" y2="8"></line>
-                        </svg>
-                    </Link>
-                
-                    <h2 className='clientname'>{props.location.state.client}</h2>
-                </nav>
-                    <div className='deal-container'>
-                    {
-                       deals.length>0?deals.map((deal,index)=>{
-                        deal.dealno = `${index+1}`;
-                        return <Dealcomponent deal={deal} index={deal.dealno} showdeal={showdeal}/>
-                    }):<h1 className='center-content-for-v-100'>No deal</h1>
-
-                    }
-                    </div>
-                    <div className='button-sticky-button'>
-                        <Button type={'button'} buttontype={'primarybtn'} text={"Add Deal"} onClick={() => setShow(true)}/> 
-                        <FormModal 
-                            onClose={() => setShow(false)}
-                            show={show} 
-                            onSubmit={addDeal} 
-                            isThisAddNewClient={false} 
-                            formposition={'content'} 
-                            handleAddClientFormSubmit={false} 
-                        />
-                    </div>
-                </div>
-                {
-                    dealmodalshow ?
-                    <Dealmodal 
-                    show={dealmodalshow}
-                    onClose={() => setdealmodalshow(false)} 
-                    dealno= {`Deal ${individualdeal.dealno}`}
-                    silvertype={individualdeal.silvertype}
-                    weight={individualdeal.weight}
-                    touch={individualdeal.touch}
-                    labourTouch={individualdeal.labourTouch}
-                    thiruvaniDeliveryTouch={individualdeal.thiruvaniDeliveryTouch}
-                    finalTouch={individualdeal.finalTouch}
-                    purity={individualdeal.purity}
-                    estimatedProductWeight={individualdeal.estimatedProductWeight}
-                    />
-                     :''
-                }
-            </div>  */}
-
       <div className="custom_container ">
         <nav className="clienthome-nav col-xl-12 col-lg-12 col-11 mx-auto">
           <Link to={"/home"}>
@@ -109,7 +55,7 @@ export default function Clienthome() {
               width="43"
               height="43"
               viewBox="0 0 40 40"
-              fill='none'
+              fill="none"
               className="backButton"
               xmlns="http://www.w3.org/2000/svg"
             >
