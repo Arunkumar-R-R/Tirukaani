@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from "react";
-import "./FormModal.css";
-import Button from "../Button/Button";
 import {
   addDeliveryTouch,
-  adddeliverytouch,
   estimatedProductWeight,
   finalTouch,
   ItemsPurity,
   ItemsTouch,
   ItemsWeight,
-  katchaPurity,
-  katchaTouch,
-  katchaweight,
-  purity,
+  purity
 } from "../../utils/calculation";
-import Add_katcha from "../AddItem/AddItem";
-import Katcha from "../katcha/Katcha";
 import { addCollection, addSubCollection } from "../../utils/firebase";
+import Button from "../Button/Button";
 import DynamicSelect from "../DynamicSelect/DynamicSelect";
 import Item from "../Item/Item";
-import AddItem from "../AddItem/AddItem";
+import "./FormModal.css";
 
 export default function FormModal({ closeModal }) {
   const [deliverytouchtoggle, setDeliverytouchToggle] = useState(false);
@@ -166,7 +159,7 @@ export default function FormModal({ closeModal }) {
 
   return (
     <>
-      <form className=" mx-auto" id="form" onSubmit={handleAddDealForm}>
+      <form id="form" onSubmit={handleAddDealForm}>
         <nav className="modal-head">
           {dealtoggle ? (
             <h2 className="modal-title">Add New Deal</h2>
@@ -221,7 +214,23 @@ export default function FormModal({ closeModal }) {
                 handleRemove={handleRemove}
                 setInputList={setInputList}
               ></Item>
-              <AddItem onClick={addItem}></AddItem>
+              <Button type="secondary" onClick={addItem}>
+                {" "}
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.75 11.25V5C12.75 4.80109 12.671 4.61032 12.5303 4.46967C12.3897 4.32902 12.1989 4.25 12 4.25C11.8011 4.25 11.6103 4.32902 11.4697 4.46967C11.329 4.61032 11.25 4.80109 11.25 5V11.25H5C4.80109 11.25 4.61032 11.329 4.46967 11.4697C4.32902 11.6103 4.25 11.8011 4.25 12C4.25 12.1989 4.32902 12.3897 4.46967 12.5303C4.61032 12.671 4.80109 12.75 5 12.75H11.25V19C11.25 19.1989 11.329 19.3897 11.4697 19.5303C11.6103 19.671 11.8011 19.75 12 19.75C12.1989 19.75 12.3897 19.671 12.5303 19.5303C12.671 19.3897 12.75 19.1989 12.75 19V12.75H19C19.1989 12.75 19.3897 12.671 19.5303 12.5303C19.671 12.3897 19.75 12.1989 19.75 12C19.75 11.8011 19.671 11.6103 19.5303 11.4697C19.3897 11.329 19.1989 11.25 19 11.25H12.75Z"
+                    fill="#333333"
+                  />
+                </svg>
+                Add Item
+              </Button>
+              {/* <AddItem onClick={addItem}></AddItem> */}
 
               <div className="form_element">
                 <label htmlFor="labourTouch">Labour Touch</label>

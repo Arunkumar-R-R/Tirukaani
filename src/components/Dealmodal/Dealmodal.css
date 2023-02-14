@@ -19,6 +19,7 @@
     color: var(--heading-color);
     font-weight: var(--font-weight-bold);
     margin: 0 auto  0 0;
+    font-size: var(--font-size-medium);
 }
 
 .dealinforow{
