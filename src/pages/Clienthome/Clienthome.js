@@ -82,7 +82,7 @@ export default function Clienthome() {
         </nav>
         <div className="deal-container">
           {isLoading && (
-            <div className="vh-100">
+            <div className="no_deal_container">
               <h2 className="center-content-for-v-100">Loading ...</h2>
             </div>
           )}
@@ -96,8 +96,8 @@ export default function Clienthome() {
               );
             })}
           {!isLoading && deals.length == 0 && (
-            <div className="vh-100">
-              <h1 className="center-content-for-v-100">No deal</h1>
+            <div className="no_deal_container">
+              <h1 className="center-content-for-v-100">No Deal</h1>
             </div>
           )}
           {show ? (

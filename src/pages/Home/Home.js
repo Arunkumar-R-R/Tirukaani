@@ -32,12 +32,12 @@ export default function Home() {
                 );
               })
             ) : (
-              <div className="vh-100">
+              <div className="no_deal_container">
                 <h2 className="center-content-for-v-100">Loading ...</h2>
               </div>
             )}
             {!isLoading && clients.length == 0 && (
-              <div className="vh-100">
+              <div className="no_deal_container">
                 <h2 className="center-content-for-v-100">
                   🗑️ No Client Available{" "}
                 </h2>
